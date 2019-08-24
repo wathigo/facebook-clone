@@ -37,5 +37,27 @@ RSpec.describe User, type: :model do
         expect(michael.errors.full_messages[0]).to eql("Email is invalid")
       end
     end
+    it "Email should be downcase" do
+      luna.email = "LUNA@example.org"
+      luna.save!
+      expect(luna.email).to eql("luna@example.org")
+    end
+  end
+  describe "devise specific attributes validations" do
+    it "should include the encrypted_password attribute" do
+        expect(luna.attributes).to include('encrypted_password')
+      end
+
+      it "should include the reset_password_sent_at attribute" do
+        expect(luna.attributes).to include('reset_password_sent_at')
+      end
+
+      it "should include the reset_password_token attribute" do
+        expect(luna.attributes).to include('reset_password_token')
+      end
+
+      it "should include the remember_created_at attribute" do
+        expect(luna.attributes).to include('remember_created_at')
+      end
   end
 end
