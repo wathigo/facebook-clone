@@ -6,6 +6,13 @@ GIT
     faker (2.1.2)
       i18n (>= 0.8)
 
+GIT
+  remote: https://github.com/mdeering/gravatar_image_tag
+  revision: c02351f7d6649e2346394e33164a7154e671ec19
+  branch: master
+  specs:
+    gravatar_image_tag (1.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -264,6 +271,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker!
+  gravatar_image_tag!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   omniauth-facebook

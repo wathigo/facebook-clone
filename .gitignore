@@ -5,23 +5,23 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/facebook/.bundle
+/.bundle
 
 # Ignore all logfiles and tempfiles.
-/facebook/log/*
-/facebook/tmp/*
-!/facebook/log/.keep
-!/facebook/tmp/.keep
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 
 # Ignore uploaded files in development
-/facebbok/storage/*
-!/facebook/storage/.keep
+/storage/*
+!/storage/.keep
 
 /node_modules
-/facebook/yarn-error.log
+/yarn-error.log
 
 /public/assets
-/facebook/byebug_history
+.byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/facebook/config/master.key
+/config/master.key
