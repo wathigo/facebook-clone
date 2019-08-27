@@ -99,6 +99,18 @@ body, html{
           }
         }
       }
+      a[href="/users/sign_up"]{
+        text-decoration: none;
+        color: #fff;
+        background-color: #4267b2;
+        padding: 3px;
+        display: inline-block;
+        border-radius: 5px;
+        &:hover{
+          background:  rgb(233, 235, 238);
+          color: #000;
+        }
+      }
     }
   }
 }
