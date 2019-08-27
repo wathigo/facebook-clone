@@ -1,0 +1,5 @@
+<%# <%= render 'events/create_event_button' %> %>
+<% if @posts.any? %>
+  <div class="post-header">Latest Posts (<%= @posts.count %>)</div>
+  <%= render 'shared/posts_list', posts: @posts %>
+<% end %>

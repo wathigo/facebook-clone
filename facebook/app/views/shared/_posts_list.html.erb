@@ -1,0 +1,8 @@
+<% @posts = posts %>
+<% if @posts.any? %>
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  </div>
+<% end %>
