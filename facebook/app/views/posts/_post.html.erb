@@ -1,0 +1,19 @@
+<% @post = post %>
+<% if @post %>
+  <li class="post card" id="post-<%= @post.id %>">
+    <div class="card-body">
+      <span class="creator a-white">
+        Created by: <%= @post.creator.user_name %>
+      </span>
+      <span class="title">
+        Subject: <%= @post.title.upcase %>
+      </span>
+      <span class="description">
+        Content: <%= @post.content %>
+      </span>
+      <span class="timestamp">
+        <small>Created <%= time_ago_in_words(@post.created_at) %> ago.</small>
+      </span>
+    <div>
+  </li>
+<% end %>

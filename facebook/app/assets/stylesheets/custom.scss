@@ -1,0 +1,48 @@
+body, html{
+  margin: 0;
+  padding: 0;
+}
+.navbar{
+  height: 30px;
+  background-color: #4267b2;
+  color: #fff;
+  border-bottom: #29487d;
+  .logo-container{
+    display: inline-block;
+    width: 29%;
+    a {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    line-height: 30px;
+    width: 70%;
+    display: inline-block;
+    li {
+    display: inline-block;
+    width: 32%;
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+}
+}
+
+.posts{
+  width: 40%;
+  margin: 0 auto;
+  .post{
+    list-style: none;
+    padding: 15px;
+  }
+  span{
+    display: block;
+  }
+}
