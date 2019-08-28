@@ -3,7 +3,8 @@
   <li class="post card" id="post-<%= @post.id %>">
     <div class="card-body">
       <span class="creator a-white">
-        Created by: <%= @post.creator.user_name %>
+        <span image><%= image_tag gravatar_image_url(post.creator.email) %></span> 
+        <%= link_to post.creator.user_name, user_path(post.creator), class: :name %>
       </span>
       <span class="title">
         Subject: <%= @post.title.upcase %>

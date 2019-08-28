@@ -2,7 +2,7 @@
 <header class="navbar">
   <div class="container">
     <div class="logo-container">
-      <%= link_to "Latest posts", "#", class: "color-white",
+      <%= link_to "Latest posts", root_path, class: "color-white",
           id: "logo" %>
     </div>
     <ul>
@@ -10,7 +10,7 @@
         <li class="color-white welcome-user">
           <%= link_to "Welcome! #{@user.user_name}", "#", class: "d-inline text-white" %>
         </li>
-        <li><%= link_to "Create Post", "#" %></li>
+        <li><%= link_to "Create Post", posts_path, method: :get %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to "Register", new_user_registration_path %></li>

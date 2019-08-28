@@ -1,0 +1,13 @@
+<div class="profile-cont">
+  <% if @user %>
+    <% provide(:title, @user.user_name) %>
+    <% provide(:title, @user.email) %>
+    <aside class="col-md-3">
+      <%= render 'user_data' %>
+      <!-- future : friends list(take 9) -->
+    </aside>
+    <div class="profile-posts">
+      <%= render 'shared/posts_list', posts: @posts %>
+    </div>
+  <% end %>
+</div>
