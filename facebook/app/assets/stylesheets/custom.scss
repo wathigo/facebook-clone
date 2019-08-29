@@ -233,3 +233,16 @@ body, html{
 .user-info{
   padding: 10px;
 }
+.delete{
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+  background-color: red;
+  border-radius: 5px;
+  color: #fff;
+  padding: 3px;
+  &:hover{
+    background-color: #fff;
+    color: red;
+  }
+}

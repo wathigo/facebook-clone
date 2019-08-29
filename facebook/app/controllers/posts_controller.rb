@@ -18,6 +18,15 @@ class PostsController < ApplicationController
     @pagy, @posts = pagy_array(Post.all.sort_by { |home_post| home_post.created_at }.reverse) if user_signed_in?
   end
 
+  def destroy
+    @post = Post.find_by_id(params[:id])
+    if @post.creator == current_user
+      if @post.destroy
+        redirect_back(fallback_location: root_path)
+      end
+    end
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :content)

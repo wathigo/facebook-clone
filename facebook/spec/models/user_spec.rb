@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
   let(:michael) { FactoryBot.build(:user) }
   let(:luna) { FactoryBot.build(:user) }
   valid_emails = ['sampmle@yahoo.org', 'vin@example.com', 'shem@yahoo.ke', 'luna@example.com']
