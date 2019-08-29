@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @pagy, @posts = pagy_array(Post.all.sort_by { |home_post| home_post.created_at }.reverse) if user_signed_in?
+    @pagy, @posts = pagy_array(Post.all.sort_by { |home_post| home_post.created_at }.reverse)
   end
 
   def destroy
