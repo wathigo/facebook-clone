@@ -1,5 +1,5 @@
 <%= form_for @post do |f| %>
-  <%= render "shared/error_messages", object: f.object %>
+  <%= render "error_messages", object: f.object %>
   <%= f.label :title %>
   <%= f.text_field :title, size: "10x1", class: "form-control" %>
 
