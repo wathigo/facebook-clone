@@ -26,7 +26,7 @@ body, html{
     display: inline-block;
     li {
     display: inline-block;
-    width: 32%;
+    width: 24%;
     a {
       text-decoration: none;
       color: #ffffff;
@@ -50,7 +50,7 @@ body, html{
     display: block;
   }
 }
-.auth-container, .edit-container, .l-container, .p-container, .profile-cont{
+.auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container{
   height: 100vh;
   width: 100%;
   background-color: rgb(233, 235, 238);
@@ -249,4 +249,50 @@ body, html{
 .post-header{
   font-size: 30px;
   font-weight: 600;
+}
+
+.users{
+  width: 70%;
+  box-shadow:  3px 3px 5px 6px #ccc;
+  background-color: #fff;
+  margin: 10vh auto 0 auto;
+  padding: 10vh 10vw 10vh 10vw;
+  box-sizing: border-box;
+  .users-list {
+    width: 70%;
+    margin: 0 auto;
+    [user]{
+      height: 10vh;
+      display: inline-block;
+      [avatar]{
+        height: 10vh;
+        width: 20vw;
+        display: inline-block;
+        box-sizing: border-box;
+        img{
+          border-radius: 50%;
+          height: 5vh;
+          margin-top: 1vh;
+          display: inline-block;
+        }
+        a{
+          color: blue;
+          text-decoration: none;
+          cursor: pointer;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+      [userdata]{
+        display: inline-block;
+        width: auto;
+        height: 10vh;
+        span{
+          height: 10vh;
+          line-height: 10vh;
+        }
+      }
+    }
+  }
 }

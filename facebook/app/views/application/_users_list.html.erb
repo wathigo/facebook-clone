@@ -1,0 +1,11 @@
+<div class="users">
+  <% @users = users %>
+  <% if @users.any? %>
+    <div class="users-list">
+      <% @users.each do |user| %>
+        <%= render user %>
+      <% end %>
+    </div>
+    <%# <%== pagy_bootstrap_nav(@pagy)%>
+  <% end %>
+</div>

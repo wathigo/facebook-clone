@@ -1,0 +1,16 @@
+<% @user = user %>
+<% if @user %>
+  <div class="user-" id="user-<%= @user.id %>">
+    <span user>
+      <div avatar>
+        <%= image_tag gravatar_image_url(user.email) %>
+        <%= link_to user.user_name, user_path(user), class: :name %>
+      </div>
+      <div userdata>
+        <span class="field">
+          <%= link_to 'Add friend', '#', class: 'request-friend' %>
+        </span>
+      </div>
+    </span>
+  <div>
+<% end %>

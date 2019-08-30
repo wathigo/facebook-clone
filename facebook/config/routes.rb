@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get     'posts',      to: 'posts#new'
   post    'posts',      to: 'posts#create'
   delete  'posts',      to: 'users#destroy'
-  get     'user',      to: 'users#show'
+  get     'user',       to: 'users#show'
+  get     'users',       to: 'users#index'
   resources :posts, only: %i[create new, destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

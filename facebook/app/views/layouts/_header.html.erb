@@ -11,6 +11,7 @@
           <%= link_to "Welcome! #{@user.user_name}", "#", class: "d-inline text-white" %>
         </li>
         <li><%= link_to "Create Post", posts_path, method: :get %></li>
+        <li><%= link_to "Find friends", users_path, method: :get %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to "Register", new_user_registration_path %></li>
