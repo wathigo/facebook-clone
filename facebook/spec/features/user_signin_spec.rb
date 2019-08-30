@@ -3,10 +3,6 @@ require 'rails_helper'
 RSpec.feature "UserSignins", type: :feature do
   let(:michael) { FactoryBot.create(:user) }
 
-  before do
-    ActiveJob::Base.queue_adapter = :test
-  end
-
   scenario 'user successfully logs in' do
     visit root_url
     expect(current_url).to eql(new_user_session_url)

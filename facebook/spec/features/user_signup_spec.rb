@@ -3,10 +3,6 @@ require 'rails_helper'
 RSpec.feature "UserSignups", type: :feature do
   let(:michael) { FactoryBot.build(:user) }
 
-  before do
-    ActiveJob::Base.queue_adapter = :test
-  end
-
   scenario 'user successfully signs up' do
     visit root_path
     click_link 'Sign up'
