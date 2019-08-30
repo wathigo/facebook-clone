@@ -13,8 +13,8 @@ RSpec.feature "UserSignups", type: :feature do
     expect do
       fill_in 'User name', with: michael.user_name
       fill_in 'Email', with: michael.email
-      fill_in 'Password', with: "foobar"
-      fill_in 'Password confirmation', with: "foobar"
+      fill_in 'Password', with: michael.password
+      fill_in 'Password confirmation', with: michael.password
       click_button 'Sign up'
     end.to change(User, :count).by(1)
   end
