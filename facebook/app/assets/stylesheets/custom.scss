@@ -285,14 +285,19 @@ body, html{
         }
       }
       [userdata]{
-        display: inline-block;
-        width: auto;
-        height: 10vh;
-        span{
-          height: 10vh;
-          line-height: 10vh;
-        }
+        display: inline-block
       }
     }
+  }
+}
+.request-friend{
+  color: #fff;
+  background-color: #5109FF;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  &:hover {
+    background-color: #ccc;
+    color: #000;
   }
 }
