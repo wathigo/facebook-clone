@@ -26,7 +26,7 @@ body, html{
     display: inline-block;
     li {
     display: inline-block;
-    width: 24%;
+    padding-left: 5vw;
     a {
       text-decoration: none;
       color: #ffffff;
@@ -164,18 +164,26 @@ body, html{
 
 }
 .creator{
-  width: 50%;
+  height: 12vh;
+  display: inline-block;
+  width: 100%;
   .name{
-    float: right;
-    width: 65%;
-    padding-top: 30px;
+    display: inline;
+  }
+  span{
+    display: inline-block;
   }
   [image]{
-    width: 30%;
-    float: left;
+    vertical-align: middle
   }
   img{
     border-radius: 50%;
+    display: inline;
+    height: 8vh;
+  }
+  .name{
+    height: 12vh;
+    line-height: 12vh;
   }
   &:after{
     clear: both;
@@ -220,11 +228,6 @@ body, html{
   width: 60%;
   float: right;
   margin-top: -100px;
-  .name{
-    float: right;
-    width: 40%;
-    padding-top: 30px;
-  }
 }
 .userinfo{
   font-size: 16px;
@@ -269,11 +272,16 @@ body, html{
         width: 20vw;
         display: inline-block;
         box-sizing: border-box;
-        img{
-          border-radius: 50%;
-          height: 5vh;
-          margin-top: 1vh;
+        [image]{
           display: inline-block;
+          height: 10vh;
+          vertical-align: middle;
+          img{
+            border-radius: 50%;
+            height: 5vh;
+            margin-top: 2vh;
+            display: inline-block;
+          }
         }
         a{
           color: blue;

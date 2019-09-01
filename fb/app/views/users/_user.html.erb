@@ -3,7 +3,7 @@
   <div class="user-" id="user-<%= @user.id %>">
     <span user>
       <div avatar>
-        <%= image_tag gravatar_image_url(user.email) %>
+        <span image><%= image_tag gravatar_image_url(user.email) %></span>
         <%= link_to user.user_name, user_path(user), class: :name %>
       </div>
       <div userdata>

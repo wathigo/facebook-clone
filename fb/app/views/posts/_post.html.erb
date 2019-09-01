@@ -4,7 +4,7 @@
     <div class="card-body">
       <span class="creator a-white">
         <span image><%= image_tag gravatar_image_url(post.creator.email) %></span>
-        <%= link_to post.creator.user_name, user_path(post.creator), class: :name %>
+        <span><%= link_to post.creator.user_name, user_path(post.creator), class: :name %></span>
       </span>
       <span class="description">
         Content: <%= @post.content %>
