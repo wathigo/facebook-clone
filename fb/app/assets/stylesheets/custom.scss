@@ -1,0 +1,329 @@
+body, html{
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+.navbar{
+  height: 30px;
+  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  color: #fff;
+  border-bottom: #29487d;
+  .logo-container{
+    display: inline-block;
+    width: 29%;
+    a {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    line-height: 30px;
+    width: 70%;
+    display: inline-block;
+    li {
+    display: inline-block;
+    padding-left: 5vw;
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      cursor: pointer;
+    }
+  }
+}
+}
+
+.posts{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  .post{
+    list-style: none;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  span{
+    display: block;
+  }
+}
+.auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container{
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(233, 235, 238);
+  overflow: scroll;
+
+  .sign-up, .log-in, .edit-user, .new-post{
+    width: 30%;
+    margin: 5vh auto 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow:  3px 3px 5px 6px #ccc;
+    form{
+      width: 60%;
+      margin: 0 auto;
+      .field{
+        padding-bottom: 10px;
+      }
+
+      .actions {
+        display: inline-block;
+        input{
+          background-color: #4267b2;
+          border-radius: 5px;
+          color: #fff;
+          border: 0;
+          padding: 5px;
+          cursor: pointer;
+          margin-right: 40px;
+          &:hover{
+            background-color: rgb(233, 235, 238);
+            color: #000;
+          }
+        }
+      }
+      [login]{
+        background-color: #4267b2;
+        border-radius: 5px;
+        color: #fff;
+        padding: 5px;
+        display: inline-block;
+        a{
+          text-decoration: none;
+          color: #fff;
+        }
+        &:hover{
+          background-color: rgb(233, 235, 238);
+          a {
+            color: #000;
+          }
+        }
+      }
+
+    }
+  }
+  .log-in, .new-post{
+    margin: 25vh auto 0 auto;
+  }
+  .edit-user{
+    width: 40%;
+    margin: 2vh auto 0 auto;
+    .form-container{
+      width: 80%;
+      margin:  0 auto;
+      form{
+        width: 100%;
+        input{
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+.auth-container a[href="/users/sign_up"], .edit{
+  text-decoration: none;
+  color: #fff;
+  background-color: #4267b2;
+  padding: 3px;
+  display: inline-block;
+  border-radius: 5px;
+  &:hover{
+    background:  rgb(233, 235, 238);
+    color: #000;
+  }
+}
+.avatar{
+  background:
+  linear-gradient(45deg, rgb(76, 0, 255), transparent),
+  rgb(216, 118, 255) repeating-linear-gradient(45deg, rgb(183, 0, 255) 0%, rgb(183, 0, 255) 5%, transparent 5%, transparent 10%);
+  width: 25vw;
+  height: 20vh;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  img{
+    border-radius: 50%;
+    width: 35%;
+    margin: 10px 0 0 32%;
+  }
+}
+.posts-container{
+  width: 80%;
+  border-radius: 100px;
+  padding: 35px;
+  margin: 0 auto;
+  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  .post{
+    background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+    color: #000;
+    border-radius: 30px;
+    width: 45%;
+  }
+
+}
+.creator{
+  height: 12vh;
+  display: inline-block;
+  width: 100%;
+  .name{
+    display: inline;
+  }
+  .profile-btn{
+    margin-left: 1.56em;
+    a{
+      padding: 0.05em;
+      border-radius: 0.3em;
+      border: 0.1em solid blue;
+      color: blue;
+      height: 3vh;
+      text-decoration: none;
+      &:hover{
+        background-image: linear-gradient(to bottom right, #631280, #5109FF);
+        color: #fff;
+      }
+    }
+  }
+  span{
+    display: inline-block;
+  }
+  [image]{
+    vertical-align: middle
+  }
+  img{
+    border-radius: 50%;
+    display: inline;
+    height: 8vh;
+  }
+  .name{
+    height: 12vh;
+    line-height: 12vh;
+  }
+  &:after{
+    clear: both;
+    display: table;
+    content: "";
+  }
+}
+.pagination{
+  margin-top: 20px;
+  height: 5vh;
+  width: 40vw;
+  background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+  margin-bottom: 50px;
+  color: black;
+  ul{
+    li{
+      display: inline;
+    }
+  }
+}
+
+.new-post {
+  h1{
+    padding-left: 70px;
+  }
+  form{
+    label{
+      display: block;
+    }
+    .form-control{
+      width: 80%;
+    }
+    input[type="submit"]{
+      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      color: #fff;
+      border-radius: 6px;
+      padding: 10px;
+    }
+  }
+}
+.profile-posts{
+  width: 60%;
+  float: right;
+  margin-top: -100px;
+  .profile-btn{
+    display: none;
+  }
+}
+.userinfo{
+  font-size: 16px;
+  display: block;
+}
+.user-info{
+  padding: 10px;
+}
+.delete{
+  margin-top: 10px;
+  display: inline-block;
+  text-decoration: none;
+  background-color: red;
+  border-radius: 5px;
+  color: #fff;
+  padding: 3px;
+  &:hover{
+    background-color: #fff;
+    color: red;
+  }
+}
+.post-header{
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.users{
+  width: 70%;
+  box-shadow:  3px 3px 5px 6px #ccc;
+  background-color: #fff;
+  margin: 10vh auto 0 auto;
+  padding: 10vh 10vw 10vh 10vw;
+  box-sizing: border-box;
+  .users-list {
+    width: 70%;
+    margin: 0 auto;
+    [user]{
+      height: 10vh;
+      display: inline-block;
+      [avatar]{
+        height: 10vh;
+        width: 20vw;
+        display: inline-block;
+        box-sizing: border-box;
+        [image]{
+          display: inline-block;
+          height: 10vh;
+          vertical-align: middle;
+          img{
+            border-radius: 50%;
+            height: 5vh;
+            margin-top: 2vh;
+            display: inline-block;
+          }
+        }
+        a{
+          color: blue;
+          text-decoration: none;
+          cursor: pointer;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+      [userdata]{
+        display: inline-block
+      }
+    }
+  }
+}
+.request-friend{
+  color: #fff;
+  background-color: #5109FF;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  &:hover {
+    background-color: #ccc;
+    color: #000;
+  }
+}

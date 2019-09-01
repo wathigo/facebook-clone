@@ -1,0 +1,21 @@
+<% @post = post %>
+<% if @post %>
+  <li class="post card" id="post-<%= @post.id %>">
+    <div class="card-body">
+      <span class="creator a-white">
+        <span image><%= image_tag gravatar_image_url(post.creator.email) %></span>
+        <span><%= link_to post.creator.user_name, user_path(post.creator), class: :name %></span>
+        <span class="profile-btn"><%= link_to 'View Profile', user_path(post.creator), class: :name %></span>
+      </span>
+      <span class="description">
+        Content: <%= @post.content %>
+      </span>
+      <span class="timestamp">
+        <small>Created <%= time_ago_in_words(@post.created_at) %> ago.</small>
+      </span>
+      <% if (current_user == post.creator) && (request.env['PATH_INFO'] == user_path(current_user)) %>
+        <%= link_to 'Delete post', post_path(@post), method: :delete, class: "delete"%>
+      <% end %>
+    <div>
+  </li>
+<% end %>

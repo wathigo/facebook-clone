@@ -1,0 +1,6 @@
+<div class="l-container">
+  <% if @posts.any? %>
+    <div class="post-header">Latest Posts</div>
+    <%= render 'posts_list', posts: @posts %>
+  <% end %>
+</div>

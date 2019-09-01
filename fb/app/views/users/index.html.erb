@@ -1,0 +1,6 @@
+<div class="users-container">
+  <% if @users.any? %>
+    <div class="post-header">People you may know:</div>
+    <%= render 'users_list', users: @users %>
+  <% end %>
+</div>

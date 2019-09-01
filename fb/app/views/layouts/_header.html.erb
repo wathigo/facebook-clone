@@ -1,0 +1,22 @@
+<% @user = current_user %>
+<header class="navbar">
+  <div class="container">
+    <div class="logo-container">
+      <%= link_to "Latest posts", root_path, class: "color-white",
+          id: "logo" %>
+    </div>
+    <ul>
+      <% if user_signed_in? %>
+        <li class="color-white welcome-user">
+          <%= link_to "Welcome! #{@user.user_name}", "#", class: "d-inline text-white" %>
+        </li>
+        <li><%= link_to "Create Post", posts_path, method: :get %></li>
+        <li><%= link_to "Find friends", users_path, method: :get %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Register", new_user_registration_path %></li>
+        <li><%= link_to "Log in", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
