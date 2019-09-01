@@ -170,6 +170,21 @@ body, html{
   .name{
     display: inline;
   }
+  .profile-btn{
+    margin-left: 1.56em;
+    a{
+      padding: 0.05em;
+      border-radius: 0.3em;
+      border: 0.1em solid blue;
+      color: blue;
+      height: 3vh;
+      text-decoration: none;
+      &:hover{
+        background-image: linear-gradient(to bottom right, #631280, #5109FF);
+        color: #fff;
+      }
+    }
+  }
   span{
     display: inline-block;
   }
@@ -228,6 +243,9 @@ body, html{
   width: 60%;
   float: right;
   margin-top: -100px;
+  .profile-btn{
+    display: none;
+  }
 }
 .userinfo{
   font-size: 16px;
