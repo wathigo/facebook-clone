@@ -11,14 +11,6 @@ RSpec.describe Post, type: :model do
       assert post1.valid?
     end
 
-    it "title should be present" do
-      post1.creator = luna
-      post1.title = ''
-      assert !post1.valid?
-      post1.title = "MyText"
-      assert post1.valid?
-    end
-
     it "Content should be present" do
       post1.creator = luna
       post1.content = ''

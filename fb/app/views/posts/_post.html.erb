@@ -6,9 +6,6 @@
         <span image><%= image_tag gravatar_image_url(post.creator.email) %></span>
         <%= link_to post.creator.user_name, user_path(post.creator), class: :name %>
       </span>
-      <span class="title">
-        Subject: <%= @post.title.upcase %>
-      </span>
       <span class="description">
         Content: <%= @post.content %>
       </span>

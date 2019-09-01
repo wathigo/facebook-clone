@@ -18,9 +18,7 @@ end
 users = User.order(:created_at).take(5)
 users.each do |user|
   15.times do |_i|
-    title = Faker::Book.title
-    content = "Feeling awesome"
-    user.created_posts.create!(title: title,
-                                content: content)
+    content = Faker::Games::WorldOfWarcraft.quote
+    user.created_posts.create!(content: content)
   end
 end
