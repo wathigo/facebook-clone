@@ -7,7 +7,7 @@
         <span><%= link_to post.creator.user_name, user_path(post.creator), class: :name %></span>
         <span class="profile-btn"><%= link_to 'View Profile', user_path(post.creator), class: :name %></span>
       </span>
-      <span class="description">
+      <span class="content">
         Content: <%= @post.content %>
       </span>
       <span class="timestamp">
