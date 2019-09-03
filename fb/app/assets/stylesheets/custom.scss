@@ -175,13 +175,14 @@ body, html{
     a{
       padding: 0.05em;
       border-radius: 0.3em;
-      border: 0.1em solid blue;
-      color: blue;
+      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      color: #fff;
       height: 3vh;
       text-decoration: none;
       &:hover{
-        background-image: linear-gradient(to bottom right, #631280, #5109FF);
-        color: #fff;
+        background-image:none;
+        background-color: #fff;
+        color: #000;
       }
     }
   }
