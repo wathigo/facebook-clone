@@ -126,12 +126,12 @@ body, html{
 .auth-container a[href="/users/sign_up"], .edit{
   text-decoration: none;
   color: #fff;
-  background-color: #4267b2;
+  background-image: linear-gradient(to bottom right, #631280, #5109FF);
   padding: 3px;
   display: inline-block;
   border-radius: 5px;
   &:hover{
-    background:  rgb(233, 235, 238);
+    background:  #fff;
     color: #000;
   }
 }
@@ -169,11 +169,15 @@ body, html{
   width: 100%;
   .name{
     display: inline;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
   }
   .profile-btn{
     margin-left: 1.56em;
     a{
-      padding: 0.05em;
+      padding: 0.09em;
       border-radius: 0.3em;
       background-image: linear-gradient(to bottom right, #631280, #5109FF);
       color: #fff;
@@ -181,8 +185,9 @@ body, html{
       text-decoration: none;
       &:hover{
         background-image:none;
-        background-color: #fff;
+        background-color: #e9ebee;
         color: #000;
+        text-decoration: none;
       }
     }
   }
