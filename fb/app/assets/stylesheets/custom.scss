@@ -1,3 +1,5 @@
+@import "font-awesome";
+
 body, html{
   margin: 0;
   padding: 0;
@@ -44,7 +46,13 @@ body, html{
   .post{
     list-style: none;
     padding: 20px;
-    margin-bottom: 10px;
+    .card-body{
+      &:hover{
+        transform: scale(1.04);
+        transition: transform 0.4s;
+
+      }
+    }
   }
   span{
     display: block;
@@ -160,6 +168,7 @@ body, html{
     color: #000;
     border-radius: 30px;
     width: 45%;
+    margin: 0 auto 20px auto;
   }
 
 }
@@ -331,5 +340,83 @@ body, html{
   &:hover {
     background-color: #ccc;
     color: #000;
+  }
+}
+[icons]{
+  width: 70%;
+  margin: 0 auto;
+  li{
+    list-style: none;
+    display: inline-block;
+    &:first-child{
+      padding-right: 17vw;
+    }
+    i{
+      font-size: 1.5em;
+    }
+  }
+}
+.comments-div{
+  display: none;
+  width: 80%;
+  margin: 0 auto;
+  form {
+    position: relative;
+    input[name='comment[content]']{
+      border-radius: 1.5em;
+      width: 70%;
+    }
+    input[type="submit"]{
+      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      border: none;
+      border-radius: 1em;
+      color: #fff;
+      position: absolute;
+      right: 0;
+      top: 0.5vh;
+    }
+  }
+  .img{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  img{
+    display: inline-block;
+    border-radius: 50%;
+    height: 4vh;;
+  }
+  .content{
+    display: inline-block;
+  }
+  .comments{
+    vertical-align: middle;
+  }
+}
+.toggle{
+  display: none;
+}
+.toggle:checked ~ .comments-div{
+  display: block;
+}
+.toggle:checked ~ [icons] .comm{
+  opacity: 0.5;
+}
+.comment{
+  position: relative;
+  i {
+    position: absolute;
+    right: 1vw;
+  }
+}
+.heart{
+  color: black;
+}
+.unheart{
+  color: black;
+  opacity: 0.5;
+}
+.comment-updates{
+  span{
+    display: inline-block;
   }
 }
