@@ -3,18 +3,18 @@
   <%= link_to comment.user.user_name, user_path(comment.user), class: :user %>
   <%= content_tag(:div, comment.content, class: :content) %>
   <% if comment.likes.find_by(user_id: current_user.id) %>
-    <%= link_to fa_icon("heart", class: "far unheart"), likes_comment_path(comment), method: :post %>
+    <%= link_to fa_icon("heart", class: "far unheart"), likes_comment_path(comment), method: :post, class: "like-link" %>
   <% else %>
-    <%= link_to fa_icon("heart", class: "far heart"), likes_comment_path(comment), method: :post %>
+    <%= link_to fa_icon("heart", class: "far heart"), likes_comment_path(comment), method: :post, class: "like-link" %>
   <% end %>
-<% if current_user == comment.user %>
   <div class="comment-updates">
-    <%= link_to "Delete", comments_path(comment), method: :delete %>
+    <% if current_user == comment.user %>
+      <%= link_to "Delete", comments_path(comment), method: :delete %>
+    <% end %>
     <% if comment.likes.count > 1 %>
       <span><%= comment.likes.count%> likes</span>
     <% elsif comment.likes.count == 1 %>
       <span><%= comment.likes.count%> like</span>
     <% end %>
   </div>
-<% end %>
 </div>

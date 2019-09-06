@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get     'users',      to: 'users#index'
   post    'comments',   to: 'comments#create'
   delete  'comments',   to: 'comments#destroy'
-  post    'likes_post', to: 'likes#create'
+  post    'likes_post',    to: 'likes#create'
   post    'likes_comment', to: 'likes#create'
   delete  'likes',      to: 'likes#destroy'
   resources :posts, only: %i[create new, destroy]

@@ -12,6 +12,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    @liked ||= likeable.likes.find_by(user_id: current_user.id)
     @liked.delete
     redirect_back(fallback_location: root_path)
   end
@@ -19,10 +20,11 @@ class LikesController < ApplicationController
   private
 
   def likeable
-    if request.env['PATH_INFO'].match(/likes_post/)
-      @post = Post.find_by_id(params[:format])
-    else
+    @post = Post.find_by_id(params[:format])
+    if !@post
       @comment = Comment.find_by_id(params[:format])
+    else
+      @post
     end
   end
 end

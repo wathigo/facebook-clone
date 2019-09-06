@@ -12,10 +12,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find_by_id(params[:format])
-    puts params
-    if @comment.destroy
-      redirect_back(fallback_location: root_path)
-    end
+    if current_user.id == @comment.user_id
+      if @comment.destroy
+        redirect_back(fallback_location: root_path)
+      end
+    end    
   end
 
   private
