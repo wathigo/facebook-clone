@@ -20,11 +20,10 @@ class LikesController < ApplicationController
   private
 
   def likeable
-    @post = Post.find_by_id(params[:format])
-    if !@post
-      @comment = Comment.find_by_id(params[:format])
-    else
-      @post
+    if params[:post_id]
+      post = Post.find_by_id(params[:post_id])
+    elsif params[:comment_id]
+      comment = Comment.find_by_id(params[:comment_id])
     end
   end
 end
