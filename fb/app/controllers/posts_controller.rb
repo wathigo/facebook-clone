@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
@@ -15,19 +17,18 @@ class PostsController < ApplicationController
   end
 
   def index
-    @pagy, @posts = pagy_array(Post.all.sort_by { |home_post| home_post.created_at }.reverse)
+    @pagy, @posts = pagy_array(Post.all.sort_by(&:created_at).reverse)
   end
 
   def destroy
     @post = Post.find_by_id(params[:id])
     if @post.creator == current_user
-      if @post.destroy
-        redirect_back(fallback_location: root_path)
-      end
+      redirect_back(fallback_location: root_path) if @post.destroy
     end
   end
 
   private
+
   def post_params
     params.require(:post).permit(:content)
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   before_action :authenticate_user!
 
@@ -21,9 +23,9 @@ class LikesController < ApplicationController
 
   def likeable
     if params[:post_id]
-      post = Post.find_by_id(params[:post_id])
+      Post.find_by_id(params[:post_id])
     elsif params[:comment_id]
-      comment = Comment.find_by_id(params[:comment_id])
+      Comment.find_by_id(params[:comment_id])
     end
   end
 end

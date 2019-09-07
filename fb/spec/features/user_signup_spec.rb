@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.feature "UserSignups", type: :feature do
+RSpec.feature 'UserSignups', type: :feature do
   let(:michael) { FactoryBot.build(:user) }
 
   scenario 'user successfully signs up' do

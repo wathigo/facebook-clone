@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
@@ -13,10 +15,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find_by_id(params[:format])
     if current_user.id == @comment.user_id
-      if @comment.destroy
-        redirect_back(fallback_location: root_path)
-      end
-    end    
+      redirect_back(fallback_location: root_path) if @comment.destroy
+    end
   end
 
   private
