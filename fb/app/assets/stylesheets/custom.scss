@@ -10,22 +10,24 @@ body, html{
   background-image: linear-gradient(to bottom right, #631280, #5109FF);
   color: #fff;
   border-bottom: #29487d;
-  .logo-container{
+  .logo {
+    padding-left: 10px;
     display: inline-block;
     width: 29%;
-    a {
-      color: #fff;
-      text-decoration: none;
-      cursor: pointer;
-    }
+    color: #fff;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    cursor: pointer;
   }
   ul {
+    display: inline-block;
     padding: 0;
     margin: 0;
     height: 30px;
     line-height: 30px;
-    width: 70%;
-    display: inline-block;
+    width: auto;
     li {
     display: inline-block;
     padding-left: 5vw;
@@ -159,15 +161,17 @@ body, html{
 }
 .posts-container{
   width: 80%;
-  border-radius: 100px;
-  padding: 35px;
+  border-radius: 40px;
+  padding: 25px;
   margin: 0 auto;
-  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  background:
+    url('media.jpg');
+  background-size: cover;
   .post{
     background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
     color: #000;
     border-radius: 30px;
-    width: 45%;
+    width: 43%;
     margin: 0 auto 20px auto;
   }
 
@@ -184,7 +188,6 @@ body, html{
     }
   }
   .profile-btn{
-    margin-left: 1.56em;
     a{
       padding: 0.09em;
       border-radius: 0.3em;
@@ -427,9 +430,18 @@ body, html{
     display: inline-block;
   }
 }
-@media only screen and (max-width:700px){
+.toggle-lable, .toggle-lable1{
+  display: none;
+}
+.fl-right{
+  float: right;
+}
+.togg{
+  display: none;
+}
+@media only screen and (max-width:780px){
   .l-container .posts .post{
-    width: 60%;
+    width: 70%;
     .profile-btn{
       display: none;
     }
@@ -458,6 +470,54 @@ body, html{
       .avatar{
         width: auto;
       }
+    }
+  }
+  .res-nav{
+    display: none !important;
+  }
+  .toggle-lable{
+    display: inline-block;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding-right: 0.2em;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+  .container{
+    position: relative;
+  }
+  #togg:checked ~ .res-nav{
+    position: absolute;
+    display: block !important;
+    height: 30vh;
+    width: 30%;
+    right: 0;
+    background-image: linear-gradient(to bottom right, #631280, #5109FF);
+    z-index: 942729;
+    a{
+      color: #fff;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    li{
+      display: block;
+    }
+  }
+  #togg:checked ~ .toggle-lable{
+    display: none;
+  }
+  #togg:checked ~ .toggle-lable1{
+    display: inline-block;
+    font-size: 1.2em;
+    height: 30px;
+    line-height: 30px;
+    padding-right: 0.2em;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.5
     }
   }
 }
