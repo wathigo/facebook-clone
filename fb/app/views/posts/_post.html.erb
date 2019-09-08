@@ -23,7 +23,7 @@
           <% if @post.likes.find_by(user_id: current_user.id) %>
             <%= link_to fa_icon("heart", class: "far unheart"), likes_post_path(:post_id => @post.id), method: :post, class: "like-link" %>
           <% else %>
-            <%= link_to fa_icon("heart", class: "far unheart"), likes_post_path(:post_id => @post.id), method: :post, class: "like-link" %>
+            <%= link_to fa_icon("heart", class: "far heart"), likes_post_path(:post_id => @post.id), method: :post, class: "like-link" %>
           <% end %>
         </li>
         <li>
