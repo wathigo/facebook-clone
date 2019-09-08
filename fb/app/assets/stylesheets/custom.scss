@@ -302,14 +302,19 @@ body, html{
   padding: 10vh 10vw 10vh 10vw;
   box-sizing: border-box;
   .users-list {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     [user]{
       height: 10vh;
-      display: inline-block;
+      display: block;
+      position: relative;
+      .add-friend{
+        display: inline-block;
+        position: absolute;
+        right: 10vw;
+      }
       [avatar]{
         height: 10vh;
-        width: 20vw;
         display: inline-block;
         box-sizing: border-box;
         [image]{
@@ -323,12 +328,14 @@ body, html{
             display: inline-block;
           }
         }
-        a{
-          color: blue;
-          text-decoration: none;
-          cursor: pointer;
-          &:hover{
-            text-decoration: underline;
+        span{
+          a{
+            color: blue;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover{
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -538,6 +545,13 @@ body, html{
     cursor: pointer;
     &:hover{
       opacity: 0.5
+    }
+  }
+  .users{
+    width: 90%;
+    padding: 0 0 0 5vw;
+    .users-list{
+      width: 100%;
     }
   }
 }
