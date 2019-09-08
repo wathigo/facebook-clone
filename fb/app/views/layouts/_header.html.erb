@@ -4,18 +4,18 @@
     <input id="togg" class="togg" type="checkbox">
     <%= link_to "Latest posts", root_path, class: "color-white logo",
         id: "logo" %>
+    <% if user_signed_in? %>
     <span>Welcome!  <%= @user.user_name%></span>
      <label class="fl-right toggle-lable" for="togg"> &#8801;</label>
      <label class="fl-right toggle-lable1" for="togg">&#10006;</label>
     <ul class="res-nav">
-      <% if user_signed_in? %>
         <li><%= link_to "Create Post", posts_path, method: :get %></li>
         <li><%= link_to "Find friends", users_path, method: :get %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-      <% else %>
+    <% else %>
         <li><%= link_to "Register", new_user_registration_path %></li>
         <li><%= link_to "Log in", new_user_session_path %></li>
-      <% end %>
+    <% end %>
     </ul>
   </div>
 </header>
