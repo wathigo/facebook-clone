@@ -21,6 +21,14 @@ A web application that is designed to implement the following functionalities si
 Clone the repository and cd into `fb` diretory
 
 ```
+$ git clone https://github.com/wathigo/facebook-clone/edit/comment-like-models.git
+```
+Cd into `fb` directory
+```
+$ cd fb
+```
+Install the gems using bundler
+```
 $ bundle install --without production
 ```
 
