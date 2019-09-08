@@ -371,7 +371,7 @@ body, html{
     position: relative;
     input[name='comment[content]']{
       border-radius: 1.5em;
-      width: 70%;
+      width: 60%;
     }
     input[type="submit"]{
       background-image: linear-gradient(to bottom right, #631280, #5109FF);
@@ -397,6 +397,7 @@ body, html{
   }
   .content{
     display: inline-block;
+    padding-right: 15vw;
   }
   .comments{
     vertical-align: middle;
@@ -453,6 +454,7 @@ body, html{
     }
     .comments{
       .content{
+        display: inline-block;
         width: 80%;
       }
     }
