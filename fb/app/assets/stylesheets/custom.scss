@@ -474,9 +474,6 @@ body, html{
       }
     }
   }
-  .res-nav{
-    display: none !important;
-  }
   .toggle-lable{
     display: inline-block;
     font-size: 1.8em;
@@ -490,14 +487,23 @@ body, html{
   .container{
     position: relative;
   }
+  .res-nav{
+    visibility: none;
+    position: absolute;
+    display: block !important;
+    height: 30vh;
+    width: 30%;
+    right: -500px;
+  }
   #togg:checked ~ .res-nav{
     position: absolute;
     display: block !important;
     height: 30vh;
     width: 30%;
     right: 0;
+    transition: right 0.5s ease-out;
     background-image: linear-gradient(to bottom right, #631280, #5109FF);
-    z-index: 942729;
+    z-index: 1;
     a{
       color: #fff;
       &:hover{
