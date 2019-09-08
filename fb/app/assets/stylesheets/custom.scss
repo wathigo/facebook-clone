@@ -430,6 +430,10 @@ body, html{
   span{
     display: inline-block;
   }
+  a{
+    color: red;
+    text-decoration: none;
+  }
 }
 .toggle-lable, .toggle-lable1{
   display: none;
@@ -440,6 +444,7 @@ body, html{
 .togg{
   display: none;
 }
+
 @media only screen and (max-width:780px){
   .l-container .posts .post{
     width: 70%;
