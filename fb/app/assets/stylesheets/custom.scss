@@ -257,9 +257,12 @@ body, html{
 .profile-posts{
   width: 60%;
   float: right;
-  margin-top: -100px;
+  margin-top: -50px;
   .profile-btn{
     display: none;
+  }
+  .post{
+    width: 80%;
   }
 }
 .userinfo{
@@ -268,6 +271,7 @@ body, html{
 }
 .user-info{
   padding: 10px;
+  width: 100%;
 }
 .delete{
   margin-top: 10px;
@@ -385,6 +389,9 @@ body, html{
     border-radius: 50%;
     height: 4vh;;
   }
+  .user{
+    text-decoration: none;
+  }
   .content{
     display: inline-block;
   }
@@ -418,5 +425,39 @@ body, html{
 .comment-updates{
   span{
     display: inline-block;
+  }
+}
+@media only screen and (max-width:700px){
+  .l-container .posts .post{
+    width: 60%;
+    .profile-btn{
+      display: none;
+    }
+    form {
+      input[name='comment[content]'] {
+        width: 50%;
+      }
+
+    }
+    .comments{
+      .content{
+        width: 80%;
+      }
+    }
+  }
+  .profile-cont{
+    .profile-posts{
+      float: none;
+      margin: 0;
+      width: 80%;
+      margin: 0 auto;
+    }
+    .user-info{
+      width: 50%;
+      margin: 0 auto;
+      .avatar{
+        width: auto;
+      }
+    }
   }
 }
