@@ -7,11 +7,10 @@ A web application that is designed to implement the following functionalities si
 1. Sign up
    - after sign up, the status becomes signed in
 2. Log In
-   - log in status remains while
-      * user moves page to page
-      * without logout, user close browser and open it again
+   - Remembers a user if remember me box is checked
 3. Log Out
    - deletes log in status
+   - Does not remember a user after the log out.
 4. Create Posts
 5. Comment to a Post
 6. Like a post
@@ -50,11 +49,7 @@ Start the development server
 $ rails server
 ```
 
-## Contributors
+## Contributor(s)
 
-Project Owner: [Simon Wathigo](https://github.com/wathigo)
+Project Creator: [Simon Wathigo](https://github.com/wathigo)
 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
