@@ -451,7 +451,6 @@ body, html{
 .togg{
   display: none;
 }
-
 @media only screen and (max-width:780px){
   .l-container .posts .post{
     width: 70%;
@@ -500,28 +499,31 @@ body, html{
     position: relative;
   }
   .res-nav{
-    visibility: none;
     position: absolute;
     display: block !important;
     height: 30vh;
     width: 30%;
-    right: -500px;
+    top: -500px;
+    transform: rotate(0deg);
   }
   #togg:checked ~ .res-nav{
     position: absolute;
     display: block !important;
-    height: 30vh;
-    width: 30%;
+    height: 100vh;
+    // margin-top: 30px;
+    width: 30vw;
+    top: 0;
     right: 0;
-    transition: right 0.5s ease-out;
-    background-image: linear-gradient(to bottom right, #631280, #5109FF);
+    transition: top 0.5s ease-out;
+    background-image: linear-gradient(to bottom right, #C5ACFF, #f3e5f5);
+    border: solid 1px #fff;
     padding: 10px;
     z-index: 1;
     li:first-of-type{
       margin-top: 7vh;
     }
     a{
-      color: #dcdcdc;
+      color: #000000;
       &:hover{
         text-decoration: underline;
       }
@@ -536,10 +538,14 @@ body, html{
   #togg:checked ~ .toggle-lable1{
     display: inline-block;
     font-size: 1.2em;
+    color: #000;
     height: 30px;
     line-height: 30px;
+    position: absolute;
+    right: 0;
     padding-right: 0.2em;
     cursor: pointer;
+    z-index: 10;
     &:hover{
       opacity: 0.5
     }
