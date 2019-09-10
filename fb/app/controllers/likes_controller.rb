@@ -15,8 +15,9 @@ class LikesController < ApplicationController
 
   def destroy
     @liked ||= likeable.likes.find_by(user_id: current_user.id)
-    @liked.delete
-    redirect_back(fallback_location: root_path)
+    if @liked.delete
+      redirect_back(fallback_location: root_path)
+    end 
   end
 
   private
