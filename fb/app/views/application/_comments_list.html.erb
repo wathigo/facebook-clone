@@ -1,7 +1,7 @@
 <div class="comments-container">
   <% if @post.comments.any? %>
     <div class="comments">
-      <% @post.comments.sort_by { |comment| comment.created_at }.reverse.each do |comment| %>
+      <% max4(@post).each do |comment| %>
         <%= render comment %>
         <hr>
       <% end %>
