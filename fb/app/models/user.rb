@@ -12,11 +12,7 @@ class User < ApplicationRecord
                                  :foreign_key => "friend_id",
                                  :dependent => :destroy
   scope :all_except, ->(user) { where.not(id: user) }
-  scope :confirmed_friendhips,     -> { friendships.where(user_id: user_id).where(confirmed: true) }
- scope :confirmed_inverse_friendships,  -> { friendships.where(friend_id: user_id).where(confirmed: true) }
 
- # A union of the aforementioned scopes
- scope :friends, -> { union_scope(confirmed_friendhips, confirmed_inverse_friendships)}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -28,10 +24,38 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX }
   before_save :downcase_email
 
+  def friends
+    confirmed_friends + inverse_friends
+  end
+
+  def pending_friends
+    friendships.map {|friendship| friendship.friend unless friendship.confirmed}.compact
+  end
+
+  def friend_requests
+    inverse_friendships.map {|friendship| friendship.user unless friendship.confirmed}.compact
+  end
+
+  def confirmed_friend
+    friendship = inverse_friendships.map {|friendship| friendship unless friendship.user != user}.compact
+    friendship.confirmed = true
+  end
+
+  def friends?
+    friends.include?(user)
+  end
+
   private
 
   def downcase_email
     email.downcase!
   end
 
+  def confirmed_friends
+    friendships.map {|friendship| friendship.friend if friendship.confirmed && friendship.user == user}.compact
+  end
+
+  def inverse_friends
+    friendships.map {|friendship| friendship.friend if friendship.confirmed && friendship.friend == user}.compact
+  end
 end
