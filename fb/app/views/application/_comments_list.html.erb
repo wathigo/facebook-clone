@@ -5,7 +5,9 @@
         <%= render comment %>
         <hr>
       <% end %>
-      <a trueId href="#" onclick="toggleComments(event)" data-message='<%=@post.id%>' >See all comments</a>
+      <% if @post.comments.count > 3 %>
+        <a trueId href="#" onclick="toggleComments(event)" data-message='<%=@post.id%>' >See all comments</a>
+      <% end %>
     </div>
   <% end %>
 </div>
