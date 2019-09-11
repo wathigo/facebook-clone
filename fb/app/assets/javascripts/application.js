@@ -19,10 +19,12 @@ let currentScrollTop;
 const toggleComments = ((e) => {
   e.preventDefault();
   const id = e.target.dataset.message
+  const lContainer = document.querySelector('.l-container')
   currentId = id
   const allCommentsContainer = document.querySelector(".all-comments-container")
-  currentScrollTop = document.querySelector('.l-container').scrollTop;
-  const top = document.querySelector('.l-container').scrollTop = '0';
+  currentScrollTop = lContainer.scrollTop;
+  const top = lContainer.scrollTop = '0';
+  lContainer.style.overflow = 'hidden'
   allCommentsContainer.style.visibility = 'visible';
   document.querySelector(`#comment_post_${id}`).style.visibility = 'visible';
   const nodeList = document.querySelectorAll('.card-body')
@@ -33,11 +35,13 @@ const toggleComments = ((e) => {
 })
 
 const closeComments = (el => {
+  const lContainer = document.querySelector('.l-container')
   document.querySelector(`#comment_post_${currentId}`).style.visibility = 'hidden';
   document.querySelector(".all-comments-container").style.visibility = 'hidden';
   const nodeList = document.querySelectorAll('.card-body')
   nodeList.forEach((node) => {
     node.classList.add('zoom');
   })
-  document.querySelector('.l-container').scrollTop = currentScrollTop;
+  lContainer.style.overflow = 'scroll';
+  lContainer.scrollTop = currentScrollTop;
 });
