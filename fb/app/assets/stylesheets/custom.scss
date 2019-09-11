@@ -479,9 +479,10 @@ body, html{
     width: 60%;
     padding: 2em;
     background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
-    border-radius: 2em;
     margin: 5vh auto 0 auto;
-    height: 80vh;
+    box-shadow:  3px 3px 5px 6px #000;
+    height: 70vh;
+    overflow-y: scroll;
   }
 }
 
