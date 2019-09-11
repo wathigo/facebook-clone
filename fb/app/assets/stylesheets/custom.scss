@@ -469,6 +469,10 @@ body, html{
     float: right;
     color: #fff;
     font-size: 1.5em;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.5;
+    }
   }
   .all-comments{
     visibility: hidden;
