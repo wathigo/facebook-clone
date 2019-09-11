@@ -14,3 +14,18 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+let currentId;
+const toggleComments = ((e) => {
+  e.preventDefault();
+  const id = e.target.dataset.message
+  currentId = id
+  const allCommentsContainer = document.querySelector(".all-comments-container")
+  const top = document.querySelector('.l-container').scrollTop = '0';
+  allCommentsContainer.style.visibility = 'visible';
+  document.querySelector(`#comment_post_${id}`).style.visibility = 'visible';
+})
+
+const closeComments = (el => {
+  document.querySelector(`#comment_post_${currentId}`).style.visibility = 'hidden';
+  document.querySelector(".all-comments-container").style.visibility = 'hidden'
+})
