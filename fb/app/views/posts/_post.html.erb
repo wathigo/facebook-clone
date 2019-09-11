@@ -1,9 +1,9 @@
 <% @post = post %>
 <% if @post %>
   <li class="post card" id="post-<%= @post.id %>">
-    <div class="card-body">
+    <div class="card-body zoom">
       <span class="creator a-white">
-        <span image><%= image_tag gravatar_image_url(post.creator.email) %></span>
+        <span image><%= profile_img_for(post.creator) %></span>
         <span><%= link_to post.creator.user_name, user_path(post.creator), class: :name %></span>
         <span class="profile-btn"><%= link_to 'View Profile', user_path(post.creator), class: :name %></span>
       </span>
@@ -16,6 +16,31 @@
       <% if (current_user == post.creator) && (request.env['PATH_INFO'] == user_path(current_user)) %>
         <%= link_to 'Delete post', post_path(@post), method: :delete, class: "delete"%>
       <% end %>
+      <hr>
+      <input type="checkbox" class="toggle" id="toggle-<%=@post.id%>" checked>
+      <ul icons>
+        <li>
+          <% if @post.likes.find_by(user_id: current_user.id) %>
+            <%= link_to fa_icon("heart", class: "far unheart"), likes_post_path(:post_id => @post.id), method: :post, class: "like-link" %>
+          <% else %>
+            <%= link_to fa_icon("heart", class: "far heart"), likes_post_path(:post_id => @post.id), method: :post, class: "like-link" %>
+          <% end %>
+        </li>
+        <li>
+          <label for="toggle-<%=@post.id %>"><%= fa_icon "comment", class: "far comm" %></label>
+        </li>
+        <% if @post.likes.count > 1 %>
+          <span><%= @post.likes.count%> likes</span>
+        <% elsif @post.likes.count == 1 %>
+          <span><%= @post.likes.count%> like</span>
+        <% end %>
+      </ul>
+      <div class="comments-div">
+        <hr>
+        <%= render 'comments/form'%>
+        <hr>
+        <%= render 'comments_list' %>
+      </div>
     <div>
   </li>
 <% end %>

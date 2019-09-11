@@ -1,3 +1,5 @@
+@import "font-awesome";
+
 body, html{
   margin: 0;
   padding: 0;
@@ -8,22 +10,24 @@ body, html{
   background-image: linear-gradient(to bottom right, #631280, #5109FF);
   color: #fff;
   border-bottom: #29487d;
-  .logo-container{
+  .logo {
+    padding-left: 10px;
     display: inline-block;
     width: 29%;
-    a {
-      color: #fff;
-      text-decoration: none;
-      cursor: pointer;
-    }
+    color: #fff;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    cursor: pointer;
   }
   ul {
+    display: inline-block;
     padding: 0;
     margin: 0;
     height: 30px;
     line-height: 30px;
-    width: 70%;
-    display: inline-block;
+    width: auto;
     li {
     display: inline-block;
     padding-left: 5vw;
@@ -44,11 +48,19 @@ body, html{
   .post{
     list-style: none;
     padding: 20px;
-    margin-bottom: 10px;
   }
   span{
     display: block;
   }
+}
+.zoom{
+  &:hover{
+    transform: scale(1.04);
+    transition: transform 0.4s;
+  }
+}
+.l-container{
+  position: relative;
 }
 .auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container{
   height: 100vh;
@@ -126,12 +138,12 @@ body, html{
 .auth-container a[href="/users/sign_up"], .edit{
   text-decoration: none;
   color: #fff;
-  background-color: #4267b2;
+  background-image: linear-gradient(to bottom right, #631280, #5109FF);
   padding: 3px;
   display: inline-block;
   border-radius: 5px;
   &:hover{
-    background:  rgb(233, 235, 238);
+    background:  #fff;
     color: #000;
   }
 }
@@ -151,15 +163,18 @@ body, html{
 }
 .posts-container{
   width: 80%;
-  border-radius: 100px;
-  padding: 35px;
+  border-radius: 40px;
+  padding: 25px;
   margin: 0 auto;
-  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  background:
+    url('media.jpg');
+  background-size: cover;
   .post{
     background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
     color: #000;
     border-radius: 30px;
-    width: 45%;
+    width: 43%;
+    margin: 0 auto 20px auto;
   }
 
 }
@@ -169,11 +184,14 @@ body, html{
   width: 100%;
   .name{
     display: inline;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
   }
   .profile-btn{
-    margin-left: 1.56em;
     a{
-      padding: 0.05em;
+      padding: 0.09em;
       border-radius: 0.3em;
       background-image: linear-gradient(to bottom right, #631280, #5109FF);
       color: #fff;
@@ -181,8 +199,9 @@ body, html{
       text-decoration: none;
       &:hover{
         background-image:none;
-        background-color: #fff;
+        background-color: #e9ebee;
         color: #000;
+        text-decoration: none;
       }
     }
   }
@@ -243,9 +262,12 @@ body, html{
 .profile-posts{
   width: 60%;
   float: right;
-  margin-top: -100px;
+  margin-top: -50px;
   .profile-btn{
     display: none;
+  }
+  .post{
+    width: 80%;
   }
 }
 .userinfo{
@@ -254,6 +276,7 @@ body, html{
 }
 .user-info{
   padding: 10px;
+  width: 100%;
 }
 .delete{
   margin-top: 10px;
@@ -281,14 +304,19 @@ body, html{
   padding: 10vh 10vw 10vh 10vw;
   box-sizing: border-box;
   .users-list {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     [user]{
       height: 10vh;
-      display: inline-block;
+      display: block;
+      position: relative;
+      .add-friend{
+        display: inline-block;
+        position: absolute;
+        right: 10vw;
+      }
       [avatar]{
         height: 10vh;
-        width: 20vw;
         display: inline-block;
         box-sizing: border-box;
         [image]{
@@ -302,12 +330,14 @@ body, html{
             display: inline-block;
           }
         }
-        a{
-          color: blue;
-          text-decoration: none;
-          cursor: pointer;
-          &:hover{
-            text-decoration: underline;
+        span{
+          a{
+            color: blue;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover{
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -326,5 +356,241 @@ body, html{
   &:hover {
     background-color: #ccc;
     color: #000;
+  }
+}
+[icons]{
+  width: 70%;
+  margin: 0 auto;
+  li{
+    list-style: none;
+    display: inline-block;
+    &:first-child{
+      padding-right: 17vw;
+    }
+    i{
+      font-size: 1.5em;
+    }
+  }
+}
+.comments-div{
+  display: none;
+  width: 80%;
+  margin: 0 auto;
+  form {
+    position: relative;
+    input[name='comment[content]']{
+      border-radius: 1.5em;
+      width: 60%;
+    }
+    input[type="submit"]{
+      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      border: none;
+      border-radius: 1em;
+      color: #fff;
+      position: absolute;
+      right: 0;
+      top: 0.5vh;
+    }
+  }
+  .img{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  img{
+    display: inline-block;
+    border-radius: 50%;
+    height: 4vh;;
+  }
+  .user{
+    text-decoration: none;
+  }
+  .content{
+    display: inline-block;
+    padding-right: 15vw;
+  }
+  .comments{
+    vertical-align: middle;
+  }
+}
+.toggle{
+  display: none;
+}
+.toggle:checked ~ .comments-div{
+  display: block;
+}
+.toggle:checked ~ [icons] .comm{
+  opacity: 0.5;
+}
+.comment{
+  position: relative;
+  i {
+    position: absolute;
+    right: 1vw;
+    bottom: 1vh;
+  }
+}
+.heart{
+  color: black;
+}
+.unheart{
+  color: black;
+  opacity: 0.5;
+}
+.comment-updates{
+  span{
+    display: inline-block;
+  }
+  a{
+    color: red;
+    text-decoration: none;
+  }
+}
+.toggle-lable, .toggle-lable1{
+  display: none;
+}
+.fl-right{
+  float: right;
+}
+.togg{
+  display: none;
+}
+.all-comments-container{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    );
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  [close]{
+    float: right;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+  .all-comments{
+    visibility: hidden;
+    width: 60%;
+    padding: 2em;
+    background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+    margin: 5vh auto 0 auto;
+    box-shadow:  3px 3px 5px 6px #000;
+    height: 70vh;
+    overflow-y: scroll;
+  }
+}
+
+@media only screen and (max-width:780px){
+  .l-container .posts .post{
+    width: 70%;
+    .profile-btn{
+      display: none;
+    }
+    form {
+      input[name='comment[content]'] {
+        width: 50%;
+      }
+
+    }
+    .comments{
+      .content{
+        display: inline-block;
+        width: 80%;
+      }
+    }
+  }
+  .profile-cont{
+    .profile-posts{
+      float: none;
+      margin: 0;
+      width: 80%;
+      margin: 0 auto;
+    }
+    .user-info{
+      width: 50%;
+      margin: 0 auto;
+      .avatar{
+        width: auto;
+      }
+    }
+  }
+  .toggle-lable{
+    display: inline-block;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-right: 0.2em;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+  .container{
+    position: relative;
+  }
+  .res-nav{
+    position: absolute;
+    display: block !important;
+    height: 30vh;
+    width: 30%;
+    top: -500px;
+    transform: rotate(0deg);
+  }
+  #togg:checked ~ .res-nav{
+    position: absolute;
+    display: block !important;
+    height: 100vh;
+    // margin-top: 30px;
+    width: 30vw;
+    top: 0;
+    right: 0;
+    transition: top 0.5s ease-out;
+    background-image: linear-gradient(to bottom right, #C5ACFF, #f3e5f5);
+    border: solid 1px #fff;
+    padding: 10px;
+    z-index: 1;
+    li:first-of-type{
+      margin-top: 7vh;
+    }
+    a{
+      color: #000000;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    li{
+      display: block;
+    }
+  }
+  #togg:checked ~ .toggle-lable{
+    display: none;
+  }
+  #togg:checked ~ .toggle-lable1{
+    display: inline-block;
+    font-size: 1.2em;
+    color: #000;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    padding-right: 0.2em;
+    cursor: pointer;
+    z-index: 10;
+    &:hover{
+      opacity: 0.5
+    }
+  }
+  .users{
+    width: 90%;
+    padding: 0 0 0 5vw;
+    .users-list{
+      width: 100%;
+    }
   }
 }

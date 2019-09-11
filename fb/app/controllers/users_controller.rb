@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
     @user = User.find_by_id(params[:format])
-    if @user
-      @pagy, @posts = pagy_array(@user.created_posts.sort_by { |home_post| home_post.created_at }.reverse)
-    end
+    @pagy, @posts = pagy_array(@user.created_posts.sort_by(&:created_at).reverse) if @user
   end
 
   def index

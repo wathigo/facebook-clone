@@ -1,11 +1,7 @@
 <section class="user-info">
   <h6 class="h-title">
     <div class="avatar">
-      <% if @user.avatar.attached? %>
-        <%= image_tag resource.avatar.variant(resize: "40x40"), class: "rounded-circle" %>
-      <% else %>
-        <%= image_tag gravatar_image_url(@user.email) %>
-      <% end %>
+      <%= profile_img_for(@user) %>
     </div>
     <span class="userinfo"><%= ("Name: " + @user.user_name) %> </span>
     <span class="userinfo"><%= ("Email: " + @user.email) %> </span>

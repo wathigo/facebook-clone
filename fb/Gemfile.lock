@@ -107,6 +107,8 @@ GEM
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
@@ -276,6 +278,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker!
+  font-awesome-rails
   gravatar_image_tag!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
