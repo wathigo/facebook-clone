@@ -48,16 +48,15 @@ body, html{
   .post{
     list-style: none;
     padding: 20px;
-    .card-body{
-      &:hover{
-        // transform: scale(1.04);
-        // transition: transform 0.4s;
-
-      }
-    }
   }
   span{
     display: block;
+  }
+}
+.zoom{
+  &:hover{
+    transform: scale(1.04);
+    transition: transform 0.4s;
   }
 }
 .l-container{

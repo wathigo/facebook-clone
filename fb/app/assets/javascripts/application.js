@@ -23,9 +23,18 @@ const toggleComments = ((e) => {
   const top = document.querySelector('.l-container').scrollTop = '0';
   allCommentsContainer.style.visibility = 'visible';
   document.querySelector(`#comment_post_${id}`).style.visibility = 'visible';
+  const nodeList = document.querySelectorAll('.card-body')
+  nodeList.forEach((node) => {
+    node.classList.remove('zoom');
+  })
+  document.querySelector('.card-body').classList.remove('zoom');
 })
 
 const closeComments = (el => {
   document.querySelector(`#comment_post_${currentId}`).style.visibility = 'hidden';
-  document.querySelector(".all-comments-container").style.visibility = 'hidden'
+  document.querySelector(".all-comments-container").style.visibility = 'hidden';
+  const nodeList = document.querySelectorAll('.card-body')
+  nodeList.forEach((node) => {
+    node.classList.add('zoom');
+  })
 })
