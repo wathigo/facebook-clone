@@ -24,3 +24,12 @@ users.each do |user|
     user.created_posts.create!(content: content)
   end
 end
+
+users.each do |user|
+  user.created_posts.each do |post|
+    10.times do |_i|
+      content = Faker::Games::WorldOfWarcraft.quote
+      user.comments.create!(content: content, post_id: post.id)
+    end
+  end
+end
