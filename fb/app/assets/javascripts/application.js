@@ -15,11 +15,13 @@
 //= require turbolinks
 //= require_tree .
 let currentId;
+let currentScrollTop;
 const toggleComments = ((e) => {
   e.preventDefault();
   const id = e.target.dataset.message
   currentId = id
   const allCommentsContainer = document.querySelector(".all-comments-container")
+  currentScrollTop = document.querySelector('.l-container').scrollTop;
   const top = document.querySelector('.l-container').scrollTop = '0';
   allCommentsContainer.style.visibility = 'visible';
   document.querySelector(`#comment_post_${id}`).style.visibility = 'visible';
@@ -37,4 +39,5 @@ const closeComments = (el => {
   nodeList.forEach((node) => {
     node.classList.add('zoom');
   })
-})
+  document.querySelector('.l-container').scrollTop = currentScrollTop;
+});
