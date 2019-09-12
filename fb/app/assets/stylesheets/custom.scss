@@ -39,7 +39,105 @@ body, html{
   }
 }
 }
-
+.toggle-lable1{
+  display: none;
+}
+.toggle-lable{
+  display: inline-block;
+  font-size: 1.6em;
+  font-weight: bold;
+  padding-right: 0.2em;
+  cursor: pointer;
+  &:hover{
+    opacity: 0.5;
+  }
+}
+.container{
+  position: relative;
+}
+.res-nav{
+  position: absolute;
+  display: block !important;
+  height: 30vh;
+  width: 30%;
+  top: -500px;
+  transform: rotate(0deg);
+}
+#togg:checked ~ .res-nav{
+  position: absolute;
+  display: block !important;
+  height: 100vh;
+  // margin-top: 30px;
+  width: 30vw;
+  top: 0;
+  right: 0;
+  transition: top 0.5s ease-out;
+  background-image: linear-gradient(to bottom right, #C5ACFF, #f3e5f5);
+  border: solid 1px #fff;
+  padding: 10px;
+  z-index: 1;
+  li:first-of-type{
+    margin-top: 7vh;
+  }
+  a{
+    color: #000000;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  li{
+    display: block;
+    font-weight: bold;
+    height: 10vh;
+    vertical-align: middle;
+    i{
+      display: inline-block;
+      width: 4vw;
+      margin-right: 0.5em;
+      color: #000;
+      padding-left: 0.5em;
+    }
+    &:last-of-type{
+      margin-top: 3vh;
+      a{
+        color: red;
+      }
+    }
+  }
+}
+#togg:checked ~ .toggle-lable{
+  display: none;
+}
+#togg:checked ~ .toggle-lable1{
+  display: inline-block;
+  font-size: 1.2em;
+  color: #000;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  right: 0;
+  padding-right: 0.2em;
+  cursor: pointer;
+  z-index: 10;
+  &:hover{
+    opacity: 0.5
+  }
+}
+[nav-image]{
+  color: #000;
+  vertical-align: middle;
+  img{
+    border-radius: 50%;
+    width: 4vw;
+    margin-right: 0.5em;
+    vertical-align: middle;
+  }
+  a{
+    height: 5.5vh;
+    line-height: 5.5vh;
+    display: inline-block;
+  }
+}
 .posts{
   width: 100%;
   display: flex;
@@ -445,14 +543,9 @@ body, html{
     text-decoration: none;
   }
 }
-.toggle-lable, .toggle-lable1{
-  display: none;
-}
+
 .fl-right{
   float: right;
-}
-.togg{
-  display: none;
 }
 .all-comments-container{
   width: 100%;
@@ -521,71 +614,7 @@ body, html{
       }
     }
   }
-  .toggle-lable{
-    display: inline-block;
-    font-size: 1.6em;
-    font-weight: bold;
-    padding-right: 0.2em;
-    cursor: pointer;
-    &:hover{
-      opacity: 0.5;
-    }
-  }
-  .container{
-    position: relative;
-  }
-  .res-nav{
-    position: absolute;
-    display: block !important;
-    height: 30vh;
-    width: 30%;
-    top: -500px;
-    transform: rotate(0deg);
-  }
-  #togg:checked ~ .res-nav{
-    position: absolute;
-    display: block !important;
-    height: 100vh;
-    // margin-top: 30px;
-    width: 30vw;
-    top: 0;
-    right: 0;
-    transition: top 0.5s ease-out;
-    background-image: linear-gradient(to bottom right, #C5ACFF, #f3e5f5);
-    border: solid 1px #fff;
-    padding: 10px;
-    z-index: 1;
-    li:first-of-type{
-      margin-top: 7vh;
-    }
-    a{
-      color: #000000;
-      &:hover{
-        text-decoration: underline;
-      }
-    }
-    li{
-      display: block;
-    }
-  }
-  #togg:checked ~ .toggle-lable{
-    display: none;
-  }
-  #togg:checked ~ .toggle-lable1{
-    display: inline-block;
-    font-size: 1.2em;
-    color: #000;
-    height: 30px;
-    line-height: 30px;
-    position: absolute;
-    right: 0;
-    padding-right: 0.2em;
-    cursor: pointer;
-    z-index: 10;
-    &:hover{
-      opacity: 0.5
-    }
-  }
+
   .users{
     width: 90%;
     padding: 0 0 0 5vw;
