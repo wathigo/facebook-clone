@@ -89,21 +89,30 @@ body, html{
     display: block;
     font-weight: bold;
     height: 10vh;
-    vertical-align: middle;
     i{
       display: inline-block;
       width: 4vw;
       margin-right: 0.5em;
       color: #000;
       padding-left: 0.5em;
+      height: 10vh;
+      line-height: 10vh;
+    }
+    a{
+      height: 10vh;
+      line-height: 10vh;
     }
     &:last-of-type{
-      margin-top: 3vh;
+      text-align: right;
       a{
         color: red;
+        padding-right: 14vw;
       }
     }
   }
+}
+#togg{
+  display: none;
 }
 #togg:checked ~ .toggle-lable{
   display: none;
