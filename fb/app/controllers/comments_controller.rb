@@ -5,19 +5,13 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    if @comment.save
-      redirect_back(fallback_location: root_path)
-    else
-      render :new
-    end
+    redirect_back(fallback_location: root_path) if @comment.save
   end
 
   def destroy
     @comment = Comment.find_by_id(params[:format])
-    if @comment
-      if current_user.id == @comment.user_id
-        redirect_back(fallback_location: root_path) if @comment.destroy
-      end
+    if @comment && current_user.id == @comment.user_id
+      redirect_back(fallback_location: root_path) if @comment.destroy
     end
   end
 

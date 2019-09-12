@@ -1,10 +1,26 @@
 <div class="comments-container">
   <% if @post.comments.any? %>
     <div class="comments">
-      <% @post.comments.sort_by { |comment| comment.created_at }.reverse.each do |comment| %>
+      <% max3(@post).each do |comment| %>
         <%= render comment %>
         <hr>
       <% end %>
+      <% if @post.comments.count > 3 %>
+        <a trueId href="#" onclick="toggleComments(event)" data-message='<%=@post.id%>' >See all comments</a>
+      <% end %>
     </div>
   <% end %>
+</div>
+<div class="all-comments-container">
+  <span close onclick="closeComments(this)" data-msg='<%=@post.id%>'>&#10006;</span>
+  <div class='all-comments' id="comment_post_<%= @post.id %>" >
+    <% if @post.comments.any? %>
+      <div class="comments">
+        <% all_comments(@post).each do |comment| %>
+          <%= render comment %>
+          <hr>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

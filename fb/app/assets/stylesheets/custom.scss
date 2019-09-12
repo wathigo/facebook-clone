@@ -48,17 +48,19 @@ body, html{
   .post{
     list-style: none;
     padding: 20px;
-    .card-body{
-      &:hover{
-        transform: scale(1.04);
-        transition: transform 0.4s;
-
-      }
-    }
   }
   span{
     display: block;
   }
+}
+.zoom{
+  &:hover{
+    transform: scale(1.04);
+    transition: transform 0.4s;
+  }
+}
+.l-container{
+  position: relative;
 }
 .auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container{
   height: 100vh;
@@ -424,6 +426,7 @@ body, html{
   i {
     position: absolute;
     right: 1vw;
+    bottom: 1vh;
   }
 }
 .heart{
@@ -451,6 +454,39 @@ body, html{
 .togg{
   display: none;
 }
+.all-comments-container{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    );
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  [close]{
+    float: right;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.5;
+    }
+  }
+  .all-comments{
+    visibility: hidden;
+    width: 60%;
+    padding: 2em;
+    background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+    margin: 5vh auto 0 auto;
+    box-shadow:  3px 3px 5px 6px #000;
+    height: 70vh;
+    overflow-y: scroll;
+  }
+}
+
 @media only screen and (max-width:780px){
   .l-container .posts .post{
     width: 70%;

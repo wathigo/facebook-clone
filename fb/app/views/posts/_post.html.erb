@@ -1,7 +1,7 @@
 <% @post = post %>
 <% if @post %>
   <li class="post card" id="post-<%= @post.id %>">
-    <div class="card-body">
+    <div class="card-body zoom">
       <span class="creator a-white">
         <span image><%= profile_img_for(post.creator) %></span>
         <span><%= link_to post.creator.user_name, user_path(post.creator), class: :name %></span>
