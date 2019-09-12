@@ -3,8 +3,8 @@ class FriendshipsController < ApplicationController
 
   def create
     unless current_user.friends
-      @friendship current_user.friendships.build(friend_id: params[:id], confirmed: false)
+      @friendship current_user.friendships.build(friend_id: params[:id])
       @friendship.save
-    end     
+    end
   end
 end

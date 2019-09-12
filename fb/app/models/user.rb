@@ -25,7 +25,7 @@ class User < ApplicationRecord
   before_save :downcase_email
 
   def friends
-    confirmed_friends + inverse_friends
+    confirmed_friends + confirmed_inverse_friends
   end
 
   def pending_friends
@@ -36,12 +36,13 @@ class User < ApplicationRecord
     inverse_friendships.map {|friendship| friendship.user unless friendship.confirmed}.compact
   end
 
-  def confirmed_friend
-    friendship = inverse_friendships.map {|friendship| friendship unless friendship.user != user}.compact
+  def confirm_friend(requester)
+    friendship = inverse_friendships.find {|friendship| friendship.user == requester}
     friendship.confirmed = true
+    friendship.save
   end
 
-  def friends?
+  def friends?(user)
     friends.include?(user)
   end
 
@@ -52,10 +53,10 @@ class User < ApplicationRecord
   end
 
   def confirmed_friends
-    friendships.map {|friendship| friendship.friend if friendship.confirmed && friendship.user == user}.compact
+    friendships.map {|friendship| friendship.friend if friendship.confirmed}.compact
   end
 
-  def inverse_friends
-    friendships.map {|friendship| friendship.friend if friendship.confirmed && friendship.friend == user}.compact
+  def confirmed_inverse_friends
+    inverse_friendships.map {|friendship| friendship.user if friendship.confirmed}.compact
   end
 end
