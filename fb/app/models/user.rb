@@ -28,6 +28,12 @@ class User < ApplicationRecord
     confirmed_friends + confirmed_inverse_friends
   end
 
+  def mutual_friends(friend)
+    friends_v1 = friendships.map {|friendship| friendship.friend if self.friends.include?friendship.friend}.compact
+    friends_v2 = inverse_friendships.map {|friendship| friendship.user if self.friends.include?friendship.user}.compact
+    (friends_v1 + friends_v2) - [friend]
+  end
+
   def pending_friends
     friendships.map {|friendship| friendship.friend unless friendship.confirmed}.compact
   end
