@@ -407,9 +407,11 @@ body, html{
   width: 70%;
   box-shadow:  3px 3px 5px 6px #ccc;
   background-color: #fff;
-  margin: 10vh auto 0 auto;
+  margin: 5vh auto 0 auto;
   padding: 10vh 10vw 10vh 10vw;
   box-sizing: border-box;
+  height: 80vh;
+  overflow-y: scroll;
   .users-list {
     width: 100%;
     margin: 0 auto;
@@ -590,6 +592,9 @@ body, html{
 }
 
 @media only screen and (max-width:780px){
+  .res-nav{
+    width: 50vw !important;
+  }
   .l-container .posts .post{
     width: 70%;
     .profile-btn{

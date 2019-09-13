@@ -52,7 +52,20 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 
+  def recommended_friends
+    friends = User.all.map {|user| user if (!self.friends? user) && (self.mutual_friends(user).size > 1)}.compact
+    if friends.size < 10
+      friends + unknown_users(self)
+    else
+      friends
+    end
+  end
+
   private
+
+  def unknown_users(current_user)
+    User.all.map {|user| user if (!current_user.friends.include? user) && (!current_user.mutual_friends(user).include? user)}.compact
+  end
 
   def downcase_email
     email.downcase!
