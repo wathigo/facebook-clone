@@ -53,11 +53,11 @@ class User < ApplicationRecord
   end
 
   def recommended_friends
-    friends = User.all.map {|user| user if (!self.friends? user) && (self.mutual_friends(user).size > 1)}.compact
+    friends = User.all.map {|user| user if (!self.friends? user) && (self.mutual_friends(user).size > 1) && user != self}.compact
     if friends.size < 10
-      friends + unknown_users(self)
+      (friends + unknown_users(self)) - [self]
     else
-      friends
+      friends - [self]
     end
   end
 

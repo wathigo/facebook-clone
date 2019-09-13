@@ -7,7 +7,7 @@
       </div>
       <div userdata>
         <span class="field add-friend">
-          <%= link_to 'Add friend', '#', class: 'request-friend' %>
+          <%= link_to 'Add friend', friendship_path(:id => @user.id), method: :post, class: 'request-friend' %>
         </span>
       </div>
     </span>
