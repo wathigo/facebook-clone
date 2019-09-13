@@ -419,11 +419,21 @@ body, html{
       height: 10vh;
       display: block;
       position: relative;
-      .add-friend{
+      .add-friend, .cancel-friend{
         display: inline-block;
         position: absolute;
         right: 10vw;
         bottom: 1.5em;
+      }
+      .cancel-friend{
+        text-decoration: none;
+        color: red;
+        padding: 5px;
+        background-color: #ccc;
+        border-radius: 5px;
+        &:hover{
+          background-color: #fff;
+        }
       }
       [avatar]{
         height: 10vh;

@@ -19,8 +19,8 @@ class FriendshipsController < ApplicationController
 
   def destroy
     user = User.find_by_id(params[:id])
-    @friendship = user.friendships.find {|friendship| friendship.friend = current_user}
-    if @friendship.destroy
+    @friendship = user.inverse_friendships.find {|friendship| friendship.user = current_user}
+    if @friendship.delete
       redirect_back(fallback_location: root_path)
     end
   end
