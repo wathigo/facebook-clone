@@ -6,7 +6,7 @@ body, html{
   overflow-y: hidden;
 }
 .navbar{
-  height: 30px;
+  height: 6vh;
   background-image: linear-gradient(to bottom right, #631280, #5109FF);
   color: #fff;
   border-bottom: #29487d;
@@ -16,8 +16,8 @@ body, html{
     width: 29%;
     color: #fff;
     font-weight: bold;
-    height: 30px;
-    line-height: 30px;
+    height: 6vh;
+    line-height: 6vh;
     text-decoration: none;
     cursor: pointer;
   }
@@ -44,9 +44,9 @@ body, html{
 }
 .toggle-lable{
   display: inline-block;
-  font-size: 1.6em;
+  font-size: 2em;
   font-weight: bold;
-  padding-right: 0.2em;
+  padding-right: 0.5em;
   cursor: pointer;
   &:hover{
     opacity: 0.5;
@@ -54,6 +54,7 @@ body, html{
 }
 .container{
   position: relative;
+  height: 6vh;
 }
 .res-nav{
   position: absolute;

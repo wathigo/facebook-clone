@@ -1,0 +1,10 @@
+<div class="notifications">
+  <% @friendships = friendships %>
+  <% if @friendships.any? %>
+    <div class="notification-list">
+      <% @friendships.each do |friendship| %>
+        <%= render 'friendships/notification', friendship: friendship %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
