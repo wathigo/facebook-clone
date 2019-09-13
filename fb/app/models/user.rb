@@ -64,7 +64,7 @@ class User < ApplicationRecord
   private
 
   def unknown_users(current_user)
-    User.all.map {|user| user if (!current_user.friends.include? user) && (current_user.mutual_friends(user).size > 1)}.compact
+    User.all.map {|user| user if (!current_user.friends.include? user) && (current_user.mutual_friends(user).size < 1)}.compact
   end
 
   def downcase_email
