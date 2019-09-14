@@ -8,6 +8,9 @@
     <span>Welcome!  <%= @user.user_name%></span>
      <label class="fl-right toggle-lable" for="togg"> &#8801;</label>
      <label class="fl-right toggle-lable1" for="togg">&#10006;</label>
+     <% if friend_request.size > 0 %>
+      <span note></span>
+     <% end %>
     <ul class="res-nav">
         <li>
           <div nav-image>
@@ -28,9 +31,10 @@
         </li>
         <hr>
         <li>
+          <span onclick="toggleNotification()" notify>
           <%= fa_icon("flag-checkered", class: "fas") %>
           <%= link_to "Notifications", "#"%>
-          <span onclick="toggleNotification()"><%= fa_icon("caret-down", class: "fas") %></span>
+          <%= fa_icon("caret-down", class: "fas") %></span>
           <% if friend_request.any? %>
           <div class="notification-container">
             <%= render 'notification_list', friendships: friend_request %>

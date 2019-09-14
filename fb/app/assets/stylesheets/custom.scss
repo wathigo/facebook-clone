@@ -64,6 +64,21 @@ body, html{
   top: -500px;
   transform: rotate(0deg);
 }
+[notify]{
+  cursor: pointer;
+}
+[note]{
+  font-size: 0.8em;
+  width: 0.5em;
+  height: 0.5em;
+  text-align: center;
+  padding: 0.1em;
+  background-color: red;
+  border-radius: 50%;
+  float: right;
+  margin-top: 1em;
+  margin-right: -1em;
+}
 #togg:checked ~ .res-nav{
   position: absolute;
   display: block !important;

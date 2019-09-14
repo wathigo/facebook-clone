@@ -14,6 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
 let currentId;
 let currentScrollTop;
 const toggleComments = ((e) => {
