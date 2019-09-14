@@ -6,5 +6,6 @@
         <%= render 'friendships/notification', friendship: friendship %>
       <% end %>
     </div>
+    <%= link_to 'See all notifications', all_requests_path, method: :get, class: 'requests-link' %>
   <% end %>
 </div>

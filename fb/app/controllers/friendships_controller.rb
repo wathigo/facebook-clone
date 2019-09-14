@@ -12,16 +12,24 @@ class FriendshipsController < ApplicationController
 
   def update
     user = User.find_by_id(params[:id])
-    if user.confirm_friend(current_user)
+    if current_user.confirm_friend(user)
       redirect_back(fallback_location: root_path)
     end
   end
 
   def destroy
-    user = User.find_by_id(params[:id])
-    @friendship = user.inverse_friendships.find {|friendship| friendship.user = current_user}
+    if params[:id]
+      user = User.find_by_id(params[:id])
+    else
+      @friendship = current_user.inverse_friendships.find_by_id(params[:friendship_id])
+    end
+    @friendship ||= user.inverse_friendships.find {|friendship| friendship.user = current_user}
     if @friendship.delete
       redirect_back(fallback_location: root_path)
     end
+  end
+
+  def show
+    @friendships = current_user.inverse_friendships.map {|friendship| friendship unless friendship.confirmed}
   end
 end

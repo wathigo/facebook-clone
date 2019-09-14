@@ -1,0 +1,13 @@
+<% @friendship = friendship %>
+<% if @friendship %>
+    <div user class="user-" id="user-<%= @friendship.user.id %>">
+      <div avatar class='requester'>
+        <span image><%= image_tag gravatar_image_url(@friendship.user.email) %></span>
+        <%= link_to @friendship.user.user_name, user_path(@friendship.user), class: :name %>
+      </div>
+      <div userdata>
+        <%= link_to 'Accept request', accept_friendship_path(:id => @friendship.user.id), method: :post, class: 'accept-request' %>
+        <%= link_to 'Cancel request', cancel_friendship_path(:friendship_id => @friendship.id), method: :delete, class: 'cancel-request' %>
+      </div>
+    </div>
+<% end %>

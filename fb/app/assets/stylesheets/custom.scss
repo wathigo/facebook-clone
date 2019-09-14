@@ -79,6 +79,16 @@ body, html{
   margin-top: 1em;
   margin-right: -1em;
 }
+[note1]{
+  font-size: 0.8em;
+  background-color: red;
+  border-radius: 50%;
+  width: 1.8em;
+  height: 1.8em;
+  padding-bottom: 0.4em;
+  display: inline-block;
+  text-align: center;
+}
 #togg:checked ~ .res-nav{
   position: absolute;
   display: block !important;
@@ -144,6 +154,14 @@ body, html{
     }
   }
 }
+.requests-link{
+  font-size: 0.8em;
+  color: blue !important;
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+  font-weight: 200;
+}
 #togg{
   display: none;
 }
@@ -202,7 +220,7 @@ body, html{
 .l-container{
   position: relative;
 }
-.auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container{
+.auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container, .requests-container{
   height: 100vh;
   width: 100%;
   background-color: rgb(233, 235, 238);
@@ -436,7 +454,7 @@ body, html{
   font-weight: 600;
 }
 
-.users{
+.users, .requests{
   width: 70%;
   box-shadow:  3px 3px 5px 6px #ccc;
   background-color: #fff;
@@ -452,52 +470,43 @@ body, html{
       height: 10vh;
       display: block;
       position: relative;
-      .add-friend, .cancel-friend{
-        display: inline-block;
-        position: absolute;
-        right: 10vw;
-        bottom: 1.5em;
-      }
-      .cancel-friend{
-        text-decoration: none;
-        color: red;
-        padding: 5px;
-        background-color: #ccc;
-        border-radius: 5px;
-        &:hover{
-          background-color: #fff;
-        }
-      }
-      [avatar]{
-        height: 10vh;
-        display: inline-block;
-        box-sizing: border-box;
-        [image]{
-          display: inline-block;
-          height: 10vh;
-          vertical-align: middle;
-          img{
-            border-radius: 50%;
-            height: 5vh;
-            margin-top: 2vh;
-            display: inline-block;
-          }
-        }
-        span{
-          a{
-            color: blue;
-            text-decoration: none;
-            cursor: pointer;
-            &:hover{
-              text-decoration: underline;
-            }
-          }
-        }
-      }
-      [userdata]{
-        display: inline-block
-      }
     }
+  }
+}
+.requester{
+  width: 20vw;
+  display: inline-block;
+}
+.accept-request{
+  margin-right: 1.5vw;
+  margin-left: 1.5vw;
+}
+.accept-request, .cancel-request{
+  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  padding: 0.2em;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5em;
+  &:hover{
+    background: none;
+    background-color: #ccc;
+    color: #000;
+  }
+}
+.add-friend, .cancel-friend{
+  display: inline-block;
+  position: absolute;
+  right: 10vw;
+  bottom: 1.5em;
+}
+.cancel-friend{
+  text-decoration: none;
+  color: red;
+  padding: 5px;
+  background-color: #ccc;
+  border-radius: 5px;
+  &:hover{
+    background-color: #fff;
   }
 }
 .request-friend{
@@ -633,6 +642,35 @@ body, html{
     height: 70vh;
     overflow-y: scroll;
   }
+}
+[avatar]{
+  height: 10vh;
+  display: inline-block;
+  box-sizing: border-box;
+  [image]{
+    display: inline-block;
+    height: 10vh;
+    vertical-align: middle;
+    img{
+      border-radius: 50%;
+      height: 5vh;
+      margin-top: 2vh;
+      display: inline-block;
+    }
+  }
+  span{
+    a{
+      color: blue;
+      text-decoration: none;
+      cursor: pointer;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+[userdata]{
+  display: inline-block
 }
 
 @media only screen and (max-width:780px){

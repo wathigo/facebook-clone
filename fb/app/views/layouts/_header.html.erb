@@ -35,6 +35,9 @@
           <%= fa_icon("flag-checkered", class: "fas") %>
           <%= link_to "Notifications", "#"%>
           <%= fa_icon("caret-down", class: "fas") %></span>
+          <% if friend_request.size > 0 %>
+            <span note1><%= friend_request.size %></span>
+          <% end %>
           <% if friend_request.any? %>
           <div class="notification-container">
             <%= render 'notification_list', friendships: friend_request %>

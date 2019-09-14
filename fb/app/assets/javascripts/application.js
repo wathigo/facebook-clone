@@ -49,9 +49,13 @@ const closeComments = (el => {
 
 const toggleNotification = (ev => {
   const notificationContainer = document.querySelector('.notifications')
+  const note = document.querySelector('[note]');
+  const note1 = document.querySelector('[note1]');
   if(notificationContainer != undefined){
     if(notificationContainer.style.display === 'none'){
       notificationContainer.style.display = 'block';
+      note1.style.display = 'none';
+      note.style.display = 'none';
     }
     else{
       notificationContainer.style.display = 'none';
