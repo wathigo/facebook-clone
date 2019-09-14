@@ -45,3 +45,15 @@ const closeComments = (el => {
   lContainer.style.overflow = 'scroll';
   lContainer.scrollTop = currentScrollTop;
 });
+
+const toggleNotification = (ev => {
+  const notificationContainer = document.querySelector('.notifications')
+  if(notificationContainer != undefined){
+    if(notificationContainer.style.display === 'none'){
+      notificationContainer.style.display = 'block';
+    }
+    else{
+      notificationContainer.style.display = 'none';
+    }
+  }
+})

@@ -77,6 +77,23 @@ body, html{
   border: solid 1px #fff;
   padding: 10px;
   z-index: 1;
+  .notifications{
+    display: none;
+    width: 60%;
+    color: #fff;
+    margin-left: 20%;
+    .notification-list{
+      .notification{
+        font-size: 0.6em;
+        background-image: linear-gradient(to bottom right, #631280, #5109FF);
+        border-radius: 0.5em;
+        p{
+          padding: 0.5em;
+          line-height: normal;
+        }
+      }
+    }
+  }
   li:first-of-type{
     margin-top: 7vh;
   }
@@ -89,7 +106,7 @@ body, html{
   li{
     display: block;
     font-weight: bold;
-    height: 10vh;
+    min-height: 10vh;
     i{
       display: inline-block;
       width: 4vw;

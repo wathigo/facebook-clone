@@ -30,6 +30,7 @@
         <li>
           <%= fa_icon("flag-checkered", class: "fas") %>
           <%= link_to "Notifications", "#"%>
+          <span onclick="toggleNotification()"><%= fa_icon("caret-down", class: "fas") %></span>
           <% if friend_request.any? %>
           <div class="notification-container">
             <%= render 'notification_list', friendships: friend_request %>
