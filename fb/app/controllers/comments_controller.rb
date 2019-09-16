@@ -5,7 +5,12 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    redirect_back(fallback_location: root_path) if @comment.save
+    if @comment.save
+      redirect_back(fallback_location: root_path)
+    else
+      @pagy, @posts = pagy_array(Post.all.sort_by(&:created_at).reverse)
+      redirect_to root_path
+    end
   end
 
   def destroy

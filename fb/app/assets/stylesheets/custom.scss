@@ -344,11 +344,15 @@ body, html{
   }
 
 }
-.post-container .post{
-  width: 90%;
-  [icons] li:first-child{
-    padding-right: 40vw;
-  }
+.post-container {
+  margin-top: 3vh;
+  border-radius: 0;
+  .post{
+    width: 90%;
+    [icons] li:first-child{
+      padding-right: 40vw;
+    }
+}
 }
 .creator{
   height: 12vh;
@@ -486,8 +490,8 @@ body, html{
     }
   }
 }
-.profile-cont [mutuals]{
-  padding: 0 0 4em 4em;
+.user-info .cancel-friend{
+  position: static;
 }
 [mutuals]{
   font-size: 0.8em;
@@ -692,10 +696,12 @@ body, html{
 [userdata]{
   display: inline-block
 }
-
+.prof-request{
+  margin-top: 1vh;
+}
 @media only screen and (max-width:780px){
   .res-nav{
-    width: 50vw !important;
+      width: 50vw !important;
   }
   .l-container .posts .post{
     width: 70%;
