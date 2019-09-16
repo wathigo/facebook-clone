@@ -14,5 +14,14 @@
           </span>
         <% end %>
       </div>
+      <div mutuals>
+        <% if mutual_friends(@user).any? %>
+          <% if mutual_friends(@user).count == 1 %>
+            <span><%= mutual_friends(@user).first.user_name %> is a mutual friend</span>
+          <% else %>
+            <span><%= mutual_friends(@user).first.user_name %> and <%= mutual_friends(@user).count-1 %> <%= mutual_friends(@user).count-1 == 1 ? "other" : "others"%> are mutuals friends</span>
+          <% end %>
+        <% end %>
+      </div>
     </span>
 <% end %>

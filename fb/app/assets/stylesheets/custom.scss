@@ -467,11 +467,15 @@ body, html{
     width: 100%;
     margin: 0 auto;
     [user]{
-      height: 10vh;
+      min-height: 10vh;
       display: block;
       position: relative;
     }
   }
+}
+[mutuals]{
+  font-size: 0.8em;
+  color: grey;
 }
 .requester{
   width: 20vw;

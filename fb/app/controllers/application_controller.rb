@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name])
     devise_parameter_sanitizer.permit(:account_update, keys: %i[user_name avatar])
   end
+
+  def requests
+    current_user.inverse_friendships.map {|friendship| friendship unless friendship.confirmed}.compact
+  end
 end
