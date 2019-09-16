@@ -27,6 +27,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = @post = Post.find_by_id(params[:format])
+  end
+
   private
 
   def post_params

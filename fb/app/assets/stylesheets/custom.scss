@@ -220,7 +220,15 @@ body, html{
 .l-container{
   position: relative;
 }
-.auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container, .requests-container{
+.post-container .zoom{
+  &:hover{
+    transform: none;
+  }
+  width: 70vw;
+  margin: 0 auto;
+  display: block;
+}
+.auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container, .requests-container, .post-container{
   height: 100vh;
   width: 100%;
   background-color: rgb(233, 235, 238);
@@ -319,7 +327,7 @@ body, html{
     margin: 10px 0 0 32%;
   }
 }
-.posts-container{
+.posts-container, .post-container{
   width: 80%;
   border-radius: 40px;
   padding: 25px;
@@ -335,6 +343,12 @@ body, html{
     margin: 0 auto 20px auto;
   }
 
+}
+.post-container .post{
+  width: 90%;
+  [icons] li:first-child{
+    padding-right: 40vw;
+  }
 }
 .creator{
   height: 12vh;
@@ -378,11 +392,10 @@ body, html{
     height: 12vh;
     line-height: 12vh;
   }
-  &:after{
-    clear: both;
-    display: table;
-    content: "";
-  }
+}
+[post]{
+  color: #000;
+  text-decoration: none;
 }
 .pagination{
   margin-top: 20px;
@@ -472,6 +485,9 @@ body, html{
       position: relative;
     }
   }
+}
+.profile-cont [mutuals]{
+  padding: 0 0 4em 4em;
 }
 [mutuals]{
   font-size: 0.8em;
