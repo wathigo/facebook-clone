@@ -27,10 +27,10 @@ class User < ApplicationRecord
     confirmed_friends + confirmed_inverse_friends
   end
 
-  def mutual_friends(friend)
-    friends_v1 = friendships.map {|friendship| friendship.friend if self.friends.include?friendship.friend && friendship.confirmed}.compact
-    friends_v2 = inverse_friendships.map {|friendship| friendship.user if self.friends.include?friendship.user && friendship.confirmed}.compact
-    (friends_v1 + friends_v2) - [friend]
+  def mutual_friends(user)
+    friends_v1 = confirmed_friends & user.confirmed_friends
+    friends_v2 = confirmed_inverse_friends & user.confirmed_inverse_friends
+    (friends_v1 + friends_v2) - [user]
   end
 
   def pending_friends
@@ -60,6 +60,14 @@ class User < ApplicationRecord
     end
   end
 
+  def confirmed_friends
+    friendships.map {|friendship| friendship.friend if friendship.confirmed}.compact
+  end
+
+  def confirmed_inverse_friends
+    inverse_friendships.map {|friendship| friendship.user if friendship.confirmed}.compact
+  end
+
   private
 
   def unknown_users(current_user)
@@ -68,14 +76,6 @@ class User < ApplicationRecord
 
   def downcase_email
     email.downcase!
-  end
-
-  def confirmed_friends
-    friendships.map {|friendship| friendship.friend if friendship.confirmed}.compact
-  end
-
-  def confirmed_inverse_friends
-    inverse_friendships.map {|friendship| friendship.user if friendship.confirmed}.compact
   end
 
   def inverse_pending_friends
