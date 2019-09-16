@@ -20,11 +20,15 @@ end
 users1 = User.order(:created_at).take(10)
 users2 = User.order(:created_at).reverse.take(10)
 
-10.times do |i|
-  unless i < 6
-    Friendship.create!(user_id: users2[i].id, friend_id: users1[i].id, confirmed: true)
-  else
-    Friendship.create!(user_id: users2[i].id, friend_id: users1[i].id, confirmed: false)
+users1.each_with_index do |user1, index|
+  users2.each do |user2|
+    if index > 4
+      Friendship.create!(user_id: user2.id, friend_id: user1.id, confirmed: true)
+      Friendship.create!(user_id: user2.id, friend_id: users1[index-5].id, confirmed: true)
+    else
+      Friendship.create!(user_id: user2.id, friend_id: user1.id, confirmed: false)
+      Friendship.create!(user_id: users2[index+5].id, friend_id: user1.id, confirmed: true)
+    end
   end
 end
 
