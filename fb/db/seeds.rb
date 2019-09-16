@@ -28,10 +28,12 @@ users2 = User.order(:created_at).reverse.take(10)
   end
 end
 
-users1.each do |user|
-  8.times do |_i|
-    content = Faker::Games::WorldOfWarcraft.quote
-    user.created_posts.create!(content: content)
+10.times do |i|
+  8.times do |_j|
+    content1 = Faker::Games::WorldOfWarcraft.quote
+    content2 = Faker::Games::WorldOfWarcraft.quote
+    users1[i].created_posts.create!(content: content1)
+    users2[i].created_posts.create!(content: content2)
   end
 end
 
