@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def requests
-    current_user.inverse_friendships.map {|friendship| friendship unless friendship.confirmed}.compact
+    current_user.inverse_friendships.map { |friendship| friendship unless friendship.confirmed }.compact
   end
 end

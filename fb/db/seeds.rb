@@ -8,16 +8,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times do |n|
+20.times do |n|
   name = Faker::Name.unique.name
-  email = "example-#{n + 1}@railstutorial.org"
+  email = "example-#{n + 1}@facebook.org"
   password = 'foobar'
   User.create!(user_name: name,
                email: email,
                password: password)
 end
 
-users = User.order(:created_at).take(5)
+users = User.order(:created_at).take(10)
 users.each do |user|
   15.times do |_i|
     content = Faker::Games::WorldOfWarcraft.quote

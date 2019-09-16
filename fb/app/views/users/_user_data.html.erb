@@ -15,7 +15,7 @@
       <% end %>
       <div class="prof-request">
         <% if @user != current_user %>
-        <% if pending_friend?(@user) %>
+        <% if pending_friend?(@user) || (current_user.friends.include? @user) %>
           <%= link_to 'Cancel request', cancel_friendship_path(:id => @user.id), method: :delete, class: 'cancel-friend' %>
         <% else %>
           <%= link_to 'Add friend', friendship_path(:id => @user.id), method: :post, class: 'request-friend' %>
