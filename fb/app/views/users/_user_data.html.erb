@@ -20,6 +20,7 @@
           <%= link_to 'Add friend', friendship_path(:id => @user.id), method: :post, class: 'request-friend' %>
         <% end %>
       </div>
+      <div friends><%= @user.friends.count %> friends</div>
     </div>
   </h6>
   <% if (current_user.id == @user.id) %>
