@@ -2,8 +2,14 @@
   <% @friendships = friendships %>
   <% if @friendships.any? %>
     <div class="notification-list">
-      <% @friendships.each do |friendship| %>
-        <%= render 'friendships/notification', friendship: friendship %>
+      <% if request.env['PATH_INFO'] == root_path %>
+        <% @friendships[0, 4].each do |friendship| %>
+          <%= render 'friendships/notification', friendship: friendship %>
+        <% end %>
+      <% else %>
+        <% @friendships.each do |friendship| %>
+          <%= render 'friendships/notification', friendship: friendship %>
+        <% end %>
       <% end %>
     </div>
     <%= link_to 'See all notifications', all_requests_path, method: :get, class: 'requests-link' %>
