@@ -17,15 +17,25 @@
                password: password)
 end
 
-users = User.order(:created_at).take(10)
-users.each do |user|
-  15.times do |_i|
+users1 = User.order(:created_at).take(10)
+users2 = User.order(:created_at).reverse.take(10)
+
+10.times do |i|
+  unless i < 6
+    Friendship.create!(user_id: users2[i].id, friend_id: users1[i].id, confirmed: true)
+  else
+    Friendship.create!(user_id: users2[i].id, friend_id: users1[i].id, confirmed: false)
+  end
+end
+
+users1.each do |user|
+  8.times do |_i|
     content = Faker::Games::WorldOfWarcraft.quote
     user.created_posts.create!(content: content)
   end
 end
 
-users.each do |user|
+users1.each do |user|
   user.created_posts.each do |post|
     10.times do |_i|
       content = Faker::Games::WorldOfWarcraft.quote

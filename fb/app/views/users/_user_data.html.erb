@@ -6,7 +6,7 @@
     <span class="userinfo"><%= ("Name: " + @user.user_name) %> </span>
     <span class="userinfo"><%= ("Email: " + @user.email) %> </span>
     <div mutuals>
-      <% if mutual_friends(@user).any? %>
+      <% if mutual_friends(@user).any? && @user != current_user%>
         <% if mutual_friends(@user).count == 1 %>
           <span><%= mutual_friends(@user).first.user_name %> is a mutual friend</span>
         <% else %>

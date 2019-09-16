@@ -2,11 +2,11 @@
   <% if @post.comments.any? %>
     <div class="comments">
       <% if (request.env['PATH_INFO'] != post_path(@post)) %>
-        <% max3(@post).each do |comment| %>
+        <% max1(@post).each do |comment| %>
           <%= render comment %>
           <hr>
         <% end %>
-        <% if @post.comments.count > 3 %>
+        <% if @post.comments.count > 1 %>
           <a trueId href="#" onclick="toggleComments(event)" data-message='<%=@post.id%>' >See all comments</a>
         <% end %>
       <% else %>
