@@ -34,7 +34,9 @@ class User < ApplicationRecord
   end
 
   def pending_friends
-    friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
+    friends1 = friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
+    friends2 = inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
+    friends1 + friends2
   end
 
   def friend_requests
@@ -66,6 +68,10 @@ class User < ApplicationRecord
 
   def confirmed_inverse_friends
     inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }.compact
+  end
+
+  def inverse_pending_friendships
+    inverse_friendships.map { |friendship| friendship unless friendship.confirmed }.compact
   end
 
   private

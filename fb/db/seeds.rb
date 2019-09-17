@@ -31,21 +31,12 @@ users1.each_with_index do |user1, index|
     end
   end
 end
+user = users1[0]
+posts = Post.all
 
-10.times do |i|
-  8.times do |_j|
-    content1 = Faker::Games::WorldOfWarcraft.quote
-    content2 = Faker::Games::WorldOfWarcraft.quote
-    users1[i].created_posts.create!(content: content1)
-    users2[i].created_posts.create!(content: content2)
-  end
-end
-
-users1.each do |user|
-  user.created_posts.each do |post|
-    10.times do |_i|
-      content = Faker::Games::WorldOfWarcraft.quote
-      user.comments.create!(content: content, post_id: post.id)
-    end
+posts.each do |post|
+  4.times do |_j|
+    content = Faker::Games::WorldOfWarcraft.quote
+    post.comments.create!(content: content, user_id: user.id)
   end
 end
