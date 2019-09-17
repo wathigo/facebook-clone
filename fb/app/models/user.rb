@@ -21,7 +21,6 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX }
-  before_save :downcase_email
 
   def friends
     confirmed_friends + confirmed_inverse_friends
@@ -78,10 +77,6 @@ class User < ApplicationRecord
 
   def unknown_users(current_user)
     User.all.map { |user| user if (!current_user.friends.include? user) && current_user.mutual_friends(user).empty? }.compact
-  end
-
-  def downcase_email
-    email.downcase!
   end
 
   def inverse_pending_friends
