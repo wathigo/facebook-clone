@@ -9,9 +9,10 @@ class FriendshipsController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       @friendship = current_user.friendships.build(friend_id: params[:id])
-      @friendship.save
-      redirect_back(fallback_location: root_path)
+      if @friendship.save
+        redirect_back(fallback_location: root_path)
       end
+    end
   end
 
   def update
@@ -36,6 +37,6 @@ class FriendshipsController < ApplicationController
   end
 
   def show
-    @friendships = current_user.inverse_friendships.map { |friendship| friendship unless friendship.confirmed }
+    @friendships = requests
   end
 end
