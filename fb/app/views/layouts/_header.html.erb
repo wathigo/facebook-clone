@@ -8,7 +8,7 @@
     <span>Welcome!  <%= @user.user_name%></span>
      <label class="fl-right toggle-lable" for="togg"> &#8801;</label>
      <label class="fl-right toggle-lable1" for="togg">&#10006;</label>
-     <% if friend_request.size > 0 %>
+     <% if friend_request.size > 0 && request.env['PATH_INFO'] != all_requests_path %>
       <span note></span>
      <% end %>
     <ul class="res-nav">
@@ -34,14 +34,16 @@
           <span onclick="toggleNotification()" notify>
           <%= fa_icon("flag-checkered", class: "fas") %>
           <%= link_to "Notifications", "#"%>
-          <% if friend_request.size > 0 %>
-            <%= fa_icon("caret-down", class: "fas") %></span>
-            <span note1><%= friend_request.size %></span>
-          <% end %>
-          <% if friend_request.any? %>
-          <div class="notification-container">
-            <%= render 'notification_list', friendships: friend_request %>
-          </div>
+          <% if request.env['PATH_INFO'] != all_requests_path %>
+            <% if friend_request.size > 0 %>
+              <%= fa_icon("caret-down", class: "fas") %></span>
+              <span note1><%= friend_request.size %></span>
+            <% end %>
+            <% if friend_request.any? %>
+            <div class="notification-container">
+              <%= render 'notification_list', friendships: friend_request %>
+            </div>
+            <% end %>
           <% end %>
         </li>
         <hr>

@@ -2,12 +2,12 @@
   <% @friendships = friendships %>
   <% if @friendships.any? %>
     <div class="notification-list">
-      <% if request.env['PATH_INFO'] == root_path %>
-        <% @friendships[0, 4].each do |friendship| %>
+      <% if request.env['PATH_INFO'] == all_requests_path %>
+        <% @friendships.each do |friendship| %>
           <%= render 'friendships/notification', friendship: friendship %>
         <% end %>
       <% else %>
-        <% @friendships.each do |friendship| %>
+        <% @friendships[0, 4].each do |friendship| %>
           <%= render 'friendships/notification', friendship: friendship %>
         <% end %>
       <% end %>
