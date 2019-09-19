@@ -82,4 +82,8 @@ class User < ApplicationRecord
   def unknown_users(current_user)
     User.all.map { |user| user if (!current_user.friends.include? user) && current_user.mutual_friends(user).empty? }.compact
   end
+
+  def inverse_pending_friends
+    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
+  end
 end
