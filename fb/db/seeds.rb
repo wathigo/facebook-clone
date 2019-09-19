@@ -21,7 +21,7 @@ users1 = User.order(:created_at).take(10)
 users2 = User.order(:created_at).reverse.take(10)
 
 users1.each_with_index do |user1, index|
-  users2.each do |user2|
+  users2[0, 5].each do |user2|
     if index > 4
       Friendship.create!(user_id: user2.id, friend_id: user1.id, confirmed: true)
     else

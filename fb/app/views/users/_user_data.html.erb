@@ -14,7 +14,7 @@
         <% end %>
       <% end %>
       <div class="prof-request">
-        <% if @user != current_user && (current_user.friends? @user)%>
+        <% if @user != current_user && (!current_user.friends? @user)%>
           <% if pending_inverse_friend?(@user) %>
             <%= link_to 'Accept request', accept_friendship_path(:id => @user.id), method: :post, class: 'accept-request' %>
           <% elsif pending_friend?(@user) || (current_user.friends.include? @user) %>

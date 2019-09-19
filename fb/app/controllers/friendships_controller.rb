@@ -5,12 +5,8 @@ class FriendshipsController < ApplicationController
 
   def create
     friend = User.find_by_id(params[:id])
-    if current_user.friends? friend
-      redirect_back(fallback_location: root_path)
-    else
-      @friendship = current_user.friendships.build(friend_id: params[:id])
-      redirect_back(fallback_location: root_path) if @friendship.save
-    end
+    @friendship = current_user.friendships.build(friend_id: params[:id])
+    redirect_back(fallback_location: root_path) if @friendship.save
   end
 
   def update
