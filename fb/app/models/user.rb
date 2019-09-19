@@ -38,6 +38,10 @@ class User < ApplicationRecord
     friends1 + friends2
   end
 
+  def pending_inverse_friends
+    friends2 = inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
+  end
+
   def friend_requests
     inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
   end
@@ -77,9 +81,5 @@ class User < ApplicationRecord
 
   def unknown_users(current_user)
     User.all.map { |user| user if (!current_user.friends.include? user) && current_user.mutual_friends(user).empty? }.compact
-  end
-
-  def inverse_pending_friends
-    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
   end
 end

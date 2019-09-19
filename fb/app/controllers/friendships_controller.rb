@@ -9,9 +9,7 @@ class FriendshipsController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       @friendship = current_user.friendships.build(friend_id: params[:id])
-      if @friendship.save
-        redirect_back(fallback_location: root_path)
-      end
+      redirect_back(fallback_location: root_path) if @friendship.save
     end
   end
 
