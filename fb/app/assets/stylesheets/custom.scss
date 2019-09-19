@@ -133,7 +133,6 @@ body, html{
     font-weight: bold;
     min-height: 10vh;
     i{
-      display: inline-block;
       width: 4vw;
       margin-right: 0.5em;
       color: #000;
@@ -166,6 +165,9 @@ body, html{
   display: none;
 }
 #togg:checked ~ .toggle-lable{
+  display: none;
+}
+#up{
   display: none;
 }
 #togg:checked ~ .toggle-lable1{

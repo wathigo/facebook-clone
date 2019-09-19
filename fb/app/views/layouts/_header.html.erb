@@ -36,7 +36,8 @@
           <%= link_to "Notifications", "#"%>
           <% if request.env['PATH_INFO'] != all_requests_path %>
             <% if friend_request.size > 0 %>
-              <%= fa_icon("caret-down", class: "fas") %></span>
+              <%= fa_icon("caret-down", class: "fas", id: "down") %>
+              <%= fa_icon("caret-up", class: "fas", id: "up") %></span>
               <span note1><%= friend_request.size %></span>
             <% end %>
             <% if friend_request.any? %>

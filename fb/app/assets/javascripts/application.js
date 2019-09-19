@@ -54,11 +54,15 @@ const toggleNotification = (ev => {
   if(notificationContainer != undefined){
     if(notificationContainer.style.display === 'none'){
       notificationContainer.style.display = 'block';
+      document.querySelector("#down").style.display = 'none'
+      document.querySelector("#up").style.display = 'inline-block'
       note1.style.display = 'none';
       note.style.display = 'none';
     }
     else{
       notificationContainer.style.display = 'none';
+      document.querySelector("#down").style.display = 'inline-block'
+      document.querySelector("#up").style.display = 'none'
     }
   }
 })
