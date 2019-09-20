@@ -2,17 +2,19 @@
 <% if @post %>
   <li class="post card" id="post-<%= @post.id %>">
     <div class="card-body zoom">
-      <span class="creator a-white">
+      <div class="creator a-white">
         <span image><%= profile_img_for(post.creator) %></span>
-        <span><%= link_to post.creator.user_name, user_path(post.creator), class: :name %></span>
+        <span><%= link_to @post.creator.user_name, user_path(post.creator), class: :name %></span>
         <span class="profile-btn"><%= link_to 'View Profile', user_path(post.creator), class: :name %></span>
-      </span>
-      <span class="content">
-        Content: <%= @post.content %>
-      </span>
-      <span class="timestamp">
-        <small>Created <%= time_ago_in_words(@post.created_at) %> ago.</small>
-      </span>
+      </div>
+      <a href="/post.<%= @post.id %>" post>
+        <span class="content">
+          Content: <%= @post.content %>
+        </span>
+        <span class="timestamp">
+          <small>Created <%= time_ago_in_words(@post.created_at) %> ago.</small>
+        </span>
+      </a>
       <% if (current_user == post.creator) && (request.env['PATH_INFO'] == user_path(current_user)) %>
         <%= link_to 'Delete post', post_path(@post), method: :delete, class: "delete"%>
       <% end %>

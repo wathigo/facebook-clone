@@ -1,0 +1,6 @@
+<div class="requests-container">
+  <% if @friendships.any? %>
+    <div class="post-header">Current request:</div>
+    <%= render 'requests_list', friendships: @friendships %>
+  <% end %>
+</div>

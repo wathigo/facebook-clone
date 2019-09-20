@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @pagy, @posts = pagy_array(Post.all.sort_by(&:created_at).reverse)
+    @pagy, @posts = pagy_array(timeline_posts.sort_by(&:created_at).reverse)
   end
 
   def destroy
@@ -25,6 +25,10 @@ class PostsController < ApplicationController
     if @post.creator == current_user
       redirect_back(fallback_location: root_path) if @post.destroy
     end
+  end
+
+  def show
+    @post = @post = Post.find_by_id(params[:format])
   end
 
   private

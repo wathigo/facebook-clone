@@ -8,10 +8,49 @@
     <span>Welcome!  <%= @user.user_name%></span>
      <label class="fl-right toggle-lable" for="togg"> &#8801;</label>
      <label class="fl-right toggle-lable1" for="togg">&#10006;</label>
+     <% if friend_request.size > 0 && request.env['PATH_INFO'] != all_requests_path %>
+      <span note></span>
+     <% end %>
     <ul class="res-nav">
-        <li><%= link_to "Create Post", posts_path, method: :get %></li>
-        <li><%= link_to "Find friends", users_path, method: :get %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <li>
+          <div nav-image>
+            <span><%= image_tag gravatar_image_url(current_user.email) %>
+              <%= link_to "My profile", user_path(current_user), class: :name %>
+            </span>
+          </div>
+        </li>
+        <hr>
+        <li>
+          <%= fa_icon("plus", class: "fas") %>
+          <%= link_to "Create Post", posts_path, method: :get %>
+        </li>
+        <hr>
+        <li>
+          <%= fa_icon("users", class: "fas") %>
+          <%= link_to "Find friends", users_path, method: :get %>
+        </li>
+        <hr>
+        <li>
+          <span onclick="toggleNotification()" notify>
+          <%= fa_icon("flag-checkered", class: "fas") %>
+          <%= link_to "Notifications", "#"%>
+          <% if request.env['PATH_INFO'] != all_requests_path %>
+            <% if friend_request.size > 0 %>
+              <%= fa_icon("caret-down", class: "fas", id: "down") %>
+              <%= fa_icon("caret-up", class: "fas", id: "up") %></span>
+              <span note1><%= friend_request.size %></span>
+            <% end %>
+            <% if friend_request.any? %>
+            <div class="notification-container">
+              <%= render 'notification_list', friendships: friend_request %>
+            </div>
+            <% end %>
+          <% end %>
+        </li>
+        <hr>
+        <li>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        </li>
     <% end %>
     </ul>
   </div>

@@ -1,13 +1,20 @@
 <div class="comments-container">
   <% if @post.comments.any? %>
     <div class="comments">
-      <% max3(@post).each do |comment| %>
-        <%= render comment %>
-        <hr>
-      <% end %>
-      <% if @post.comments.count > 3 %>
-        <a trueId href="#" onclick="toggleComments(event)" data-message='<%=@post.id%>' >See all comments</a>
-      <% end %>
+      <% if (request.env['PATH_INFO'] != post_path(@post)) %>
+        <% max1(@post).each do |comment| %>
+          <%= render comment %>
+          <hr>
+        <% end %>
+        <% if @post.comments.count > 1 %>
+          <a trueId href="#" onclick="toggleComments(event)" data-message='<%=@post.id%>' >See all comments</a>
+        <% end %>
+      <% else %>
+        <% @post.comments.sort_by(&:created_at).reverse.each do |comment| %>
+          <%= render comment %>
+          <hr>
+        <% end %>
+      <%end%>
     </div>
   <% end %>
 </div>

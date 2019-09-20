@@ -6,7 +6,7 @@ body, html{
   overflow-y: hidden;
 }
 .navbar{
-  height: 30px;
+  height: 6vh;
   background-image: linear-gradient(to bottom right, #631280, #5109FF);
   color: #fff;
   border-bottom: #29487d;
@@ -16,8 +16,8 @@ body, html{
     width: 29%;
     color: #fff;
     font-weight: bold;
-    height: 30px;
-    line-height: 30px;
+    height: 6vh;
+    line-height: 6vh;
     text-decoration: none;
     cursor: pointer;
   }
@@ -39,7 +39,167 @@ body, html{
   }
 }
 }
-
+.toggle-lable1{
+  display: none;
+}
+.toggle-lable{
+  display: inline-block;
+  font-size: 2em;
+  font-weight: bold;
+  padding-right: 0.5em;
+  cursor: pointer;
+  &:hover{
+    opacity: 0.5;
+  }
+}
+.container{
+  position: relative;
+  height: 6vh;
+}
+.res-nav{
+  position: absolute;
+  display: block !important;
+  height: 30vh;
+  width: 30%;
+  top: -1000px;
+  transform: rotate(0deg);
+}
+[notify]{
+  cursor: pointer;
+}
+[note]{
+  font-size: 0.8em;
+  width: 0.5em;
+  height: 0.5em;
+  text-align: center;
+  padding: 0.1em;
+  background-color: red;
+  border-radius: 50%;
+  float: right;
+  margin-top: 1em;
+  margin-right: -1em;
+}
+[note1]{
+  font-size: 0.8em;
+  background-color: red;
+  border-radius: 50%;
+  width: 1.8em;
+  height: 1.8em;
+  padding-bottom: 0.4em;
+  display: inline-block;
+  text-align: center;
+}
+#togg:checked ~ .res-nav{
+  position: absolute;
+  display: block !important;
+  height: 100vh;
+  // margin-top: 30px;
+  width: 30vw;
+  top: 0;
+  right: 0;
+  transition: top 0.5s ease-out;
+  background-image: linear-gradient(to bottom right, #C5ACFF, #f3e5f5);
+  border: solid 1px #fff;
+  padding: 10px;
+  z-index: 1;
+  .notifications{
+    display: none;
+    width: 60%;
+    color: #fff;
+    margin-left: 20%;
+    .notification-list{
+      .notification{
+        font-size: 0.6em;
+        background-image: linear-gradient(to bottom right, #631280, #5109FF);
+        border-radius: 0.5em;
+        p{
+          padding: 0.5em;
+          line-height: normal;
+        }
+      }
+    }
+  }
+  li:first-of-type{
+    margin-top: 7vh;
+  }
+  a{
+    color: #000000;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  li{
+    display: block;
+    font-weight: bold;
+    min-height: 10vh;
+    i{
+      width: 4vw;
+      margin-right: 0.5em;
+      color: #000;
+      padding-left: 0.5em;
+      height: 10vh;
+      line-height: 10vh;
+    }
+    a{
+      height: 10vh;
+      line-height: 10vh;
+    }
+    &:last-of-type{
+      text-align: right;
+      a{
+        color: red;
+        padding-right: 14vw;
+      }
+    }
+  }
+}
+.requests-link{
+  font-size: 0.8em;
+  color: blue !important;
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+  font-weight: 200;
+}
+#togg{
+  display: none;
+}
+#togg:checked ~ .toggle-lable{
+  display: none;
+}
+#up{
+  display: none;
+}
+#togg:checked ~ .toggle-lable1{
+  display: inline-block;
+  font-size: 1.2em;
+  color: #000;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  right: 0;
+  padding-right: 0.2em;
+  cursor: pointer;
+  z-index: 10;
+  &:hover{
+    opacity: 0.5
+  }
+}
+[nav-image]{
+  color: #000;
+  vertical-align: middle;
+  img{
+    border-radius: 50%;
+    width: 4vw;
+    margin-right: 0.5em;
+    vertical-align: middle;
+  }
+  a{
+    height: 5.5vh;
+    line-height: 5.5vh;
+    display: inline-block;
+  }
+}
 .posts{
   width: 100%;
   display: flex;
@@ -62,7 +222,15 @@ body, html{
 .l-container{
   position: relative;
 }
-.auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container{
+.post-container .zoom{
+  &:hover{
+    transform: none;
+  }
+  width: 70vw;
+  margin: 0 auto;
+  display: block;
+}
+.auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container, .requests-container, .post-container{
   height: 100vh;
   width: 100%;
   background-color: rgb(233, 235, 238);
@@ -161,7 +329,7 @@ body, html{
     margin: 10px 0 0 32%;
   }
 }
-.posts-container{
+.posts-container, .post-container{
   width: 80%;
   border-radius: 40px;
   padding: 25px;
@@ -177,6 +345,16 @@ body, html{
     margin: 0 auto 20px auto;
   }
 
+}
+.post-container {
+  margin-top: 3vh;
+  border-radius: 0;
+  .post{
+    width: 90%;
+    [icons] li:first-child{
+      padding-right: 40vw;
+    }
+}
 }
 .creator{
   height: 12vh;
@@ -220,11 +398,10 @@ body, html{
     height: 12vh;
     line-height: 12vh;
   }
-  &:after{
-    clear: both;
-    display: table;
-    content: "";
-  }
+}
+[post]{
+  color: #000;
+  text-decoration: none;
 }
 .pagination{
   margin-top: 20px;
@@ -296,55 +473,69 @@ body, html{
   font-weight: 600;
 }
 
-.users{
+.users, .requests{
   width: 70%;
   box-shadow:  3px 3px 5px 6px #ccc;
   background-color: #fff;
-  margin: 10vh auto 0 auto;
+  margin: 5vh auto 0 auto;
   padding: 10vh 10vw 10vh 10vw;
   box-sizing: border-box;
+  height: 80vh;
+  overflow-y: scroll;
   .users-list {
     width: 100%;
     margin: 0 auto;
     [user]{
-      height: 10vh;
+      min-height: 10vh;
       display: block;
       position: relative;
-      .add-friend{
-        display: inline-block;
-        position: absolute;
-        right: 10vw;
-      }
-      [avatar]{
-        height: 10vh;
-        display: inline-block;
-        box-sizing: border-box;
-        [image]{
-          display: inline-block;
-          height: 10vh;
-          vertical-align: middle;
-          img{
-            border-radius: 50%;
-            height: 5vh;
-            margin-top: 2vh;
-            display: inline-block;
-          }
-        }
-        span{
-          a{
-            color: blue;
-            text-decoration: none;
-            cursor: pointer;
-            &:hover{
-              text-decoration: underline;
-            }
-          }
-        }
-      }
-      [userdata]{
-        display: inline-block
-      }
     }
+  }
+}
+[friends]{
+  margin-top: 1vh;
+}
+.user-info .cancel-friend{
+  position: static;
+}
+[mutuals]{
+  font-size: 0.8em;
+  color: grey;
+}
+.requester{
+  width: 20vw;
+  display: inline-block;
+}
+.accept-request{
+  margin-right: 1.5vw;
+  margin-left: 1.5vw;
+}
+.accept-request, .cancel-request{
+  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  padding: 0.2em;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5em;
+  &:hover{
+    background: none;
+    background-color: #ccc;
+    color: #000;
+  }
+}
+.add-friend, .cancel-friend{
+  display: inline-block;
+  position: absolute;
+  right: 10vw;
+  bottom: 1.5em;
+}
+.cancel-friend{
+  text-decoration: none;
+  color: red;
+  padding: 5px;
+  background-color: #ccc;
+  border-radius: 5px;
+  &:hover{
+    background-color: #fff;
   }
 }
 .request-friend{
@@ -445,14 +636,9 @@ body, html{
     text-decoration: none;
   }
 }
-.toggle-lable, .toggle-lable1{
-  display: none;
-}
+
 .fl-right{
   float: right;
-}
-.togg{
-  display: none;
 }
 .all-comments-container{
   width: 100%;
@@ -486,8 +672,42 @@ body, html{
     overflow-y: scroll;
   }
 }
-
+[avatar]{
+  height: 10vh;
+  display: inline-block;
+  box-sizing: border-box;
+  [image]{
+    display: inline-block;
+    height: 10vh;
+    vertical-align: middle;
+    img{
+      border-radius: 50%;
+      height: 5vh;
+      margin-top: 2vh;
+      display: inline-block;
+    }
+  }
+  span{
+    a{
+      color: blue;
+      text-decoration: none;
+      cursor: pointer;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+[userdata]{
+  display: inline-block
+}
+.prof-request{
+  margin-top: 1vh;
+}
 @media only screen and (max-width:780px){
+  .res-nav{
+      width: 50vw !important;
+  }
   .l-container .posts .post{
     width: 70%;
     .profile-btn{
@@ -521,71 +741,7 @@ body, html{
       }
     }
   }
-  .toggle-lable{
-    display: inline-block;
-    font-size: 1.6em;
-    font-weight: bold;
-    padding-right: 0.2em;
-    cursor: pointer;
-    &:hover{
-      opacity: 0.5;
-    }
-  }
-  .container{
-    position: relative;
-  }
-  .res-nav{
-    position: absolute;
-    display: block !important;
-    height: 30vh;
-    width: 30%;
-    top: -500px;
-    transform: rotate(0deg);
-  }
-  #togg:checked ~ .res-nav{
-    position: absolute;
-    display: block !important;
-    height: 100vh;
-    // margin-top: 30px;
-    width: 30vw;
-    top: 0;
-    right: 0;
-    transition: top 0.5s ease-out;
-    background-image: linear-gradient(to bottom right, #C5ACFF, #f3e5f5);
-    border: solid 1px #fff;
-    padding: 10px;
-    z-index: 1;
-    li:first-of-type{
-      margin-top: 7vh;
-    }
-    a{
-      color: #000000;
-      &:hover{
-        text-decoration: underline;
-      }
-    }
-    li{
-      display: block;
-    }
-  }
-  #togg:checked ~ .toggle-lable{
-    display: none;
-  }
-  #togg:checked ~ .toggle-lable1{
-    display: inline-block;
-    font-size: 1.2em;
-    color: #000;
-    height: 30px;
-    line-height: 30px;
-    position: absolute;
-    right: 0;
-    padding-right: 0.2em;
-    cursor: pointer;
-    z-index: 10;
-    &:hover{
-      opacity: 0.5
-    }
-  }
+
   .users{
     width: 90%;
     padding: 0 0 0 5vw;
