@@ -48,9 +48,9 @@ class User < ApplicationRecord
   def recommended_friends
     friends = User.all.map { |user| user if (!friends? user) && (mutual_friends(user).size > 1) && user != self }.compact
     if friends.size < 10
-      ((friends + unknown_users(self)) - [self]) - inverse_pending_friends
+      ((friends + unknown_users(self)) - [self]) - pending_requests
     else
-      (friends - [self]) - inverse_pending_friends
+      (friends - [self]) - pending_requests
     end
   end
 
@@ -62,13 +62,14 @@ class User < ApplicationRecord
     confirmed_inverse_friendships.map { |friendship| friendship.user }
   end
 
+  def pending_requests
+    pending_inverse_friendships.map { |friendship| friendship.friend}
+  end
+
   private
 
   def unknown_users(current_user)
     User.all.map { |user| user if (!current_user.friends.include? user) && current_user.mutual_friends(user).empty? }.compact
   end
 
-  def inverse_pending_friends
-    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
-  end
 end

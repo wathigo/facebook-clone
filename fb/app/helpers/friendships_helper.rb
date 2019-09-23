@@ -2,7 +2,7 @@
 
 module FriendshipsHelper
   def pending_friend?(user)
-    current_user.pending_friends.include? user
+    current_user.pending_requests.include? user
   end
 
   def friend_request
