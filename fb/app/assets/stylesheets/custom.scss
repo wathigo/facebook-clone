@@ -1,5 +1,10 @@
 @import "font-awesome";
 
+$cont-color: #ccc;
+$bg-img: linear-gradient(to bottom right, #631280, #5109FF);
+$bg-gra: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+
+
 body, html{
   margin: 0;
   padding: 0;
@@ -7,7 +12,7 @@ body, html{
 }
 .navbar{
   height: 6vh;
-  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  background-image: $bg-img;
   color: #fff;
   border-bottom: #29487d;
   .logo {
@@ -110,7 +115,7 @@ body, html{
     .notification-list{
       .notification{
         font-size: 0.6em;
-        background-image: linear-gradient(to bottom right, #631280, #5109FF);
+        background-image: $bg-img;
         border-radius: 0.5em;
         p{
           padding: 0.5em;
@@ -241,7 +246,7 @@ body, html{
     margin: 5vh auto 0 auto;
     background-color: #fff;
     padding: 30px;
-    box-shadow:  3px 3px 5px 6px #ccc;
+    box-shadow:  3px 3px 5px 6px $cont-color;
     form{
       width: 60%;
       margin: 0 auto;
@@ -252,7 +257,7 @@ body, html{
       .actions {
         display: inline-block;
         input{
-          background-color: #4267b2;
+          background-image: $bg-img;
           border-radius: 5px;
           color: #fff;
           border: 0;
@@ -260,6 +265,7 @@ body, html{
           cursor: pointer;
           margin-right: 40px;
           &:hover{
+            background: none;
             background-color: rgb(233, 235, 238);
             color: #000;
           }
@@ -306,7 +312,7 @@ body, html{
 .auth-container a[href="/users/sign_up"], .edit{
   text-decoration: none;
   color: #fff;
-  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  background-image: $bg-img;
   padding: 3px;
   display: inline-block;
   border-radius: 5px;
@@ -338,7 +344,7 @@ body, html{
     url('media.jpg');
   background-size: cover;
   .post{
-    background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+    background-image: $bg-gra;
     color: #000;
     border-radius: 30px;
     width: 43%;
@@ -371,7 +377,7 @@ body, html{
     a{
       padding: 0.09em;
       border-radius: 0.3em;
-      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      background-image: $bg-img;
       color: #fff;
       height: 3vh;
       text-decoration: none;
@@ -407,7 +413,7 @@ body, html{
   margin-top: 20px;
   height: 5vh;
   width: 40vw;
-  background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+  background-image: $bg-gra;
   margin-bottom: 50px;
   color: black;
   ul{
@@ -429,7 +435,7 @@ body, html{
       width: 80%;
     }
     input[type="submit"]{
-      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      background-image: $bg-img;
       color: #fff;
       border-radius: 6px;
       padding: 10px;
@@ -475,7 +481,7 @@ body, html{
 
 .users, .requests{
   width: 70%;
-  box-shadow:  3px 3px 5px 6px #ccc;
+  box-shadow:  3px 3px 5px 6px $cont-color;
   background-color: #fff;
   margin: 5vh auto 0 auto;
   padding: 10vh 10vw 10vh 10vw;
@@ -511,14 +517,14 @@ body, html{
   margin-left: 1.5vw;
 }
 .accept-request, .cancel-request{
-  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  background-image: $bg-img;
   padding: 0.2em;
   color: #fff;
   text-decoration: none;
   border-radius: 0.5em;
   &:hover{
     background: none;
-    background-color: #ccc;
+    background-color: $cont-color;
     color: #000;
   }
 }
@@ -532,7 +538,7 @@ body, html{
   text-decoration: none;
   color: red;
   padding: 5px;
-  background-color: #ccc;
+  background-color: $cont-color;
   border-radius: 5px;
   &:hover{
     background-color: #fff;
@@ -545,7 +551,7 @@ body, html{
   border-radius: 5px;
   text-decoration: none;
   &:hover {
-    background-color: #ccc;
+    background-color: $cont-color;
     color: #000;
   }
 }
@@ -574,7 +580,7 @@ body, html{
       width: 60%;
     }
     input[type="submit"]{
-      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      background-image: $bg-img;
       border: none;
       border-radius: 1em;
       color: #fff;
@@ -665,7 +671,7 @@ body, html{
     visibility: hidden;
     width: 60%;
     padding: 2em;
-    background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+    background-image: $bg-gra;
     margin: 5vh auto 0 auto;
     box-shadow:  3px 3px 5px 6px #000;
     height: 70vh;
