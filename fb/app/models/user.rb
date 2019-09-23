@@ -11,7 +11,10 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: 'Friendship',
                                  foreign_key: 'friend_id',
                                  dependent: :destroy
-
+  has_many :confirmed_friendships, -> { where(confirmed: true) }, class_name: 'Friendship', foreign_key: :user_id, dependent: :destroy
+  has_many :confirmed_inverse_friendships, -> { where(confirmed: true) }, class_name: 'Friendship', foreign_key: :friend_id, dependent: :destroy
+  has_many :pending_friendships, -> { where(confirmed: false) }, class_name: 'Friendship', foreign_key: :user_id, dependent: :destroy
+  has_many :pending_inverse_friendships, -> { where(confirmed: false) }, class_name: 'Friendship', foreign_key: :friend_id, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -30,20 +33,6 @@ class User < ApplicationRecord
     friends_v1 = confirmed_friends & user.confirmed_friends
     friends_v2 = confirmed_inverse_friends & user.confirmed_inverse_friends
     (friends_v1 + friends_v2) - [user]
-  end
-
-  def pending_friends
-    friends1 = friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
-    friends2 = inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
-    friends1 + friends2
-  end
-
-  def pending_inverse_friends
-    friends2 = inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
-  end
-
-  def friend_requests
-    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
   end
 
   def confirm_friend(requester)
@@ -66,15 +55,11 @@ class User < ApplicationRecord
   end
 
   def confirmed_friends
-    friendships.map { |friendship| friendship.friend if friendship.confirmed }.compact
+    confirmed_friendships.map { |friendship| friendship.friend }
   end
 
   def confirmed_inverse_friends
-    inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }.compact
-  end
-
-  def inverse_pending_friendships
-    inverse_friendships.map { |friendship| friendship unless friendship.confirmed }.compact
+    confirmed_inverse_friendships.map { |friendship| friendship.user }
   end
 
   private

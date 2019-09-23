@@ -6,7 +6,7 @@ module FriendshipsHelper
   end
 
   def friend_request
-    current_user.inverse_friendships.map { |friendship| friendship unless friendship.confirmed }.compact
+    current_user.pending_inverse_friendships
   end
 
   def mutual_friends(user)
