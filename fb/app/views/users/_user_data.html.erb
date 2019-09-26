@@ -15,9 +15,9 @@
       <% end %>
       <div class="prof-request">
         <% if @user != current_user && (!current_user.friends? @user)%>
-          <% if pending_inverse_friend?(@user) %>
+          <% if request?(@user) %>
             <%= link_to 'Accept request', accept_friendship_path(:id => @user.id), method: :post, class: 'accept-request' %>
-          <% elsif pending_friend?(@user) || (current_user.friends.include? @user) %>
+          <% elsif pending_friend?(@user) %>
             <%= link_to 'Cancel request', cancel_friendship_path(:id => @user.id), method: :delete, class: 'cancel-friend' %>
           <% else %>
             <%= link_to 'Add friend', friendship_path(:id => @user.id), method: :post, class: 'request-friend' %>
