@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     current_user.friends.each { |friend| friends_posts = friends_posts + friend.created_posts}
     posts = current_user.created_posts + friends_posts
     if posts.empty?
-      posts = Post.all
+      posts = Post.order(:created_at).take(10)
     else
       posts
     end
