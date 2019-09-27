@@ -26,7 +26,7 @@ class FriendshipsController < ApplicationController
     else
       @friendship = current_user.inverse_friendships.find_by_id(params[:friendship_id])
     end
-    @friendship ||= user.pending_inverse_friendships.find { |friendship| friendship.user = current_user }
+    @friendship ||= current_user.pending_friendships.find { |friendship| friendship.friend = user }
     redirect_back(fallback_location: root_path) if @friendship.delete
   end
 
