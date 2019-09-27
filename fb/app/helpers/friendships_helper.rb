@@ -2,14 +2,13 @@
 
 module FriendshipsHelper
   def pending_friend?(user)
-    sent_requetsts = current_user.pending_friendships.map{ |friendship| friendship.friend }
-    sent_requetsts.include? user
+    current_user.pending_friends.include? user
   end
 
   def request?(user)
     current_user.pending_requests.include? user
   end
-  
+
   def friend_request
     current_user.pending_inverse_friendships
   end

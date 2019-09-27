@@ -66,10 +66,14 @@ class User < ApplicationRecord
     pending_inverse_friendships.map { |friendship| friendship.user}
   end
 
+  def pending_friends
+    pending_friendships.map{ |friendship| friendship.friend }
+  end
+
   private
 
   def unknown_users(current_user)
-    User.all.map { |user| user if (!current_user.friends? user) }.compact
+    User.all.map { |user| user if !(current_user.friends? user) && !(current_user.pending_requests.include? user) }.compact
   end
 
 end
