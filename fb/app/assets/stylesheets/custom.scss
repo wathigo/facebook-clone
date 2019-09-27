@@ -8,6 +8,7 @@ $bg-gra: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
 body, html{
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 .navbar{
   height: 6vh;
@@ -721,6 +722,9 @@ footer{
   }
 }
 @media only screen and (max-width:780px){
+  .post-container .post [icons] li:first-child {
+    padding-right: 20vw;
+}
   .res-nav{
       width: 50vw !important;
   }
@@ -764,6 +768,44 @@ footer{
     padding: 0 0 0 5vw;
     .users-list{
       width: 100%;
+      a{
+        font-size: 0.7em;
+      }
+    }
+  }
+  .edit-container{
+    .edit-user{
+      width: 100%;
+      form {
+        .avatar{
+          width: 70vw;
+        }
+      }
+    }
+  }
+
+  .requests-container {
+    .requests{
+      width: 95%;
+      padding: 2vh 2vw 2vh 2vw;
+      .requests-list{
+        [avatar]{
+          width: auto;
+          a{
+            font-size: 0.7em;
+          }
+        }
+        [userdata]{
+          a{
+            font-size: 0.7em;
+          }
+        }
+      }
+    }
+  }
+  header .container{
+    .logo, [welcome]{
+      font-size: 0.7em;
     }
   }
 }
