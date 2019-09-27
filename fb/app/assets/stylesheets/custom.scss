@@ -8,7 +8,6 @@ $bg-gra: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
 body, html{
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
 }
 .navbar{
   height: 6vh;
@@ -236,10 +235,8 @@ body, html{
   display: block;
 }
 .auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container, .requests-container, .post-container{
-  height: 100vh;
   width: 100%;
   background-color: rgb(233, 235, 238);
-  overflow: scroll;
 
   .sign-up, .log-in, .edit-user, .new-post{
     width: 30%;
@@ -710,6 +707,19 @@ body, html{
 .prof-request{
   margin-top: 1vh;
 }
+footer{
+  width: 100%;
+  height: 6vh;
+  background-image: $bg-img;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  p{
+    height: 6vh;
+    line-height: 6vh;
+    font-size: 0.7em;
+  }
+}
 @media only screen and (max-width:780px){
   .res-nav{
       width: 50vw !important;
@@ -744,6 +754,7 @@ body, html{
       margin: 0 auto;
       .avatar{
         width: auto;
+
       }
     }
   }
