@@ -226,6 +226,7 @@ body, html{
 .l-container{
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
 }
 .post-container .zoom{
   &:hover{
