@@ -32,7 +32,6 @@ const toggleComments = ((e) => {
   nodeList.forEach((node) => {
     node.classList.remove('zoom');
   })
-  document.querySelector('.card-htmlCont').classList.remove('zoom');
 })
 
 const closeComments = (el => {
