@@ -20,31 +20,31 @@ let currentScrollTop;
 const toggleComments = ((e) => {
   e.preventDefault();
   const id = e.target.dataset.message
-  const lContainer = document.querySelector('.l-container')
+  const htmlCont = document.querySelector('html')
   currentId = id
   const allCommentsContainer = document.querySelector(".all-comments-container")
-  currentScrollTop = lContainer.scrollTop;
-  const top = lContainer.scrollTop = '0';
-  lContainer.style.overflow = 'hidden'
+  currentScrollTop = htmlCont.scrollTop;
+  htmlCont.scrollTop = '0';
+  htmlCont.style.overflow = 'hidden'
   allCommentsContainer.style.visibility = 'visible';
   document.querySelector(`#comment_post_${id}`).style.visibility = 'visible';
   const nodeList = document.querySelectorAll('.card-body')
   nodeList.forEach((node) => {
     node.classList.remove('zoom');
   })
-  document.querySelector('.card-body').classList.remove('zoom');
+  document.querySelector('.card-htmlCont').classList.remove('zoom');
 })
 
 const closeComments = (el => {
-  const lContainer = document.querySelector('.l-container')
+  const htmlCont = document.querySelector('html')
   document.querySelector(`#comment_post_${currentId}`).style.visibility = 'hidden';
   document.querySelector(".all-comments-container").style.visibility = 'hidden';
   const nodeList = document.querySelectorAll('.card-body')
   nodeList.forEach((node) => {
     node.classList.add('zoom');
   })
-  lContainer.style.overflow = 'scroll';
-  lContainer.scrollTop = currentScrollTop;
+  htmlCont.style.overflow = 'scroll';
+  htmlCont.scrollTop = currentScrollTop;
 });
 
 const toggleNotification = (ev => {
