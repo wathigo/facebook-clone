@@ -19,8 +19,8 @@ RSpec.describe FriendshipsController, type: :controller do
       expect { post :create, params: { id: luna.id } }.to change(michael.friendships, :count).by(1)
     end
 
-    it 'Increments luna(friend) inverse_friendships by one' do
-      expect { post :create, params: { id: luna.id } }.to change(luna.inverse_friendships, :count).by(1)
+    it 'Increments luna(friend) pending_inverse_friendships by one' do
+      expect { post :create, params: { id: luna.id } }.to change(luna.pending_inverse_friendships, :count).by(1)
     end
 
     it 'Raises an error when you create a friendship where a pending friendship exists' do

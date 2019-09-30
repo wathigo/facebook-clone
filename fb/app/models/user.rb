@@ -8,11 +8,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_one_attached :avatar
   has_many :friendships
-  has_many :inverse_friendships, class_name: 'Friendship',
-                                 foreign_key: 'friend_id',
-                                 dependent: :destroy
+  has_many :inverse_friendships, -> { where(confirmed: true) }, class_name: 'Friendship', foreign_key: :friend_id, dependent: :destroy
   has_many :confirmed_friendships, -> { where(confirmed: true) }, class_name: 'Friendship', foreign_key: :user_id, dependent: :destroy
-  has_many :confirmed_inverse_friendships, -> { where(confirmed: true) }, class_name: 'Friendship', foreign_key: :friend_id, dependent: :destroy
+  has_many :confirmed_friends, through: :confirmed_friendships, source: :friend
+  has_many :confirmed_inverse_friends, through: :inverse_friendships, source: :user
   has_many :pending_friendships, -> { where(confirmed: false) }, class_name: 'Friendship', foreign_key: :user_id, dependent: :destroy
   has_many :pending_inverse_friendships, -> { where(confirmed: false) }, class_name: 'Friendship', foreign_key: :friend_id, dependent: :destroy
   # Include default devise modules. Others available are:
@@ -36,7 +35,7 @@ class User < ApplicationRecord
   end
 
   def confirm_friend(requester)
-    friendship = inverse_friendships.find { |friendship| friendship.user == requester }
+    friendship = pending_inverse_friendships.find { |friendship| friendship.user == requester }
     friendship.confirmed = true
     friendship.save!
   end
@@ -52,14 +51,6 @@ class User < ApplicationRecord
     else
       (friends - [self]) - pending_requests
     end
-  end
-
-  def confirmed_friends
-    confirmed_friendships.map { |friendship| friendship.friend }
-  end
-
-  def confirmed_inverse_friends
-    confirmed_inverse_friendships.map { |friendship| friendship.user }
   end
 
   def pending_requests
