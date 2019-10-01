@@ -68,6 +68,7 @@ body, html{
   width: 30%;
   top: -1000px;
   transform: rotate(0deg);
+  overflow: hidden;
 }
 [notify]{
   cursor: pointer;
@@ -230,7 +231,7 @@ body, html{
 .l-container{
   position: relative;
   overflow: hidden;
-  min-height: 87vh;
+  min-height: 90vh;
 }
 .post-container .zoom{
   &:hover{
