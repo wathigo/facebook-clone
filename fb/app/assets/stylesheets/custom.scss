@@ -648,7 +648,20 @@ body, html{
     text-decoration: none;
   }
 }
-
+.fb{
+  background-image: $bg-img;
+  padding: 0.3em;
+  color: #fff;
+  display: inline-block;
+  margin-left: 10vw;
+  text-decoration: none;
+  border-radius: 2em;
+  &:hover{
+    background-image: none;
+    background-color: #ccc;
+    color: #000;
+  }
+}
 .fl-right{
   float: right;
 }
