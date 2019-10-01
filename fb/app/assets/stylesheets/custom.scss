@@ -189,6 +189,10 @@ body, html{
     opacity: 0.5
   }
 }
+[empty]{
+  text-align: center;
+  width: 100vw;
+}
 [nav-image]{
   color: #000;
   vertical-align: middle;
@@ -226,7 +230,7 @@ body, html{
 .l-container{
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 87vh;
 }
 .post-container .zoom{
   &:hover{
