@@ -32,8 +32,6 @@ class FriendshipsController < ApplicationController
 
   def show
     @friendships = requests
-    if @friendships.empty?
-      redirect_to root_path
-    end
+    redirect_to root_path if @friendships.empty?
   end
 end

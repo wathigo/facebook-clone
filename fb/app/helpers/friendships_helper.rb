@@ -16,6 +16,7 @@ module FriendshipsHelper
   def mutual_friends(user)
     current_user.mutual_friends(user)
   end
+
   def pending_inverse_friend?(user)
     current_user.pending_inverse_friends.include? user
   end

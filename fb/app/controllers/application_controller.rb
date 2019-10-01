@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def timeline_posts
     friends_posts = []
-    current_user.friends.each { |friend| friends_posts = friends_posts + friend.created_posts}
+    current_user.friends.each { |friend| friends_posts += friend.created_posts }
     posts = current_user.created_posts + friends_posts
   end
 end

@@ -34,7 +34,6 @@ RSpec.describe FriendshipsController, type: :controller do
       friendship2.save
       expect { post :create, params: { id: luna.id } }.to raise_error(ActiveRecord::RecordNotUnique)
     end
-
   end
 
   describe '#update' do
@@ -47,13 +46,13 @@ RSpec.describe FriendshipsController, type: :controller do
     it "Adds luna to Michael's friends list" do
       sign_in luna
       post :update, params: { id: michael.id }
-      expect(michael.friends.include? luna).to eql(true)
+      expect(michael.friends.include?(luna)).to eql(true)
     end
 
     it "Adds Michael to Luna's friends list" do
       sign_in luna
       post :update, params: { id: michael.id }
-      expect(luna.friends.include? michael).to eql(true)
+      expect(luna.friends.include?(michael)).to eql(true)
     end
   end
 
