@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def requests
-    current_user.pending_inverse_friendships
+    current_user.pending_inverse_friendships.order(:created_at)
   end
 
   def timeline_posts
