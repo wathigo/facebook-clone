@@ -5,19 +5,34 @@ require 'rails_helper'
 RSpec.describe FriendshipsController, type: :controller do
   let(:michael) { FactoryBot.create(:user) }
   let(:luna) { FactoryBot.create(:user) }
+  let(:john) { FactoryBot.create(:user) }
   let(:friendship1) { FactoryBot.create(:friendship) }
+  let(:friendship2) { FactoryBot.create(:friendship) }
 
   describe '#create' do
     before do
       sign_in michael
+      post :create, params: { id: john.id }
     end
 
     it 'Increments michael(current_user) friendships by one' do
       expect { post :create, params: { id: luna.id } }.to change(michael.friendships, :count).by(1)
     end
 
-    it 'Increments luna(friend) inverse_friendships by one' do
-      expect { post :create, params: { id: luna.id } }.to change(luna.inverse_friendships, :count).by(1)
+    it 'Increments luna(friend) pending_inverse_friendships by one' do
+      expect { post :create, params: { id: luna.id } }.to change(luna.pending_inverse_friendships, :count).by(1)
+    end
+
+    it 'Raises an error when you create a friendship where a pending friendship exists' do
+      expect { post :create, params: { id: john.id } }.to raise_error(ActiveRecord::RecordNotUnique)
+    end
+
+    it 'Raises an error when you create a friendship where a confirmed friendship exists' do
+      friendship2.user_id = michael.id
+      friendship2.friend_id = luna.id
+      friendship2.confirmed = true
+      friendship2.save
+      expect { post :create, params: { id: luna.id } }.to raise_error(ActiveRecord::RecordNotUnique)
     end
   end
 
@@ -31,13 +46,13 @@ RSpec.describe FriendshipsController, type: :controller do
     it "Adds luna to Michael's friends list" do
       sign_in luna
       post :update, params: { id: michael.id }
-      expect(michael.friends.include? luna).to eql(true)
+      expect(michael.friends.include?(luna)).to eql(true)
     end
 
     it "Adds Michael to Luna's friends list" do
       sign_in luna
       post :update, params: { id: michael.id }
-      expect(luna.friends.include? michael).to eql(true)
+      expect(luna.friends.include?(michael)).to eql(true)
     end
   end
 

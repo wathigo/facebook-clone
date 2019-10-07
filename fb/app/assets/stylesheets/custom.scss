@@ -1,13 +1,18 @@
 @import "font-awesome";
 
+$cont-color: #ccc;
+$bg-img: linear-gradient(to bottom right, #631280, #5109FF);
+$bg-gra: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+
+
 body, html{
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
+  overflow-x: hidden !important;
 }
 .navbar{
   height: 6vh;
-  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  background-image: $bg-img;
   color: #fff;
   border-bottom: #29487d;
   .logo {
@@ -63,6 +68,7 @@ body, html{
   width: 30%;
   top: -1000px;
   transform: rotate(0deg);
+  overflow: hidden;
 }
 [notify]{
   cursor: pointer;
@@ -93,7 +99,6 @@ body, html{
   position: absolute;
   display: block !important;
   height: 100vh;
-  // margin-top: 30px;
   width: 30vw;
   top: 0;
   right: 0;
@@ -110,7 +115,7 @@ body, html{
     .notification-list{
       .notification{
         font-size: 0.6em;
-        background-image: linear-gradient(to bottom right, #631280, #5109FF);
+        background-image: $bg-img;
         border-radius: 0.5em;
         p{
           padding: 0.5em;
@@ -185,6 +190,10 @@ body, html{
     opacity: 0.5
   }
 }
+[empty]{
+  text-align: center;
+  width: 100vw;
+}
 [nav-image]{
   color: #000;
   vertical-align: middle;
@@ -221,6 +230,8 @@ body, html{
 }
 .l-container{
   position: relative;
+  overflow: hidden;
+  min-height: 90vh;
 }
 .post-container .zoom{
   &:hover{
@@ -231,17 +242,14 @@ body, html{
   display: block;
 }
 .auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container, .requests-container, .post-container{
-  height: 100vh;
   width: 100%;
-  background-color: rgb(233, 235, 238);
-  overflow: scroll;
 
   .sign-up, .log-in, .edit-user, .new-post{
     width: 30%;
     margin: 5vh auto 0 auto;
     background-color: #fff;
     padding: 30px;
-    box-shadow:  3px 3px 5px 6px #ccc;
+    box-shadow:  3px 3px 5px 6px $cont-color;
     form{
       width: 60%;
       margin: 0 auto;
@@ -252,7 +260,7 @@ body, html{
       .actions {
         display: inline-block;
         input{
-          background-color: #4267b2;
+          background-image: $bg-img;
           border-radius: 5px;
           color: #fff;
           border: 0;
@@ -260,6 +268,7 @@ body, html{
           cursor: pointer;
           margin-right: 40px;
           &:hover{
+            background: none;
             background-color: rgb(233, 235, 238);
             color: #000;
           }
@@ -286,7 +295,7 @@ body, html{
     }
   }
   .log-in, .new-post{
-    margin: 25vh auto 0 auto;
+    margin: 5vh auto 5vh auto;
   }
   .edit-user{
     width: 40%;
@@ -306,7 +315,7 @@ body, html{
 .auth-container a[href="/users/sign_up"], .edit{
   text-decoration: none;
   color: #fff;
-  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  background-image: $bg-img;
   padding: 3px;
   display: inline-block;
   border-radius: 5px;
@@ -338,7 +347,7 @@ body, html{
     url('media.jpg');
   background-size: cover;
   .post{
-    background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+    background-image: $bg-gra;
     color: #000;
     border-radius: 30px;
     width: 43%;
@@ -347,7 +356,7 @@ body, html{
 
 }
 .post-container {
-  margin-top: 3vh;
+  margin-top: 4vh;
   border-radius: 0;
   .post{
     width: 90%;
@@ -371,7 +380,7 @@ body, html{
     a{
       padding: 0.09em;
       border-radius: 0.3em;
-      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      background-image: $bg-img;
       color: #fff;
       height: 3vh;
       text-decoration: none;
@@ -407,7 +416,7 @@ body, html{
   margin-top: 20px;
   height: 5vh;
   width: 40vw;
-  background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+  background-image: $bg-gra;
   margin-bottom: 50px;
   color: black;
   ul{
@@ -429,12 +438,15 @@ body, html{
       width: 80%;
     }
     input[type="submit"]{
-      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      background-image: $bg-img;
       color: #fff;
       border-radius: 6px;
       padding: 10px;
     }
   }
+}
+.cl-right{
+  clear: right;
 }
 .profile-posts{
   width: 60%;
@@ -475,7 +487,7 @@ body, html{
 
 .users, .requests{
   width: 70%;
-  box-shadow:  3px 3px 5px 6px #ccc;
+  box-shadow:  3px 3px 5px 6px $cont-color;
   background-color: #fff;
   margin: 5vh auto 0 auto;
   padding: 10vh 10vw 10vh 10vw;
@@ -511,14 +523,14 @@ body, html{
   margin-left: 1.5vw;
 }
 .accept-request, .cancel-request{
-  background-image: linear-gradient(to bottom right, #631280, #5109FF);
+  background-image: $bg-img;
   padding: 0.2em;
   color: #fff;
   text-decoration: none;
   border-radius: 0.5em;
   &:hover{
     background: none;
-    background-color: #ccc;
+    background-color: $cont-color;
     color: #000;
   }
 }
@@ -532,7 +544,7 @@ body, html{
   text-decoration: none;
   color: red;
   padding: 5px;
-  background-color: #ccc;
+  background-color: $cont-color;
   border-radius: 5px;
   &:hover{
     background-color: #fff;
@@ -545,7 +557,7 @@ body, html{
   border-radius: 5px;
   text-decoration: none;
   &:hover {
-    background-color: #ccc;
+    background-color: $cont-color;
     color: #000;
   }
 }
@@ -574,7 +586,7 @@ body, html{
       width: 60%;
     }
     input[type="submit"]{
-      background-image: linear-gradient(to bottom right, #631280, #5109FF);
+      background-image: $bg-img;
       border: none;
       border-radius: 1em;
       color: #fff;
@@ -665,7 +677,7 @@ body, html{
     visibility: hidden;
     width: 60%;
     padding: 2em;
-    background-image: linear-gradient(to bottom right, #C5ACFF, #FFFFFF);
+    background-image: $bg-gra;
     margin: 5vh auto 0 auto;
     box-shadow:  3px 3px 5px 6px #000;
     height: 70vh;
@@ -704,7 +716,23 @@ body, html{
 .prof-request{
   margin-top: 1vh;
 }
+footer{
+  width: 100%;
+  height: 6vh;
+  background-image: $bg-img;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  p{
+    height: 6vh;
+    line-height: 6vh;
+    font-size: 0.7em;
+  }
+}
 @media only screen and (max-width:780px){
+  .post-container .post [icons] li:first-child {
+    padding-right: 20vw;
+}
   .res-nav{
       width: 50vw !important;
   }
@@ -738,6 +766,7 @@ body, html{
       margin: 0 auto;
       .avatar{
         width: auto;
+
       }
     }
   }
@@ -747,6 +776,44 @@ body, html{
     padding: 0 0 0 5vw;
     .users-list{
       width: 100%;
+      a{
+        font-size: 0.7em;
+      }
+    }
+  }
+  .edit-container{
+    .edit-user{
+      width: 100%;
+      form {
+        .avatar{
+          width: 70vw;
+        }
+      }
+    }
+  }
+
+  .requests-container {
+    .requests{
+      width: 95%;
+      padding: 2vh 2vw 2vh 2vw;
+      .requests-list{
+        [avatar]{
+          width: auto;
+          a{
+            font-size: 0.7em;
+          }
+        }
+        [userdata]{
+          a{
+            font-size: 0.7em;
+          }
+        }
+      }
+    }
+  }
+  header .container{
+    .logo, [welcome]{
+      font-size: 0.7em;
     }
   }
 }

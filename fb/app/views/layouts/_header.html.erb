@@ -5,7 +5,7 @@
     <%= link_to "Latest posts", root_path, class: "color-white logo",
         id: "logo" %>
     <% if user_signed_in? %>
-    <span>Welcome!  <%= @user.user_name%></span>
+    <span welcome>Welcome!  <%= @user.user_name%></span>
      <label class="fl-right toggle-lable" for="togg"> &#8801;</label>
      <label class="fl-right toggle-lable1" for="togg">&#10006;</label>
      <% if friend_request.size > 0 && request.env['PATH_INFO'] != all_requests_path %>

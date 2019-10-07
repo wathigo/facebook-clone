@@ -12,12 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   def requests
-    current_user.inverse_friendships.map { |friendship| friendship unless friendship.confirmed }.compact
+    current_user.pending_inverse_friendships.order(:created_at)
   end
 
   def timeline_posts
     friends_posts = []
-    current_user.friends.each { |friend| friends_posts = friends_posts + friend.created_posts}
-    current_user.created_posts + friends_posts
+    current_user.friends.each { |friend| friends_posts += friend.created_posts }
+    posts = current_user.created_posts + friends_posts
   end
 end

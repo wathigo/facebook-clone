@@ -6,7 +6,7 @@ class FriendshipsController < ApplicationController
   def create
     friend = User.find_by_id(params[:id])
     @friendship = current_user.friendships.build(friend_id: params[:id])
-    redirect_back(fallback_location: root_path) if @friendship.save
+    redirect_back(fallback_location: root_path) if @friendship.save!
   end
 
   def update
@@ -24,13 +24,14 @@ class FriendshipsController < ApplicationController
     if params[:id]
       user = User.find_by_id(params[:id])
     else
-      @friendship = current_user.inverse_friendships.find_by_id(params[:friendship_id])
+      @friendship = current_user.pending_inverse_friendships.find_by_id(params[:friendship_id])
     end
-    @friendship ||= user.inverse_pending_friendships.find { |friendship| friendship.user = current_user }
+    @friendship ||= current_user.pending_friendships.find { |friendship| friendship.friend == user }
     redirect_back(fallback_location: root_path) if @friendship.delete
   end
 
   def show
     @friendships = requests
+    redirect_to root_path if @friendships.empty?
   end
 end
