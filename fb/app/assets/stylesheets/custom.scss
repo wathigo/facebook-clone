@@ -743,6 +743,12 @@ footer{
   }
 }
 @media only screen and (max-width:780px){
+  .auth-container .sign-up, .auth-container .log-in{
+    width: 50%;
+  }
+  .auth-container .sign-up form, .auth-container .log-in form{
+    width: 100%;
+  }
   .post-container .post [icons] li:first-child {
     padding-right: 20vw;
 }
