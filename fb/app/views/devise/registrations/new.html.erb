@@ -32,4 +32,5 @@
       <span login><%= render "devise/shared/links" %></span>
     <% end %>
   </div>
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "fb" %>
 </div>
