@@ -1,20 +1,24 @@
 # Facebook-clone
 
 A web application that is designed to implement the following functionalities similar to facebook.
+You can find live link [here](https://fb-phony.herokuapp.com/)
 
 ## Function description
 
 1. Sign up
-   - after sign up, the status becomes signed in
+   * after sign up, the status becomes signed in
 2. Log In
-   - Remembers a user if remember me box is checked
+   * Remembers a user if remember me box is checked
 3. Log Out
-   - deletes log in status
-   - Does not remember a user after the log out.
+   * deletes log in status
+   * Does not remember a user after the log out.
 4. Create Posts
 5. Comment to a Post
 6. Like a post
 7. Like a comment.
+8. Send a friend request.
+9. Accepet a friend request.
+10. Cancel a friend request.
 
 ## Getting started
 
@@ -60,4 +64,3 @@ $ rails server
 ## Contributor(s)
 
 Project Creator: [Simon Wathigo](https://github.com/wathigo)
-
