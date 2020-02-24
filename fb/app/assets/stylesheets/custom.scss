@@ -9,6 +9,7 @@ body, html{
   margin: 0;
   padding: 0;
   overflow-x: hidden !important;
+  font-family: 'Yrsa' ;
 }
 .navbar{
   height: 6vh;
@@ -72,6 +73,7 @@ body, html{
 }
 [notify]{
   cursor: pointer;
+  position: relative;
 }
 [note]{
   font-size: 0.8em;
@@ -95,6 +97,60 @@ body, html{
   display: inline-block;
   text-align: center;
 }
+
+.toggle-lable {
+  // display: none;
+}
+
+[note2] {
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  left: 0.2em;
+  top: 0.4em;
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.log-out, .find-friends {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 2vw 0 2vw;
+}
+
+.toggle-lable {
+  display: none;
+}
+
+.log-out {
+  position: absolute;
+  right: 0;
+  top: 0.5em;
+}
+
+.note-container{
+  position: absolute;
+  z-index: 50;
+  padding: 1em;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  color: #fff;
+  left: 60vw;
+}
+
+.lg-nav-profile {
+  margin: 0 2vw 0 2vw;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  img {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+}
+
 #togg:checked ~ .res-nav{
   position: absolute;
   display: block !important;
