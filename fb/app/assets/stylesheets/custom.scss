@@ -874,6 +874,15 @@ footer{
   .auth-container .sign-up, .auth-container .log-in{
     width: 50%;
   }
+
+  .lg-nav {
+    display: none;
+  }
+
+  .toggle-lable {
+    display: block;
+  }
+
   .auth-container .sign-up form, .auth-container .log-in form{
     width: 100%;
   }

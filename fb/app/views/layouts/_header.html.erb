@@ -7,30 +7,32 @@
     <% if user_signed_in? %>
     <span welcome>Welcome!  <%= @user.user_name%></span>
 
-    <span class='lg-nav-profile'><%= image_tag gravatar_image_url(current_user.email) %>
-      <%= link_to "My profile", user_path(current_user), class: :name %>
-    </span>
-
-    <span onclick="toggleNotification()" notify>
-    <%= fa_icon("bell", class: "fas") %>
-    <% if request.env['PATH_INFO'] != all_requests_path &&  friend_request.any? %>
-      <% if friend_request.size > 0 %>
-        <%= fa_icon("caret-down", class: "fas", id: "down") %>
-        <%= fa_icon("caret-up", class: "fas", id: "up") %>
-        <span note2></span>
+    <span class='lg-nav'>
+      <span class='lg-nav-profile'><%= image_tag gravatar_image_url(current_user.email) %>
+        <%= link_to "My profile", user_path(current_user), class: :name %>
       </span>
+
+      <span onclick="toggleNotification()" notify>
+      <%= fa_icon("bell", class: "fas") %>
+      <% if request.env['PATH_INFO'] != all_requests_path &&  friend_request.any? %>
+        <% if friend_request.size > 0 %>
+          <%= fa_icon("caret-down", class: "fas", id: "down") %>
+          <%= fa_icon("caret-up", class: "fas", id: "up") %>
+          <span note2></span>
+        </span>
+        <% end %>
+        <% if friend_request.any? %>
+        <div class="note-container">
+          <%= render 'notification_list', friendships: friend_request %>
+        </div>
+        <% end %>
       <% end %>
-      <% if friend_request.any? %>
-      <div class="note-container">
-        <%= render 'notification_list', friendships: friend_request %>
-      </div>
-      <% end %>
-    <% end %>
 
-    <%= link_to "Find friends", users_path, method: :get, class: 'find-friends' %>
+      <%= link_to "Find friends", users_path, method: :get, class: 'find-friends' %>
 
-    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'log-out' %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'log-out' %>
 
+    </span>
      <label class="fl-right toggle-lable" for="togg"> &#8801;</label>
      <label class="fl-right toggle-lable1" for="togg">&#10006;</label>
      <% if friend_request.size > 0 && request.env['PATH_INFO'] != all_requests_path %>
