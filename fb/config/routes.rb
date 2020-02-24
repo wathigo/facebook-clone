@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   get 'posts', to: 'posts#new'
   post 'posts', to: 'posts#create'
-  delete 'posts', to: 'users#destroy'
+  delete 'posts', to: 'posts#destroy'
   get 'user', to: 'users#show'
   get 'users', to: 'users#index'
   post 'comments', to: 'comments#create'
