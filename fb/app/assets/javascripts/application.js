@@ -64,4 +64,12 @@ const toggleNotification = (ev => {
       document.querySelector("#up").style.display = 'none'
     }
   }
-})
+});
+
+const toggleNewPost = () => {
+  document.querySelector('.form-overlay').style.display = 'block';
+}
+
+const closePostForm = () => {
+  document.querySelector('.form-overlay').style.display = 'none';
+}

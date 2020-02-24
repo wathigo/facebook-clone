@@ -241,12 +241,83 @@ body, html{
   margin: 0 auto;
   display: block;
 }
+
+.auth-container{
+  min-height: 81.4vh;
+}
+
+.l-container {
+  position: relative;
+}
+
+.l-container .toggle-post{
+  position: fixed;
+  bottom: 6vh;
+  border: none;
+  border-radius: 50%;
+  right: 10vw;
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+}
+
+.close-post {
+  text-align: right;
+  color: #fff;
+  position: absolute;
+  right: 2vw;
+  font-weight: bold;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.l-container .form-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.9)
+    );
+  right: 0;
+  height: 100vh;
+  display: none;
+
+  .post-form-cont {
+    position: absolute;
+    top: 30vh;
+    left: 30vw;
+    text-align: center;
+    color: #fff;
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 20vw;
+    }
+
+    input[type='submit'] {
+      display: block;
+      background-image: $bg-img;
+      border: none;
+      padding: 0.3em;
+      color: #fff;
+      border-radius: 0.2em;
+    }
+  }
+}
+
 .auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container, .requests-container, .post-container{
   width: 100%;
 
   .sign-up, .log-in, .edit-user, .new-post{
     width: 30%;
-    margin: 5vh auto 0 auto;
+    margin: 10vh auto 0 auto;
     background-color: #fff;
     padding: 30px;
     box-shadow:  3px 3px 5px 6px $cont-color;
