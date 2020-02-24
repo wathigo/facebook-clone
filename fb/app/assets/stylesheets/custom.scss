@@ -129,6 +129,7 @@ body, html{
 }
 
 .note-container{
+  display: none;
   position: absolute;
   z-index: 50;
   padding: 1em;

@@ -50,18 +50,22 @@ const toggleNotification = (ev => {
   const notificationContainer = document.querySelector('.notifications')
   const note = document.querySelector('[note]');
   const note1 = document.querySelector('[note1]');
+  const note2 = document.querySelector('[note2]');
   if(notificationContainer != undefined){
     if(notificationContainer.style.display === 'none'){
       notificationContainer.style.display = 'block';
+      document.querySelector('.note-container').style.display = 'block';
       document.querySelector("#down").style.display = 'none'
       document.querySelector("#up").style.display = 'inline-block'
       note1.style.display = 'none';
       note.style.display = 'none';
+      note2.style.display = 'none';
     }
     else{
       notificationContainer.style.display = 'none';
       document.querySelector("#down").style.display = 'inline-block'
       document.querySelector("#up").style.display = 'none'
+      document.querySelector('.note-container').style.display = 'none';
     }
   }
 });
