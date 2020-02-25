@@ -5,6 +5,7 @@
   <div class="log-in">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <h2>Log in</h2>
+    <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field">
         <label for="email">Email (try 'example-2@facebook.org')</label><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
