@@ -386,16 +386,19 @@ body, html{
 }
 
 .welcome-cont {
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.5),
+  background: radial-gradient(
+      rgba(0, 0, 0, 0.97),
       rgba(0, 0, 0, 0.5)
     ),image-url('media.jpg');
-  background-size: cover;
-  height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  min-height: 88vh;
   color: #fff;
   flex: 0 60%;
   display: inline-block;
   font-size: 1.8em;
+  margin-bottom: -1.5vh;
 
   div, span {
     padding: 0;
@@ -428,8 +431,13 @@ body, html{
   text-align: center;
 }
 
+#anim0 {
+  animation: slideleft 10s 1;
+  font-size: 0.8em;
+}
+
 #anim3 {
-  animation: slideup 7s 1;
+  animation: slideup 12s 1;
   font-size: 0.7em;
 }
 
@@ -457,6 +465,13 @@ body, html{
     20% { margin-top:1400px; }
     35% { margin-top:0px; }
     100% { margin-top:0px; }
+}
+
+@keyframes slideleft {
+  0% { margin-right:-1400px; }
+  20% { margin-right:-1400px; }
+  35% { margin-right:0px; }
+  100% { margin-right:0px; }
 }
 
 @keyframes reveal {
@@ -1042,6 +1057,10 @@ footer{
     font-size: 0.7em;
   }
 }
+
+.anim-0, .toggle-log-in, .toggle-log-in {
+  display: none;
+}
 @media only screen and (max-width:780px){
   .auth-container .sign-up, .auth-container .log-in{
     width: 50%;
@@ -1055,9 +1074,49 @@ footer{
     display: block;
   }
 
-  .auth-container .sign-up form, .auth-container .log-in form{
-    width: 100%;
+  .auth-container {
+    display: block;
+
+    .anim-0 {
+      display: block;
+      width: 60%;
+      margin: 0 auto;
+      text-align: center;
+
+      a{
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+
+    .log-in, .sign-up {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      color: #000;
+      background: linear-gradient(
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.9)
+        );
+      right: 0;
+      height: 100vh;
+
+      .toggle-log-in, .toggle-sign-up {
+        color: #fff;
+      }
+
+      form {
+        width: 60%;
+        margin: 30% 20% 0 auto;
+        border: 1px #fff solid;
+        box-shadow: none;
+        background-color: #fff;
+      }
+    }
   }
+
   .post-container .post [icons] li:first-child {
     padding-right: 20vw;
 }
@@ -1147,4 +1206,11 @@ footer{
       font-size: 0.7em;
     }
   }
+
+  .auth-container .welcome-cont .welcome-info {
+    margin-top: 20vh;
+    height: 30vh;
+  }
+
+
 }

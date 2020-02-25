@@ -122,3 +122,16 @@ const toggleNewPost = () => {
 const closePostForm = () => {
   document.querySelector('.form-overlay').style.display = 'none';
 }
+
+const openForm = (name => {
+  window.event.preventDefault();
+  if (name === 'log-in') {
+    document.querySelector(`.${name}`).style.display = 'block';
+    document.querySelector('.toggle-log-in').style.display = 'block';
+  } else {
+    document.querySelector('.log-in').style.display = 'none';
+    document.querySelector(`.${name}`).style.display = 'block';
+    document.querySelector('.toggle-log-in').style.display = 'none';
+    document.querySelector('.toggle-sign-up').style.display = 'block';
+  }
+})

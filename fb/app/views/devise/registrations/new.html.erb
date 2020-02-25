@@ -3,6 +3,7 @@
     <%= render 'welcome_info' %>
   </div>
   <div class="sign-up">
+    <span class="fl-right toggle-sign-up" onclick="closeForm('sign-up')">&#10006;</span>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <h2>Sign up</h2>
       <%= render "devise/shared/error_messages", resource: resource %>
