@@ -1,4 +1,5 @@
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
 
 $cont-color: #ccc;
 $bg-img: linear-gradient(to bottom right, #631280, #5109FF);
@@ -377,10 +378,116 @@ body, html{
   }
 }
 
+.welcome-cont {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),image-url('media.jpg');
+  background-size: cover;
+  height: 100vh;
+  color: #fff;
+  flex: 0 60%;
+  display: inline-block;;
+}
+
+.welcome-info {
+  animation: showup 7s infinite;
+}
+
+.anim-2 {
+  width:0px;
+  animation: reveal 7s infinite;
+}
+
+#anim2 {
+  margin-left:-355px;
+  animation: slidein 7s infinite;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:355px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:355px;}
+}
+
+
 .auth-container, .edit-container, .l-container, .p-container, .profile-cont, .users-container, .requests-container, .post-container{
   width: 100%;
+  display: flex;
 
-  .sign-up, .log-in, .edit-user, .new-post{
+  .sign-up, .log-in {
+    display: inline-block;
+    box-sizing: border-box;
+    flex: 0 40%;
+    width: 70%;
+    margin: 0 auto;
+
+    .fb {
+      margin-top: 2em;
+    }
+
+    form{
+      width: 60%;
+      margin: 0 auto;
+      .field{
+        padding-bottom: 10px;
+      }
+
+      .actions {
+        display: inline-block;
+        input{
+          background-image: $bg-img;
+          border-radius: 5px;
+          color: #fff;
+          border: 0;
+          padding: 5px;
+          cursor: pointer;
+          margin-right: 40px;
+          &:hover{
+            background: none;
+            background-color: rgb(233, 235, 238);
+            color: #000;
+          }
+        }
+      }
+      [login]{
+        background-color: #4267b2;
+        border-radius: 5px;
+        color: #fff;
+        padding: 5px;
+        display: inline-block;
+        a{
+          text-decoration: none;
+          color: #fff;
+        }
+        &:hover{
+          background-color: rgb(233, 235, 238);
+          a {
+            color: #000;
+          }
+        }
+      }
+
+    }
+  }
+
+  .edit-user, .new-post{
     width: 30%;
     margin: 10vh auto 0 auto;
     background-color: #fff;

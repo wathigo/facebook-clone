@@ -1,14 +1,17 @@
 <div class="auth-container">
+  <div class="welcome-cont">
+    <%= render 'welcome_info' %>
+  </div>
   <div class="log-in">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <h2>Log in</h2>
       <div class="field">
-        <%= f.label :email %><br />
+        <label for="email">Email (try 'example-2@facebook.org')</label><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
+        <%= f.label "password (try: 'foobar')" %><br />
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
 
@@ -24,6 +27,6 @@
         <%= render "devise/shared/links" %>
       </div>
     <% end %>
+    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "fb" %>
   </div>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "fb" %>
 </div>
