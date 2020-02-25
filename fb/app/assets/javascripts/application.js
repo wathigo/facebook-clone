@@ -17,13 +17,16 @@
 
 let currentId;
 let currentScrollTop;
-const toggleComments = ((e) => {
-  e.preventDefault();
-  const id = e.target.dataset.message
+let myStorage = window.localStorage;
+
+const rememberScroll = (ev => {
+
+})
+
+const showComments = (id => {
   const htmlCont = document.querySelector('html')
-  currentId = id
   const allCommentsContainer = document.querySelector(".all-comments-container")
-  currentScrollTop = htmlCont.scrollTop;
+  myStorage.setItem('currentScrollTop', htmlCont.scrollTop)
   htmlCont.scrollTop = '0';
   htmlCont.style.overflow = 'hidden'
   allCommentsContainer.style.visibility = 'visible';
@@ -34,8 +37,27 @@ const toggleComments = ((e) => {
   })
 })
 
+const rememberState = (ev => {
+  let id = localStorage.getItem('id')
+  document.querySelector('html').scrollTop = myStorage.getItem('currentScrollTop');
+  if (!isNaN(id)) {
+    showComments(id);
+  }
+});
+
+const toggleComments = ((e) => {
+  e.preventDefault();
+  const id = e.target.dataset.message;
+  currentId = id
+  myStorage.setItem('currentScrollTop', document.querySelector('html').scrollTop)
+  showComments(id);
+  myStorage.setItem('id', id);
+})
+
 const closeComments = (el => {
   const htmlCont = document.querySelector('html')
+  currentId = myStorage.getItem('id');
+  currentScrollTop = myStorage.getItem('currentScrollTop')
   document.querySelector(`#comment_post_${currentId}`).style.visibility = 'hidden';
   document.querySelector(".all-comments-container").style.visibility = 'hidden';
   const nodeList = document.querySelectorAll('.card-body')
@@ -43,7 +65,9 @@ const closeComments = (el => {
     node.classList.add('zoom');
   })
   htmlCont.style.overflow = 'scroll';
-  htmlCont.scrollTop = currentScrollTop;
+  console.log(currentScrollTop);
+  htmlCont.scrollTop = myStorage.getItem('currentScrollTop')
+  myStorage.setItem('id', null);
 });
 
 const toggleNotification1 = (ev => {
