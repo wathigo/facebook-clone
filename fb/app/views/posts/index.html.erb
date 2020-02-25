@@ -5,7 +5,7 @@
     <%= render 'posts_list', posts: @posts %>
     <button onclick="toggleNewPost()" class='toggle-post' type="button" name="button">New Post</button>
     <div class="form-overlay">
-      <span onclick="closePostForm()" class="close-post">x</span>
+      <span onclick="closePostForm()" class="close-post">&#10006;</span>
       <div class="post-form-cont">
         <h3>Create a new Post</h3>
         <%= render 'form', creator: @creator %>
