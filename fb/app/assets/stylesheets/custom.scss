@@ -483,13 +483,21 @@ body, html{
     width: 70%;
     margin: 0 auto;
 
+    h2 {
+        text-align: center;
+        margin-bottom: 3vh;
+      }
+
     .fb {
       margin-top: 2em;
     }
 
     form{
       width: 60%;
-      margin: 0 auto;
+      box-shadow: 1px 5px 5px 5px #666;
+      padding-left: 2em;
+      margin: 20vh auto 0 auto;
+      padding-bottom: 3vh;
       .field{
         padding-bottom: 10px;
       }
