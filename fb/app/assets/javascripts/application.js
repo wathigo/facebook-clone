@@ -46,11 +46,34 @@ const closeComments = (el => {
   htmlCont.scrollTop = currentScrollTop;
 });
 
-const toggleNotification = (ev => {
-  const notificationContainer = document.querySelector('.notifications')
+const toggleNotification1 = (ev => {
+  const notificationContainer = document.querySelector('.note-container')
   const note = document.querySelector('[note]');
   const note1 = document.querySelector('[note1]');
   const note2 = document.querySelector('[note2]');
+  if(notificationContainer != undefined){
+    if(notificationContainer.style.display === 'none'){
+      notificationContainer.style.display = 'block';
+      document.querySelector('.note-container').style.display = 'block';
+      document.querySelector("#down1").style.display = 'none'
+      document.querySelector("#up1").style.display = 'inline-block'
+      note1.style.display = 'none';
+      note.style.display = 'none';
+      note2.style.display = 'none';
+    }
+    else{
+      notificationContainer.style.display = 'none';
+      document.querySelector("#down1").style.display = 'inline-block'
+      document.querySelector("#up1").style.display = 'none'
+      document.querySelector('.note-container').style.display = 'none';
+    }
+  }
+});
+
+const toggleNotification = (ev => {
+  const notificationContainer = document.querySelector('.notification-container')
+  const note = document.querySelector('[note]');
+  const note1 = document.querySelector('[note1]');
   if(notificationContainer != undefined){
     if(notificationContainer.style.display === 'none'){
       notificationContainer.style.display = 'block';
@@ -59,13 +82,11 @@ const toggleNotification = (ev => {
       document.querySelector("#up").style.display = 'inline-block'
       note1.style.display = 'none';
       note.style.display = 'none';
-      note2.style.display = 'none';
     }
     else{
       notificationContainer.style.display = 'none';
       document.querySelector("#down").style.display = 'inline-block'
-      document.querySelector("#up").style.display = 'none'
-      document.querySelector('.note-container').style.display = 'none';
+      document.querySelector("#up").style.display = 'none';
     }
   }
 });

@@ -152,6 +152,10 @@ body, html{
   }
 }
 
+.note-container, .notification-container {
+  display: none;
+}
+
 #togg:checked ~ .res-nav{
   position: absolute;
   display: block !important;
@@ -165,7 +169,6 @@ body, html{
   padding: 10px;
   z-index: 1;
   .notifications{
-    display: none;
     width: 60%;
     color: #fff;
     margin-left: 20%;
@@ -232,6 +235,11 @@ body, html{
 #up{
   display: none;
 }
+
+#up1 {
+  display: none;
+}
+
 #togg:checked ~ .toggle-lable1{
   display: inline-block;
   font-size: 1.2em;

@@ -12,12 +12,12 @@
         <%= link_to "My profile", user_path(current_user), class: :name %>
       </span>
 
-      <span onclick="toggleNotification()" notify>
+      <span onclick="toggleNotification1()" notify>
       <%= fa_icon("bell", class: "fas") %>
       <% if request.env['PATH_INFO'] != all_requests_path &&  friend_request.any? %>
         <% if friend_request.size > 0 %>
-          <%= fa_icon("caret-down", class: "fas", id: "down") %>
-          <%= fa_icon("caret-up", class: "fas", id: "up") %>
+          <%= fa_icon("caret-down", class: "fas", id: "down1") %>
+          <%= fa_icon("caret-up", class: "fas", id: "up1") %>
           <span note2></span>
         </span>
         <% end %>
