@@ -13,7 +13,7 @@ body, html{
   margin: 0;
   padding: 0;
   overflow-x: hidden !important;
-  font-family: 'Yrsa' ;
+  width: 100vw;
 }
 .navbar{
   height: 6vh;
@@ -317,6 +317,7 @@ body, html{
 
 .auth-container{
   min-height: 81.4vh;
+  display: flex;
 }
 
 .l-container {
@@ -489,7 +490,6 @@ body, html{
 
 .auth-container, .edit-container, .p-container, .profile-cont, .users-container, .requests-container, .post-container{
   width: 100%;
-  display: flex;
 
 
 
@@ -557,7 +557,7 @@ body, html{
     }
   }
 
-  .sm-sign-up .sign-up {
+  .sm-sign-up .sign-up, .sm-log-in .log-in {
     display: none;
   }
 
@@ -1064,7 +1064,7 @@ footer{
   }
 }
 
-.anim-0, .toggle-log-in, .toggle-log-in {
+.anim-0, .toggle-log-in, .toggle-sign-up {
   display: none;
   padding: 1.2em;
 }
@@ -1219,8 +1219,65 @@ footer{
     height: 30vh;
   }
 
-  .sm-sign-up {
+  .sm-sign-up, .sm-log-in{
     display: block;
   }
 
+}
+
+@media only screen and (max-width:450px){
+
+  .auth-container {
+    .welcome-cont {
+      .welcome-info {
+        margin-top: 15vh;
+        font-size: 0.9em;
+
+        .anim-2 #anim2 {
+          display: inline-block;
+          width: 80%;
+          margin-right: 10%;
+        }
+      }
+    }
+
+    a[href="/users/sign_up"] {
+      display: none;
+    }
+  }
+
+  .navbar .container {
+    .res-nav {
+      width: 100vw !important;
+    }
+
+    [note] {
+      margin-top: 1.2em;
+    }
+
+  }
+  .l-container {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    .posts-container {
+      width: 98vw;
+      box-sizing: border-box;
+      padding: 2em 0 2em 0;
+
+      .posts {
+        display: block;
+        width: 98%;
+        margin: 0 auto;
+
+        .post {
+          width: 88%;
+
+          [icons] li:first-child {
+            padding-right: 35vw;
+          }
+        }
+      }
+    }
+  }
 }
