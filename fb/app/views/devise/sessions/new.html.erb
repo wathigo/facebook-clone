@@ -1,9 +1,12 @@
 <div class="auth-container">
+  <div class="sm-sign-up">
+    <%= render 'devise/registrations/new' %>
+  </div>
   <div class="welcome-cont">
     <%= render 'welcome_info' %>
   </div>
-  <div class="log-in">
-    <span class="fl-right toggle-log-in" onclick="closeForm('sign-up')">&#10006;</span>
+  <div class="log-in" id='login'>
+    <span class="fl-right toggle-log-in" onclick="closeForm('login')">&#10006;</span>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <h2>Log in</h2>
     <%= render "devise/shared/error_messages", resource: resource %>

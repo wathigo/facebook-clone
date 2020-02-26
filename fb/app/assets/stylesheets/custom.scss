@@ -491,6 +491,8 @@ body, html{
   width: 100%;
   display: flex;
 
+
+
   .sign-up, .log-in {
     display: inline-block;
     box-sizing: border-box;
@@ -553,6 +555,10 @@ body, html{
       }
 
     }
+  }
+
+  .sm-sign-up .sign-up {
+    display: none;
   }
 
   .edit-user, .new-post{
@@ -1060,6 +1066,7 @@ footer{
 
 .anim-0, .toggle-log-in, .toggle-log-in {
   display: none;
+  padding: 1.2em;
 }
 @media only screen and (max-width:780px){
   .auth-container .sign-up, .auth-container .log-in{
@@ -1212,5 +1219,8 @@ footer{
     height: 30vh;
   }
 
+  .sm-sign-up {
+    display: block;
+  }
 
 }

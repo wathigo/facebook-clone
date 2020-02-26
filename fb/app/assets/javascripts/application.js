@@ -128,14 +128,23 @@ const closePostForm = () => {
 }
 
 const openForm = (name => {
+  console.log("TFF", name)
   window.event.preventDefault();
-  if (name === 'log-in') {
-    document.querySelector(`.${name}`).style.display = 'block';
+  if (name === 'login') {
+    document.querySelector(`#${name}`).style.display = 'block';
     document.querySelector('.toggle-log-in').style.display = 'block';
   } else {
-    document.querySelector('.log-in').style.display = 'none';
-    document.querySelector(`.${name}`).style.display = 'block';
+    document.querySelector(`#${name}`).style.display = 'block';
+    document.querySelector('.toggle-sign-up').style.display = 'block';
+  }
+})
+
+const closeForm = (name => {
+  if (name === 'login') {
+    document.querySelector(`#${name}`).style.display = 'none';
     document.querySelector('.toggle-log-in').style.display = 'none';
+  } else {
+    document.querySelector(`#${name}`).style.display = 'none';
     document.querySelector('.toggle-sign-up').style.display = 'block';
   }
 })
