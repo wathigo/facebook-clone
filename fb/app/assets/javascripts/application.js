@@ -27,6 +27,7 @@ const showComments = (id => {
   htmlCont.style.overflow = 'hidden'
   allCommentsContainer.style.visibility = 'visible';
   document.querySelector(`#comment_post_${id}`).style.visibility = 'visible';
+  myStorage.setItem('id', null)
   const nodeList = document.querySelectorAll('.card-body')
   nodeList.forEach((node) => {
     node.classList.remove('zoom');
@@ -34,15 +35,15 @@ const showComments = (id => {
 })
 
 const rememberState = (ev => {
-  let id = localStorage.getItem('id')
+  let id = myStorage.getItem('id')
   let currentScrollTop = myStorage.getItem('currentScrollTop');
   if(!isNaN(currentScrollTop)) {
     document.querySelector('html').scrollTop = currentScrollTop
     myStorage.setItem('currentScrollTop', null);
   }
-
   if (!isNaN(id)) {
     showComments(id);
+    myStorage.getItem('id', null)
   }
 });
 
@@ -66,7 +67,6 @@ const closeComments = (el => {
     node.classList.add('zoom');
   })
   htmlCont.style.overflow = 'scroll';
-  console.log(currentScrollTop);
   if(!isNaN(currentScrollTop)) {
     htmlCont.scrollTop = currentScrollTop
     myStorage.setItem('currentScrollTop', null);
@@ -120,15 +120,19 @@ const toggleNotification = (ev => {
 });
 
 const toggleNewPost = () => {
+  let htmlCont = document.querySelector('html');
+  myStorage.setItem('currentScrollTop', htmlCont.scrollTop)
+  htmlCont.scrollTop = '0';
+  htmlCont.style.overflow = 'hidden'
   document.querySelector('.form-overlay').style.display = 'block';
 }
 
 const closePostForm = () => {
+  document.querySelector('html').scrollTop = myStorage.getItem('currentScrollTop');
   document.querySelector('.form-overlay').style.display = 'none';
 }
 
 const openForm = (name => {
-  console.log("TFF", name)
   window.event.preventDefault();
   if (name === 'login') {
     document.querySelector(`#${name}`).style.display = 'block';
