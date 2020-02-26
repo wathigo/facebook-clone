@@ -1,7 +1,16 @@
+<% @creator ||= current_user %>
 <div class="l-container">
   <% if @posts.any? %>
     <div class="post-header">Latest Posts</div>
     <%= render 'posts_list', posts: @posts %>
+    <button onclick="toggleNewPost()" class='toggle-post' type="button" name="button">New Post</button>
+    <div class="form-overlay">
+      <span onclick="closePostForm()" class="close-post">&#10006;</span>
+      <div class="post-form-cont">
+        <h3>Create a new Post</h3>
+        <%= render 'form', creator: @creator %>
+      </div>
+    </div>
     <% else %>
      <p empty> <b>You don't have any posts, please create one and add some friends</b> </p>
   <% end %>
