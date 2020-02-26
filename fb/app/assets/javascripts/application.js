@@ -19,10 +19,6 @@ let currentId;
 let currentScrollTop;
 let myStorage = window.localStorage;
 
-const rememberScroll = (ev => {
-
-})
-
 const showComments = (id => {
   const htmlCont = document.querySelector('html')
   const allCommentsContainer = document.querySelector(".all-comments-container")
@@ -39,7 +35,12 @@ const showComments = (id => {
 
 const rememberState = (ev => {
   let id = localStorage.getItem('id')
-  document.querySelector('html').scrollTop = myStorage.getItem('currentScrollTop');
+  let currentScrollTop = myStorage.getItem('currentScrollTop');
+  if(!isNaN(currentScrollTop)) {
+    document.querySelector('html').scrollTop = currentScrollTop
+    myStorage.setItem('currentScrollTop', null);
+  }
+
   if (!isNaN(id)) {
     showComments(id);
   }
@@ -66,7 +67,10 @@ const closeComments = (el => {
   })
   htmlCont.style.overflow = 'scroll';
   console.log(currentScrollTop);
-  htmlCont.scrollTop = myStorage.getItem('currentScrollTop')
+  if(!isNaN(currentScrollTop)) {
+    htmlCont.scrollTop = currentScrollTop
+    myStorage.setItem('currentScrollTop', null);
+  }
   myStorage.setItem('id', null);
 });
 
