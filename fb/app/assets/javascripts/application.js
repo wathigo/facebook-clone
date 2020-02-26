@@ -44,7 +44,6 @@ const rememberState = (ev => {
   }
   if (id) {
     showComments(id);
-    myStorage.getItem('id', null)
   }
 });
 
