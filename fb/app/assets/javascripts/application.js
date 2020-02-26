@@ -37,11 +37,12 @@ const showComments = (id => {
 const rememberState = (ev => {
   let id = myStorage.getItem('id')
   let currentScrollTop = myStorage.getItem('currentScrollTop');
-  if(!isNaN(currentScrollTop)) {
+  console.log((id === true), (currentScrollTop === true), id, currentScrollTop)
+  if(currentScrollTop) {
     document.querySelector('html').scrollTop = currentScrollTop
     myStorage.setItem('currentScrollTop', null);
   }
-  if (!isNaN(id)) {
+  if (id) {
     showComments(id);
     myStorage.getItem('id', null)
   }
