@@ -14,6 +14,7 @@ body, html{
   padding: 0;
   overflow-x: hidden !important;
   width: 100vw;
+  position: relative;
   scroll-behavior: smooth;
 }
 .navbar{
@@ -342,6 +343,7 @@ body, html{
   color: #fff;
   position: absolute;
   right: 2vw;
+  top: 7vh;
   font-weight: bold;
   font-size: 1.4em;
   cursor: pointer;
@@ -987,33 +989,38 @@ body, html{
 .fl-right{
   float: right;
 }
+
 .all-comments-container{
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 110vh;
   background: linear-gradient(
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     );
   z-index: 20;
   position: absolute;
-  top: 0;
   left: 0;
   visibility: hidden;
   [close]{
     float: right;
+    padding-right: 50px;
+    margin-top: 50px;
     color: #fff;
-    font-size: 1.5em;
+    font-size: 1.8em;
     cursor: pointer;
     &:hover{
       opacity: 0.5;
     }
   }
   .all-comments{
-    visibility: hidden;
-    width: 60%;
+    position: absolute;
+    left: 0;
+    display: none;
+    width: 70vw;
     padding: 2em;
     background-image: $bg-gra;
-    margin: 5vh auto 0 auto;
+    margin-left: 15vw;
+    box-sizing: border-box;
     box-shadow:  3px 3px 5px 6px #000;
     height: 70vh;
     overflow-y: scroll;
@@ -1225,6 +1232,14 @@ footer{
     display: block;
   }
 
+  .all-comments-container {
+    // position: relative;
+    .all-comments {
+      // top: 20vh;
+    }
+
+  }
+
 }
 
 @media only screen and (max-width:450px){
@@ -1233,13 +1248,20 @@ footer{
     .welcome-cont {
       .welcome-info {
         margin-top: 15vh;
-        font-size: 0.9em;
+        font-size: 0.5em;
 
         .anim-2 #anim2 {
           display: inline-block;
           width: 80%;
           margin-right: 10%;
         }
+      }
+      .anim-0 {
+        font-size: 0.6em;
+      }
+
+      .anim-3 {
+        font-size: 0.5em;
       }
     }
 

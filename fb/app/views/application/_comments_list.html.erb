@@ -18,7 +18,7 @@
     </div>
   <% end %>
 </div>
-<div class="all-comments-container">
+<div class="all-comments-container" id="all-comments-container-<%= @post.id %>">
   <span close onclick="closeComments(this)" data-msg='<%=@post.id%>'>&#10006;</span>
   <div class='all-comments' id="comment_post_<%= @post.id %>" >
     <% if @post.comments.any? %>

@@ -21,12 +21,17 @@ let myStorage = window.localStorage;
 
 const showComments = (id => {
   const htmlCont = document.querySelector('html')
-  const allCommentsContainer = document.querySelector(".all-comments-container")
+  const allCommentsContainer = document.querySelector(`#all-comments-container-${id}`);
+  const allComments = document.querySelector(`#comment_post_${id}`);
   myStorage.setItem('currentScrollTop', htmlCont.scrollTop)
-  htmlCont.scrollTop = '0';
-  htmlCont.style.overflow = 'hidden'
+  // htmlCont.scrollTop = '0';
+  // htmlCont.style.overflow = 'hidden'
+
+  allCommentsContainer.style.top = `${htmlCont.scrollTop - 50}px`;
+  allComments.style.top = `15vh`;
+  console.log(htmlCont.scrollTop, id, allComments)
   allCommentsContainer.style.visibility = 'visible';
-  document.querySelector(`#comment_post_${id}`).style.visibility = 'visible';
+  allComments.style.display = 'block';
   const nodeList = document.querySelectorAll('.card-body')
   nodeList.forEach((node) => {
     node.classList.remove('zoom');
@@ -40,7 +45,8 @@ const rememberState = (ev => {
     document.querySelector('html').scrollTop = currentScrollTop
     myStorage.setItem('currentScrollTop', null);
   }
-  if (id !== 'null') {
+  console.log(id)
+  if (id !== 'null' && id !== null) {
     showComments(id);
   }
 });
@@ -58,8 +64,8 @@ const closeComments = (el => {
   const htmlCont = document.querySelector('html')
   currentId = myStorage.getItem('id');
   currentScrollTop = myStorage.getItem('currentScrollTop')
-  document.querySelector(`#comment_post_${currentId}`).style.visibility = 'hidden';
-  document.querySelector(".all-comments-container").style.visibility = 'hidden';
+  document.querySelector(`#comment_post_${currentId}`).style.display = 'none';
+  document.querySelector(`#all-comments-container-${currentId}`).style.visibility = 'hidden';
   const nodeList = document.querySelectorAll('.card-body')
   nodeList.forEach((node) => {
     node.classList.add('zoom');
@@ -70,6 +76,7 @@ const closeComments = (el => {
     myStorage.setItem('currentScrollTop', null);
   }
   myStorage.setItem('id', null);
+  console.log(myStorage.getItem('id'))
 });
 
 const toggleNotification1 = (ev => {
@@ -119,10 +126,10 @@ const toggleNotification = (ev => {
 
 const toggleNewPost = () => {
   let htmlCont = document.querySelector('html');
-  myStorage.setItem('currentScrollTop', htmlCont.scrollTop)
-  htmlCont.scrollTop = '0';
-  htmlCont.style.overflow = 'hidden'
-  document.querySelector('.form-overlay').style.display = 'block';
+  let formOverlay = document.querySelector('.form-overlay');
+  myStorage.setItem('currentScrollTop', htmlCont.scrollTop);
+  formOverlay.style.display = 'block';
+  formOverlay.style.top = `${htmlCont.scrollTop -48}px`;
 }
 
 const closePostForm = () => {
