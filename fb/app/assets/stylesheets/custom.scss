@@ -1062,6 +1062,7 @@ footer{
     height: 6vh;
     line-height: 6vh;
     font-size: 0.7em;
+    margin: 0;
   }
 }
 
@@ -1261,10 +1262,18 @@ footer{
     width: 100vw;
     margin: 0;
     padding: 0;
+
+    .post-header {
+      position: absolute;
+      color: #fff;
+      width: 100vw;
+      top: 0.5em;
+    }
     .posts-container {
-      width: 98vw;
+      width: 100vw;
+      border-radius: 0;
       box-sizing: border-box;
-      padding: 2em 0 2em 0;
+      padding: 4em 0 2em 0;
 
       .posts {
         display: block;
