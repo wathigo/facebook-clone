@@ -27,7 +27,6 @@ const showComments = (id => {
   htmlCont.style.overflow = 'hidden'
   allCommentsContainer.style.visibility = 'visible';
   document.querySelector(`#comment_post_${id}`).style.visibility = 'visible';
-  myStorage.setItem('id', null)
   const nodeList = document.querySelectorAll('.card-body')
   nodeList.forEach((node) => {
     node.classList.remove('zoom');
@@ -37,12 +36,11 @@ const showComments = (id => {
 const rememberState = (ev => {
   let id = myStorage.getItem('id')
   let currentScrollTop = myStorage.getItem('currentScrollTop');
-  console.log((id === true), (currentScrollTop === true), id, currentScrollTop)
   if(currentScrollTop) {
     document.querySelector('html').scrollTop = currentScrollTop
     myStorage.setItem('currentScrollTop', null);
   }
-  if (id) {
+  if (id !== 'null') {
     showComments(id);
   }
 });
