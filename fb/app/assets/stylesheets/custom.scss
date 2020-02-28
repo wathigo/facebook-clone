@@ -688,9 +688,13 @@ body, html{
 
 }
 .post-container {
-  margin-top: 4vh;
   border-radius: 0;
+  width: 100vw;
+  min-height: 86vh;
+  margin-bottom: -1.5vh;
+  padding: 5vh 0 0 0 !important;
   .post{
+    margin: 0 auto;
     width: 90%;
     [icons] li:first-child{
       padding-right: 40vw;
@@ -1310,7 +1314,7 @@ footer{
   }
   .l-container {
     width: 100vw;
-    margin: 0;
+    margin: -1.5vh 0 0 0;
     padding: 0;
 
     .post-header {
@@ -1339,5 +1343,33 @@ footer{
         }
       }
     }
+  }
+
+  .post-container {
+    .post {
+      width: 98%;
+    }
+  }
+
+  .profile-cont  {
+    .user-info {
+      width: 80%;
+      margin-left: 10%;
+    }
+    .profile-posts {
+      width: 100%;
+
+      .posts-container {
+        width: 100%;
+        border-radius: 0;
+        box-sizing: border-box;
+        padding: 4vh 0 0 0;
+      }
+    }
+
+  }
+
+  footer {
+    margin: 0;
   }
 }
