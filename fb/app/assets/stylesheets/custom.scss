@@ -73,7 +73,7 @@ body, html{
   display: block !important;
   height: 30vh;
   width: 30%;
-  top: -1000px;
+  top: -1500px;
   transform: rotate(0deg);
   overflow: hidden;
 }
@@ -397,7 +397,7 @@ body, html{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  min-height: 88vh;
+  min-height: 89vh;
   color: #fff;
   flex: 0 60%;
   display: inline-block;
@@ -491,7 +491,12 @@ body, html{
   margin: 0 auto;
 }
 
-.auth-container, .edit-container, .p-container, .profile-cont, .users-container, .requests-container, .post-container{
+.p-container {
+  width: 100vw;
+  min-height: 84vh;
+}
+
+.auth-container, .edit-container, .profile-cont, .p-container, .users-container, .requests-container, .post-container{
   width: 100%;
 
 
@@ -616,6 +621,10 @@ body, html{
   }
   .log-in, .new-post{
     margin: 5vh auto 5vh auto;
+  }
+
+  .new-post {
+    margin-top: 25vh;
   }
   .edit-user{
     width: 40%;
@@ -1064,7 +1073,7 @@ footer{
   background-image: $bg-img;
   text-align: center;
   color: #fff;
-  margin: 0;
+  margin-top: 1.5vh;
   p{
     height: 6vh;
     line-height: 6vh;
@@ -1078,6 +1087,12 @@ footer{
   padding: 1.2em;
 }
 @media only screen and (max-width:780px){
+  .p-container {
+    .new-post {
+      width: 60%;
+    }
+  }
+
   .auth-container .sign-up, .auth-container .log-in{
     width: 50%;
   }
@@ -1243,7 +1258,19 @@ footer{
 }
 
 @media only screen and (max-width:450px){
+  .p-container .new-post {
+    h1 {
+      padding: 0;
+    }
+    form {
+      margin: 0;
+      padding: 0;
 
+      textarea {
+        width: 100%;
+      }
+    }
+  }
   .auth-container {
     .welcome-cont {
       .welcome-info {
@@ -1253,7 +1280,8 @@ footer{
         .anim-2 #anim2 {
           display: inline-block;
           width: 80%;
-          margin-right: 10%;
+          margin-right: 20%;
+          padding: 0;
         }
       }
       .anim-0 {

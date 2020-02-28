@@ -23,13 +23,10 @@ const showComments = (id => {
   const htmlCont = document.querySelector('html')
   const allCommentsContainer = document.querySelector(`#all-comments-container-${id}`);
   const allComments = document.querySelector(`#comment_post_${id}`);
-  myStorage.setItem('currentScrollTop', htmlCont.scrollTop)
-  // htmlCont.scrollTop = '0';
-  // htmlCont.style.overflow = 'hidden'
-
+  currentScrollTop = myStorage.getItem('currentScrollTop')
+  console.log('TOP!!!', htmlCont.scrollTop)
   allCommentsContainer.style.top = `${htmlCont.scrollTop - 50}px`;
   allComments.style.top = `15vh`;
-  console.log(htmlCont.scrollTop, id, allComments)
   allCommentsContainer.style.visibility = 'visible';
   allComments.style.display = 'block';
   const nodeList = document.querySelectorAll('.card-body')
@@ -39,16 +36,30 @@ const showComments = (id => {
 })
 
 const rememberState = (ev => {
-  let id = myStorage.getItem('id')
-  let currentScrollTop = myStorage.getItem('currentScrollTop');
-  if(currentScrollTop) {
-    document.querySelector('html').scrollTop = currentScrollTop
-    myStorage.setItem('currentScrollTop', null);
+  let currentUrl = window.location.href.toString()
+  let htmlCont = document.querySelector('html')
+  if (currentUrl.endsWith('sign_in')) {
+    const loginIsOpen = myStorage.getItem('loginIsOpen');
+    const signupIsOpen = myStorage.getItem('signupIsOpen');
+    if (loginIsOpen === 'true') {
+      openForm('login');
+    } else if (signupIsOpen === 'true') {
+      openForm('signup')
+    }
+  } else {
+    let id = myStorage.getItem('id')
+    currentScrollTop = myStorage.getItem('currentScrollTop');
+    htmlCont.scrollTop = `${currentScrollTop}px`;
+    console.log(currentScrollTop, `${currentScrollTop}px`);
+    // if(currentScrollTop) {
+    //   document.querySelector('html').scrollTop = currentScrollTop
+    //   myStorage.setItem('currentScrollTop', null);
+    // }
+    if (id !== 'null' && id !== null) {
+      showComments(id);
+    }
   }
-  console.log(id)
-  if (id !== 'null' && id !== null) {
-    showComments(id);
-  }
+
 });
 
 const toggleComments = ((e) => {
@@ -142,9 +153,11 @@ const openForm = (name => {
   if (name === 'login') {
     document.querySelector(`#${name}`).style.display = 'block';
     document.querySelector('.toggle-log-in').style.display = 'block';
+    myStorage.setItem('loginIsOpen', true)
   } else {
     document.querySelector(`#${name}`).style.display = 'block';
     document.querySelector('.toggle-sign-up').style.display = 'block';
+    myStorage.setItem('signupIsOpen', true)
   }
 })
 
@@ -152,8 +165,10 @@ const closeForm = (name => {
   if (name === 'login') {
     document.querySelector(`#${name}`).style.display = 'none';
     document.querySelector('.toggle-log-in').style.display = 'none';
+    myStorage.setItem('loginIsOpen', false);
   } else {
     document.querySelector(`#${name}`).style.display = 'none';
     document.querySelector('.toggle-sign-up').style.display = 'block';
+    myStorage.setItem('signupIsOpen', false);
   }
 })
