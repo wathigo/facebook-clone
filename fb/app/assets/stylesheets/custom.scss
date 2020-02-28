@@ -1308,13 +1308,16 @@ footer{
     }
 
     [note] {
-      margin-top: 1.2em;
+      margin-top: 0.7em;
+      margin-right: -0.8em;
+      width: 0.3em;
+      height: 0.3em;
     }
 
   }
   .l-container {
     width: 100vw;
-    margin: -2.5vh 0 0 0;
+    margin: 0;
     padding: 0;
 
     .post-header {
@@ -1348,6 +1351,10 @@ footer{
   .post-container {
     .post {
       width: 98%;
+
+      .profile-btn {
+        display: none;
+      }
     }
   }
 
@@ -1367,6 +1374,14 @@ footer{
       }
     }
 
+  }
+
+  .navbar{
+    margin-bottom: 0;
+
+    .toggle-lable {
+      font-size: 1.5em;
+    }
   }
 
   footer {
