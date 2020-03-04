@@ -16,7 +16,7 @@
         </span>
       </a>
       <% if (current_user == post.creator) && (request.env['PATH_INFO'] == user_path(current_user)) %>
-        <%= link_to 'Delete post', post_path(@post), method: :delete, class: "delete"%>
+        <%= link_to 'Delete post', posts_path(@post), method: :delete, class: "delete"%>
       <% end %>
       <hr>
       <input type="checkbox" class="toggle" id="toggle-<%=@post.id%>" checked>

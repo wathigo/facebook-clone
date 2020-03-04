@@ -1,6 +1,6 @@
-<%= form_for @post do |f| %>
+<%= form_for (Post.new) do |f| %>
   <%= render "error_messages", object: f.object %>
-  
+
   <%= f.label :content %>
   <%= f.text_area :content, size: "10x5", class: "form-control" %>
 
