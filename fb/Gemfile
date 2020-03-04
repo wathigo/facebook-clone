@@ -16,7 +16,7 @@ gem 'omniauth-facebook'
 # Use figaro  for development enviroment varaibles
 gem 'figaro'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use composite_primary_keys for composite primary key
 gem 'composite_primary_keys'
 # Use will_paginate for pagination
