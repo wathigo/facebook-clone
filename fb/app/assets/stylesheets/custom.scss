@@ -319,7 +319,7 @@ body, html{
 
 .auth-container{
   min-height: 81.4vh;
-  display: flex;
+  position: relative;
 }
 
 .l-container {
@@ -410,11 +410,11 @@ body, html{
   }
 
   .welcome-info {
-    width: 80%;
-    margin: 0 auto;
+    width: 60%;
     text-align: center;
-    height: 40vh;
-    margin-top: 30vh;
+    height: 45vh;
+    margin-top: 25vh;
+    margin-left: 0;
   }
 }
 
@@ -428,10 +428,9 @@ body, html{
 }
 
 .anim-3 {
-  width:0px;
   padding: 0;
-  width: 80%;
-  margin: 0 auto;
+  width: 60%;
+  margin: 0 !important;
   text-align: center;
 }
 
@@ -504,9 +503,19 @@ body, html{
   .sign-up, .log-in {
     display: inline-block;
     box-sizing: border-box;
-    flex: 0 40%;
-    width: 70%;
-    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: -0.6em;
+    width: 40%;
+    margin: 0 !important;
+    background-color: #fff;
+
+    form {
+      box-shadow: none !important;
+      overflow-y: scroll;
+      max-height: 100vh;
+    }
 
     h2 {
         text-align: center;
@@ -1101,6 +1110,12 @@ footer{
     width: 50%;
   }
 
+  .auth-container .welcome-cont .anim-3 {
+    width: 80vw;
+    margin: 0 auto !important;
+    font-size: 0.8em;
+  }
+
   .lg-nav {
     display: none;
   }
@@ -1245,6 +1260,7 @@ footer{
   .auth-container .welcome-cont .welcome-info {
     margin-top: 20vh;
     height: 30vh;
+    width: 100vw;
   }
 
   .sm-sign-up, .sm-log-in{
@@ -1280,6 +1296,7 @@ footer{
       .welcome-info {
         margin-top: 15vh;
         font-size: 0.5em;
+
 
         .anim-2 #anim2 {
           display: inline-block;
