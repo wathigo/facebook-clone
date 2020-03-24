@@ -513,12 +513,12 @@ body, html{
 
     form {
       box-shadow: none !important;
-      overflow-y: scroll;
+      overflow-y: hidden;
       max-height: 100vh;
     }
 
     h2 {
-        text-align: center;
+        text-align: left;
         margin-bottom: 3vh;
       }
 
@@ -1163,6 +1163,7 @@ footer{
         border: 1px #fff solid;
         box-shadow: none;
         background-color: #fff;
+        overflow-y: hidden;
       }
     }
   }
