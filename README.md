@@ -23,7 +23,7 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
-  * [Gettung Started](#getting-started)
+  * [Getting Started](#getting-started)
 * [Contact](#Contact)
 
 
