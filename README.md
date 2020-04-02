@@ -78,6 +78,10 @@ Start the development server
 ```
 rails s
 ```
+Run the tests
+```
+bundle exec rspec spec
+```
 
 
 ### Built With
