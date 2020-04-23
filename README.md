@@ -9,7 +9,7 @@
     Rails Project
     <br />
     <br />
-    <a href="https://librairie.herokuapp.com/">View Demo</a>
+    <a href="https://fb-phony.herokuapp.com/">View Demo</a>
     ·
     <a href="https://github.com/wathigo/facebook-clone/issues">Report Bug</a>
     ·
